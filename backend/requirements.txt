@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+networkx
+langchain
+langgraph
+anthropic
+python-dotenv
+pydantic
