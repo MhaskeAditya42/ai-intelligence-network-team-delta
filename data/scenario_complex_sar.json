@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    {"id": "Gaurav_Sustainable_Corp", "type": "Corporate", "registered_address": "Addr-1, Mumbai"},
+    {"id": "Bharat_Logistics_MSME", "type": "MSME", "registered_address": "Addr-2, Pune"},
+    {"id": "Anup_Consulting_MSME", "type": "MSME", "registered_address": "Addr-2, Pune"},
+    {"id": "Deepak_Traders_MSME", "type": "MSME", "registered_address": "Addr-7, Surat"},
+    {"id": "Kiran_Exports_MSME", "type": "MSME", "registered_address": "Addr-7, Surat"},
+    {"id": "Partha_UBO", "type": "Individual", "registered_address": "Addr-3, Delhi"},
+    {"id": "Entity_High_Carbon", "type": "Corporate", "registered_address": "Addr-4, Kolkata", "watchlist_hit": "Framework_Exclusion"},
+    {"id": "Coastal_Coal_Terminal", "type": "Corporate", "registered_address": "Addr-8, Vizag", "watchlist_hit": "Framework_Exclusion"}
+  ],
+  "edges": [
+    {"source": "Gaurav_Sustainable_Corp", "target": "Bharat_Logistics_MSME", "amount": 500000, "edge_type": "GREEN_LOAN_DISBURSEMENT"},
+    {"source": "Bharat_Logistics_MSME", "target": "Partha_UBO", "amount": 480000, "edge_type": "VENDOR_PAYMENT"},
+    {"source": "Partha_UBO", "target": "Gaurav_Sustainable_Corp", "amount": 460000, "edge_type": "DIRECTOR_OF"},
+    {"source": "Gaurav_Sustainable_Corp", "target": "Anup_Consulting_MSME", "amount": 150000, "edge_type": "CONSULTING_FEE"},
+    {"source": "Anup_Consulting_MSME", "target": "Entity_High_Carbon", "amount": 140000, "edge_type": "SUPPLY_CHAIN_PAYMENT"},
+    {"source": "Gaurav_Sustainable_Corp", "target": "Deepak_Traders_MSME", "amount": 90000, "edge_type": "CONSULTING_FEE"},
+    {"source": "Deepak_Traders_MSME", "target": "Kiran_Exports_MSME", "amount": 85000, "edge_type": "VENDOR_PAYMENT"},
+    {"source": "Kiran_Exports_MSME", "target": "Coastal_Coal_Terminal", "amount": 80000, "edge_type": "SUPPLY_CHAIN_PAYMENT"}
+  ]
+}

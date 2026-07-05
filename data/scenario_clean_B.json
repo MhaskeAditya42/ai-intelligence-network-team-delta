@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {"id": "Gaurav_Sustainable_Corp", "type": "Corporate", "registered_address": "Addr-1, Mumbai"},
+    {"id": "Windfarm_Equipment_Ltd", "type": "Corporate", "registered_address": "Addr-9, Chennai"},
+    {"id": "Solar_Panel_Supplies_MSME", "type": "MSME", "registered_address": "Addr-10, Hyderabad"},
+    {"id": "Turbine_Parts_MSME", "type": "MSME", "registered_address": "Addr-11, Coimbatore"},
+    {"id": "Rooftop_Installers_Co", "type": "Corporate", "registered_address": "Addr-12, Bengaluru"},
+    {"id": "Grid_Connect_Services", "type": "Corporate", "registered_address": "Addr-13, Pune"},
+    {"id": "Priya_Engineer_Contractor", "type": "Individual", "registered_address": "Addr-14, Pune"}
+  ],
+  "edges": [
+    {"source": "Gaurav_Sustainable_Corp", "target": "Windfarm_Equipment_Ltd", "amount": 2000000, "edge_type": "GREEN_LOAN_DISBURSEMENT"},
+    {"source": "Gaurav_Sustainable_Corp", "target": "Rooftop_Installers_Co", "amount": 750000, "edge_type": "GREEN_LOAN_DISBURSEMENT"},
+    {"source": "Windfarm_Equipment_Ltd", "target": "Turbine_Parts_MSME", "amount": 1200000, "edge_type": "SUPPLY_CHAIN_PAYMENT"},
+    {"source": "Windfarm_Equipment_Ltd", "target": "Grid_Connect_Services", "amount": 300000, "edge_type": "SERVICE_FEE"},
+    {"source": "Rooftop_Installers_Co", "target": "Solar_Panel_Supplies_MSME", "amount": 400000, "edge_type": "SUPPLY_CHAIN_PAYMENT"},
+    {"source": "Rooftop_Installers_Co", "target": "Priya_Engineer_Contractor", "amount": 120000, "edge_type": "CONTRACTOR_PAYMENT"}
+  ]
+}

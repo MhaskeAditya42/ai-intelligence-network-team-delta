@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"id": "Gaurav_Sustainable_Corp", "type": "Corporate", "registered_address": "Addr-1, Mumbai"},
+    {"id": "Anup_Consulting_MSME", "type": "MSME", "registered_address": "Addr-5, Nagpur"},
+    {"id": "Entity_High_Carbon", "type": "Corporate", "registered_address": "Addr-4, Kolkata", "watchlist_hit": "Framework_Exclusion"}
+  ],
+  "edges": [
+    {"source": "Gaurav_Sustainable_Corp", "target": "Anup_Consulting_MSME", "amount": 150000, "edge_type": "CONSULTING_FEE"},
+    {"source": "Anup_Consulting_MSME", "target": "Entity_High_Carbon", "amount": 140000, "edge_type": "SUPPLY_CHAIN_PAYMENT"}
+  ]
+}
