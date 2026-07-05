@@ -6,3 +6,8 @@ export async function fetchSarReport(scenario, entity) {
   const response = await axios.get(`${API_BASE}/sar-report/${scenario}/${entity}`);
   return response.data;
 }
+
+export async function fetchScenarios() {
+  const response = await axios.get(`${API_BASE}/sar-report/scenarios`);
+  return response.data.scenarios;
+}

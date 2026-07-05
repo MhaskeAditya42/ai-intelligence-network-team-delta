@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from pathlib import Path
 
-from graph.build_graph import build_graph_from_json
+from graph.build_graph import build_graph_from_json, list_available_scenarios
 from graph.extract_signals import extract_network_signals
 from agents.orchestrator import generate_ai_recommendation
 from agents.worker_gatekeeper import identify_gatekeepers
@@ -35,6 +35,11 @@ def get_graph(scenario: str):
     return _graph_cache[scenario]
 
 
+@router.get("/scenarios")
+def list_scenarios():
+    return {"scenarios": list_available_scenarios()}
+
+
 @router.get("/{scenario}/{entity}")
 def sar_report(scenario: str, entity: str):
     G = get_graph(scenario)
@@ -43,7 +48,7 @@ def sar_report(scenario: str, entity: str):
         raise HTTPException(status_code=404, detail=f"Entity '{entity}' not found")
 
     signals = extract_network_signals(G, entity)
-    recommendation = generate_ai_recommendation(entity, signals)
+    recommendation = generate_ai_recommendation(G, entity)
     graph_payload = graph_to_json(G)
 
     return {

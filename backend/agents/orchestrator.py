@@ -143,8 +143,11 @@ def _mock_recommendation(target_node: str, signals: dict, worker_output: dict) -
 
 
 def _call_llm(prompt: str, decision: dict) -> dict:
-    from google import genai  # lazy import — only needed on the live-LLM path
-    from google.genai import errors as genai_errors
+    try:
+        from google import genai  # lazy import — only needed on the live-LLM path
+        from google.genai import errors as genai_errors
+    except ImportError as e:
+        return {**decision, "_mock": True, "_fallback_reason": f"llm_import_error: {e}"}
 
     try:
         client = genai.Client(api_key=API_KEY)
@@ -193,7 +196,10 @@ def generate_ai_recommendation(graph: nx.DiGraph, target_node: str) -> dict:
         return decision
 
     prompt = _build_prompt(target_node, signals, worker_output, decision)
-    return _call_llm(prompt, decision)
+    try:
+        return _call_llm(prompt, decision)
+    except Exception as exc:
+        return {**decision, "_llm_unavailable": True, "_llm_error": str(exc)}
 
 
 if __name__ == "__main__":

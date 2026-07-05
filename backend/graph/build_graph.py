@@ -2,6 +2,8 @@ import json
 import networkx as nx
 from pathlib import Path
 
+SCENARIOS_DIR = Path(__file__).resolve().parent.parent.parent / "data"
+
 
 def build_graph_from_json(filepath: str) -> nx.DiGraph:
     """
@@ -27,9 +29,14 @@ def build_graph_from_json(filepath: str) -> nx.DiGraph:
     return G
 
 
-def build_synthetic_network() -> nx.DiGraph:
-    """Convenience wrapper — loads the default scenario_config.json"""
-    default_path = Path(__file__).parent.parent.parent / "data" / "scenario_config.json"
+def list_available_scenarios() -> list[str]:
+    """Return the stem names of all JSON scenario files in the data folder."""
+    return sorted(path.stem for path in SCENARIOS_DIR.glob("*.json"))
+
+
+def build_synthetic_network(scenario: str = "scenario_config") -> nx.DiGraph:
+    """Convenience wrapper — loads a scenario JSON file from the data folder."""
+    default_path = SCENARIOS_DIR / f"{scenario}.json"
     return build_graph_from_json(str(default_path))
 
 
