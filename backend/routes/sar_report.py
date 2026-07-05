@@ -13,6 +13,19 @@ SCENARIOS_DIR = Path(__file__).parent.parent.parent / "data"
 _graph_cache = {}
 
 
+def graph_to_json(G):
+    return {
+        "nodes": [
+            {"id": node, **G.nodes[node]}
+            for node in G.nodes
+        ],
+        "edges": [
+            {"source": u, "target": v, **G.edges[u, v]}
+            for u, v in G.edges
+        ],
+    }
+
+
 def get_graph(scenario: str):
     if scenario not in _graph_cache:
         filepath = SCENARIOS_DIR / f"{scenario}.json"
@@ -31,6 +44,7 @@ def sar_report(scenario: str, entity: str):
 
     signals = extract_network_signals(G, entity)
     recommendation = generate_ai_recommendation(entity, signals)
+    graph_payload = graph_to_json(G)
 
     return {
         "entity": entity,
@@ -42,4 +56,6 @@ def sar_report(scenario: str, entity: str):
             "mules": detect_mules(G),
             "ultimate_beneficiaries": detect_ultimate_beneficiaries(G),
         },
+        "nodes": graph_payload["nodes"],
+        "edges": graph_payload["edges"],
     }

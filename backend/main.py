@@ -8,9 +8,10 @@ app = FastAPI(title="Network Intelligence Framework API")
 # Allow frontend (React dev server) to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten this later if time allows
+    allow_origins=["http://localhost:3000"],
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=True,
 )
 
 app.include_router(analyze.router, prefix="/analyze", tags=["analyze"])
