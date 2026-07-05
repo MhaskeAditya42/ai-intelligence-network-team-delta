@@ -4,9 +4,9 @@ from pathlib import Path
 from graph.build_graph import build_graph_from_json
 from graph.extract_signals import extract_network_signals
 from agents.orchestrator import generate_ai_recommendation
-from agents.worker_gatekeeper import detect_gatekeepers
-from agents.worker_mule import detect_mules
-from agents.worker_ubo import detect_ultimate_beneficiaries
+from agents.worker_gatekeeper import identify_gatekeepers
+from agents.worker_mule import identify_mule_layerers
+from agents.worker_ubo import identify_ultimate_beneficiaries
 
 router = APIRouter()
 SCENARIOS_DIR = Path(__file__).parent.parent.parent / "data"
@@ -52,9 +52,9 @@ def sar_report(scenario: str, entity: str):
         "signals": signals,
         "recommendation": recommendation,
         "role_analysis": {
-            "gatekeepers": detect_gatekeepers(G),
-            "mules": detect_mules(G),
-            "ultimate_beneficiaries": detect_ultimate_beneficiaries(G),
+            "gatekeepers": identify_gatekeepers(G, entity, signals),
+            "mules": identify_mule_layerers(G, entity, signals),
+            "ultimate_beneficiaries": identify_ultimate_beneficiaries(G, entity, signals),
         },
         "nodes": graph_payload["nodes"],
         "edges": graph_payload["edges"],

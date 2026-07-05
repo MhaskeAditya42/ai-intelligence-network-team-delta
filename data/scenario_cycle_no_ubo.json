@@ -1,0 +1,12 @@
+{
+  "nodes": [
+    {"id": "Gaurav_Sustainable_Corp", "type": "Corporate", "registered_address": "Addr-1, Mumbai"},
+    {"id": "Bharat_Logistics_MSME", "type": "MSME", "registered_address": "Addr-2, Pune"},
+    {"id": "Anup_Consulting_MSME", "type": "MSME", "registered_address": "Addr-5, Nagpur"}
+  ],
+  "edges": [
+    {"source": "Gaurav_Sustainable_Corp", "target": "Bharat_Logistics_MSME", "amount": 500000, "edge_type": "GREEN_LOAN_DISBURSEMENT"},
+    {"source": "Bharat_Logistics_MSME", "target": "Anup_Consulting_MSME", "amount": 480000, "edge_type": "VENDOR_PAYMENT"},
+    {"source": "Anup_Consulting_MSME", "target": "Gaurav_Sustainable_Corp", "amount": 460000, "edge_type": "INTERCOMPANY_TRANSFER"}
+  ]
+}
