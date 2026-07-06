@@ -1,42 +1,63 @@
 import React from "react";
 
-const CLASSIFICATION_STYLES = {
-  SAR_FILING_REQUIRED: { bg: "#fdecea", border: "#e63946", label: "🚨 SAR Filing Required" },
-  ENHANCED_DUE_DILIGENCE: { bg: "#fff8e1", border: "#f4a261", label: "⚠️ Enhanced Due Diligence" },
-  NO_ACTION_REQUIRED: { bg: "#e8f5e9", border: "#2a9d8f", label: "✅ No Action Required" },
+const BADGE_VARIANTS = {
+  SAR_FILING_REQUIRED: "danger",
+  ENHANCED_DUE_DILIGENCE: "warning",
+  NO_ACTION_REQUIRED: "success",
 };
 
 export default function SARPanel({ recommendation }) {
-  const style = CLASSIFICATION_STYLES[recommendation.classification] || {
-    bg: "#f5f5f5",
-    border: "#ccc",
-    label: recommendation.classification,
-  };
+  const variant = BADGE_VARIANTS[recommendation.classification] || "secondary";
 
   return (
-    <div
-      style={{
-        backgroundColor: style.bg,
-        border: `2px solid ${style.border}`,
-        borderRadius: "8px",
-        padding: "16px",
-        maxWidth: "500px",
-      }}
-    >
-      <h3 style={{ marginTop: 0 }}>{style.label}</h3>
-      <p style={{ fontSize: "14px", lineHeight: "1.5" }}>{recommendation.rationale}</p>
+    <div className="card shadow-sm">
+      <div className="card-body">
+        <div className="d-flex justify-content-between align-items-start mb-2">
+          <h5 className="card-title mb-0">Assessment</h5>
+          <span className={`badge bg-${variant} text-white`}>{recommendation.classification}</span>
+        </div>
 
-      <div style={{ marginTop: "12px" }}>
-        {Object.entries(recommendation.risk_indicators || {}).map(([key, value]) =>
-          value ? (
-            <div key={key} style={{ marginBottom: "10px" }}>
-              <strong style={{ fontSize: "13px", textTransform: "capitalize" }}>
-                {key.replace(/_/g, " ")}:
-              </strong>
-              <p style={{ fontSize: "13px", margin: "4px 0", color: "#444" }}>{value}</p>
-            </div>
-          ) : null
-        )}
+        <p className="card-text small text-muted">{recommendation.rationale}</p>
+
+              {recommendation.scorecard && recommendation.scorecard.length > 0 && (
+                  <div className="mt-3">
+                      <h6 className="mb-2">ScoreCard</h6>
+                      <ul className="list-group list-group-flush">
+                          {recommendation.scorecard.slice(0, 10).map((row) => (
+                              <li key={row.entity} className="list-group-item py-2">
+                                  <div className="d-flex align-items-center">
+                                      <div className="flex-shrink-0 me-2" style={{ width: 36 }}>{row.score}</div>
+                                      <div className="flex-grow-1 me-2">
+                                          <div className="progress" style={{ height: 8, borderRadius: 6 }}>
+                                              <div
+                                                  className={`progress-bar ${row.score >= 70 ? "bg-danger" : row.score >= 40 ? "bg-warning" : "bg-success"}`}
+                                                  role="progressbar"
+                                                  style={{ width: `${row.score}%` }}
+                                                  aria-valuenow={row.score}
+                                                  aria-valuemin="0"
+                                                  aria-valuemax="100"
+                                              />
+                                          </div>
+                                          <div className="small text-muted mt-1">{row.entity}</div>
+                                      </div>
+                                  </div>
+                              </li>
+                          ))}
+                      </ul>
+                      <div className="small text-muted mt-2">Top nodes by relationship strength</div>
+                  </div>
+              )}
+        <div className="mt-2">
+          {Object.entries(recommendation.risk_indicators || {}).map(([key, value]) =>
+            value ? (
+              <div key={key} className="mb-2">
+                <div className="small text-uppercase text-muted">{key.replace(/_/g, " ")}</div>
+                <div className="small text-body">{value}</div>
+              </div>
+            ) : null
+          )}
+        </div>
+
       </div>
     </div>
   );

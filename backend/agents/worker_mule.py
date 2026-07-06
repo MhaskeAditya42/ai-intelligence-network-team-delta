@@ -41,8 +41,8 @@ def identify_mule_layerers(graph: nx.DiGraph, target_node: str, signals: dict) -
 
 
 if __name__ == "__main__":
-    from graph.build_graph import build_synthetic_network
-    from graph.extract_signals import extract_network_signals
+    from ..graph.build_graph import build_synthetic_network
+    from ..graph.extract_signals import extract_network_signals
     import json
 
     G = build_synthetic_network()

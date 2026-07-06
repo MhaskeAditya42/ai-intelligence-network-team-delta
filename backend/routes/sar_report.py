@@ -1,12 +1,13 @@
 from fastapi import APIRouter, HTTPException
 from pathlib import Path
 
-from graph.build_graph import build_graph_from_json, list_available_scenarios
-from graph.extract_signals import extract_network_signals
-from agents.orchestrator import generate_ai_recommendation
-from agents.worker_gatekeeper import identify_gatekeepers
-from agents.worker_mule import identify_mule_layerers
-from agents.worker_ubo import identify_ultimate_beneficiaries
+from ..graph.build_graph import build_graph_from_json, list_available_scenarios
+from ..graph.extract_signals import extract_network_signals
+from ..agents.orchestrator import generate_ai_recommendation
+from ..agents.worker_gatekeeper import identify_gatekeepers
+from ..agents.worker_mule import identify_mule_layerers
+from ..agents.worker_ubo import identify_ultimate_beneficiaries
+from ..agents.scorecard import compute_scorecard
 
 router = APIRouter()
 SCENARIOS_DIR = Path(__file__).parent.parent.parent / "data"
@@ -50,6 +51,13 @@ def sar_report(scenario: str, entity: str):
     signals = extract_network_signals(G, entity)
     recommendation = generate_ai_recommendation(G, entity)
     graph_payload = graph_to_json(G)
+    # Compose worker outputs for scorecard
+    worker_output = {
+        "mule_candidates": identify_mule_layerers(G, entity, signals),
+        "gatekeeper_candidates": identify_gatekeepers(G, entity, signals),
+        "ubo_candidates": identify_ultimate_beneficiaries(G, entity, signals),
+    }
+    scorecard = compute_scorecard(G, entity, signals, worker_output)
 
     return {
         "entity": entity,
@@ -61,6 +69,7 @@ def sar_report(scenario: str, entity: str):
             "mules": identify_mule_layerers(G, entity, signals),
             "ultimate_beneficiaries": identify_ultimate_beneficiaries(G, entity, signals),
         },
+        "scorecard": scorecard,
         "nodes": graph_payload["nodes"],
         "edges": graph_payload["edges"],
     }

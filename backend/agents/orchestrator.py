@@ -3,11 +3,11 @@ import json
 import networkx as nx
 from dotenv import load_dotenv
 
-from graph.build_graph import build_synthetic_network
-from graph.extract_signals import extract_network_signals
-from agents.worker_mule import identify_mule_layerers
-from agents.worker_gatekeeper import identify_gatekeepers
-from agents.worker_ubo import identify_ultimate_beneficiaries
+from ..graph.build_graph import build_synthetic_network
+from ..graph.extract_signals import extract_network_signals
+from .worker_mule import identify_mule_layerers
+from .worker_gatekeeper import identify_gatekeepers
+from .worker_ubo import identify_ultimate_beneficiaries
 
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")

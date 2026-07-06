@@ -41,42 +41,46 @@ export default function App() {
   if (loading || !data) return <div style={{ padding: "20px" }}>Loading network analysis...</div>;
 
   return (
-    <div style={{ padding: "24px", fontFamily: "sans-serif" }}>
-      <h1>Network Intelligence Framework</h1>
-
-      <div style={{ marginTop: "16px", display: "flex", gap: "12px", alignItems: "center" }}>
-        <label>
-          Scenario:
-          <select
-            value={scenario}
-            onChange={(event) => setScenario(event.target.value)}
-            style={{ marginLeft: "8px" }}
-          >
-            {scenarios.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          Target entity:
-          <input
-            value={entity}
-            onChange={(event) => setEntity(event.target.value)}
-            style={{ marginLeft: "8px" }}
-          />
-        </label>
+    <div className="container py-4" style={{ fontFamily: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" }}>
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h1 className="h4 mb-0">Network Intelligence</h1>
+        <small className="text-muted">Minimalist analysis dashboard</small>
       </div>
 
-      <p style={{ marginTop: "16px" }}>
-        Analyzing: <strong>{data.entity}</strong> (Scenario: {data.scenario})
-      </p>
+      <div className="row gy-3">
+        <div className="col-12 col-md-8">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <div className="d-flex gap-3 mb-3 flex-wrap">
+                <div>
+                  <label className="form-label mb-1 small fw-bold">Scenario</label>
+                  <select className="form-select form-select-sm" value={scenario} onChange={(e) => setScenario(e.target.value)}>
+                    {scenarios.map((name) => (
+                      <option key={name} value={name}>
+                        {name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-      <div style={{ display: "flex", gap: "24px", marginTop: "20px", flexWrap: "wrap" }}>
-        <GraphView graphData={data} roleAnalysis={data.role_analysis} />
-        <SARPanel recommendation={data.recommendation} />
+                <div>
+                    <label className="form-label mb-1 small fw-bold">Target entity</label>
+                  <input className="form-control form-control-sm" value={entity} onChange={(e) => setEntity(e.target.value)} />
+                </div>
+              </div>
+
+              <p className="mb-2 text-muted small">
+                Analyzing: <strong className="text-body">{data.entity}</strong> <span className="text-muted">(Scenario: {data.scenario})</span>
+              </p>
+
+              <GraphView graphData={data} roleAnalysis={data.role_analysis} />
+            </div>
+          </div>
+        </div>
+
+        <div className="col-12 col-md-4">
+          <SARPanel recommendation={{ ...data.recommendation, scorecard: data.scorecard }} />
+        </div>
       </div>
     </div>
   );

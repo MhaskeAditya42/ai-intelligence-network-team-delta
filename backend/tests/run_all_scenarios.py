@@ -14,8 +14,8 @@ import argparse
 import json
 from pathlib import Path
 
-from graph.build_graph import build_graph_from_json
-from agents.orchestrator import generate_ai_recommendation
+from ..graph.build_graph import build_graph_from_json
+from ..agents.orchestrator import generate_ai_recommendation
 
 
 def run_all(data_dir: Path, target: str, verbose: bool) -> list[dict]:

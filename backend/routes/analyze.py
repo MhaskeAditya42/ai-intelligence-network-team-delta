@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
-from graph.build_graph import build_synthetic_network, list_available_scenarios
-from graph.extract_signals import extract_network_signals
+from ..graph.build_graph import build_synthetic_network, list_available_scenarios
+from ..graph.extract_signals import extract_network_signals
 
 router = APIRouter()
 

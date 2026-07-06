@@ -42,7 +42,7 @@ def extract_network_signals(graph: nx.DiGraph, target_node: str) -> dict:
 
 
 if __name__ == "__main__":
-    from graph.build_graph import build_synthetic_network
+    from .build_graph import build_synthetic_network
 
     G = build_synthetic_network()
     result = extract_network_signals(G, "Gaurav_Sustainable_Corp")

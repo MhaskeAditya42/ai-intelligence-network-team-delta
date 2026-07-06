@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes import analyze, sar_report
+from backend.routes import analyze, sar_report
 
 app = FastAPI(title="Network Intelligence Framework API")
 
