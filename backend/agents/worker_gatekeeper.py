@@ -40,6 +40,6 @@ if __name__ == "__main__":
     import json
 
     G = build_synthetic_network()
-    target = "Gaurav_Sustainable_Corp"
+    target = "Entity_A"
     signals = extract_network_signals(G, target)
     print(json.dumps(identify_gatekeepers(G, target, signals), indent=2, default=str))

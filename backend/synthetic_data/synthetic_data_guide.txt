@@ -1,2 +1,0 @@
-Update below path in customer_dataset.py:
-path = "/{folder_path}/ai-intelligence-network-team-delta/backend/synthetic_data/customer_dataset.xlsx"
