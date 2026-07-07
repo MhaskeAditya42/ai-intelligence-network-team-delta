@@ -6,7 +6,7 @@ import { fetchSarReport, fetchScenarios } from "./api/client";
 export default function App() {
   const [scenarios, setScenarios] = useState([]);
   const [scenario, setScenario] = useState("scenario_config");
-  const [entity, setEntity] = useState("Gaurav_Sustainable_Corp");
+  const [entity, setEntity] = useState("Entity_A");
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
