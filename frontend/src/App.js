@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GraphView from "./components/GraphView";
 import SARPanel from "./components/SARPanel";
+import RelationshipScoresCard from "./components/RelationshipScoresCard";
 import { fetchSarReport, fetchScenarios } from "./api/client";
 
 export default function App() {
@@ -74,9 +75,12 @@ export default function App() {
         Analyzing: <strong>{data.entity}</strong> (Scenario: {data.scenario})
       </p>
 
-      <div style={{ display: "flex", gap: "24px", marginTop: "20px", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "24px", marginTop: "20px", flexWrap: "wrap", alignItems: "flex-start" }}>
         <GraphView graphData={data} roleAnalysis={data.role_analysis} />
-        <SARPanel recommendation={data.recommendation} />
+        <div style={{ display: "grid", gap: "24px" }}>
+          <SARPanel recommendation={data.recommendation} />
+          <RelationshipScoresCard relationshipScores={data.relationship_scores} />
+        </div>
       </div>
     </div>
   );

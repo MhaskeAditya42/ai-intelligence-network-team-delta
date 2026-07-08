@@ -3,6 +3,7 @@ from pathlib import Path
 
 from graph.build_graph import build_graph_from_json, list_available_scenarios
 from graph.extract_signals import extract_network_signals
+from graph.score_relation import score_relationships
 from agents.orchestrator import generate_ai_recommendation
 from agents.worker_gatekeeper import identify_gatekeepers
 from agents.worker_mule import identify_mule_layerers
@@ -51,11 +52,22 @@ def sar_report(scenario: str, entity: str):
     recommendation = generate_ai_recommendation(G, entity)
     graph_payload = graph_to_json(G)
 
+    edge_scores = score_relationships(G)
     return {
         "entity": entity,
         "scenario": scenario,
         "signals": signals,
         "recommendation": recommendation,
+        "relationship_scores": {
+            "edge_scores": [
+                {
+                    "source": source,
+                    "target": target,
+                    **info,
+                }
+                for (source, target), info in edge_scores.items()
+            ]
+        },
         "role_analysis": {
             "gatekeepers": identify_gatekeepers(G, entity, signals),
             "mules": identify_mule_layerers(G, entity, signals),
