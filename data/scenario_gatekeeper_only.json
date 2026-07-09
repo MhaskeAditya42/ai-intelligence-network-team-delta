@@ -1,15 +1,15 @@
 {
   "nodes": [
-    {"id": "Gaurav_Sustainable_Corp", "type": "Corporate", "registered_address": "Addr-1, Mumbai"},
-    {"id": "Bharat_Logistics_MSME", "type": "MSME", "registered_address": "Addr-2, Pune"},
-    {"id": "Anup_Consulting_MSME", "type": "MSME", "registered_address": "Addr-2, Pune"},
-    {"id": "Deepak_Traders_MSME", "type": "MSME", "registered_address": "Addr-2, Pune"},
-    {"id": "Vendor_Supplies_Co", "type": "Corporate", "registered_address": "Addr-6, Ahmedabad"}
+    {"id": "Entity_A", "type": "Corporate", "registered_address": "Addr-1, Mumbai"},
+    {"id": "MSME_A", "type": "MSME", "registered_address": "Addr-2, Pune"},
+    {"id": "MSME_B", "type": "MSME", "registered_address": "Addr-2, Pune"},
+    {"id": "MSME_E", "type": "MSME", "registered_address": "Addr-2, Pune"},
+    {"id": "Entity_D", "type": "Corporate", "registered_address": "Addr-6, Ahmedabad"}
   ],
   "edges": [
-    {"source": "Gaurav_Sustainable_Corp", "target": "Bharat_Logistics_MSME", "amount": 500000, "edge_type": "GREEN_LOAN_DISBURSEMENT"},
-    {"source": "Gaurav_Sustainable_Corp", "target": "Anup_Consulting_MSME", "amount": 150000, "edge_type": "CONSULTING_FEE"},
-    {"source": "Gaurav_Sustainable_Corp", "target": "Deepak_Traders_MSME", "amount": 90000, "edge_type": "CONSULTING_FEE"},
-    {"source": "Bharat_Logistics_MSME", "target": "Vendor_Supplies_Co", "amount": 480000, "edge_type": "VENDOR_PAYMENT"}
+    {"source": "Entity_A", "target": "MSME_A", "amount": 500000, "edge_type": "GREEN_LOAN_DISBURSEMENT"},
+    {"source": "Entity_A", "target": "MSME_B", "amount": 150000, "edge_type": "CONSULTING_FEE"},
+    {"source": "Entity_A", "target": "MSME_E", "amount": 90000, "edge_type": "CONSULTING_FEE"},
+    {"source": "MSME_A", "target": "Entity_D", "amount": 480000, "edge_type": "VENDOR_PAYMENT"}
   ]
 }

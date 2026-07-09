@@ -45,6 +45,6 @@ if __name__ == "__main__":
     from .build_graph import build_synthetic_network
 
     G = build_synthetic_network()
-    result = extract_network_signals(G, "Gaurav_Sustainable_Corp")
+    result = extract_network_signals(G, "Entity_A")
     import json
     print(json.dumps(result, indent=2))

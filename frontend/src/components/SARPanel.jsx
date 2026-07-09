@@ -30,7 +30,7 @@ export default function SARPanel({ recommendation }) {
                                       <div className="flex-grow-1 me-2">
                                           <div className="progress" style={{ height: 8, borderRadius: 6 }}>
                                               <div
-                                                  className={`progress-bar ${row.score >= 70 ? "bg-danger" : row.score >= 40 ? "bg-warning" : "bg-success"}`}
+                                                  className={`progress-bar ${row.score >= 60 ? "bg-danger" : row.score >= 40 ? "bg-warning" : "bg-success"}`}
                                                   role="progressbar"
                                                   style={{ width: `${row.score}%` }}
                                                   aria-valuenow={row.score}

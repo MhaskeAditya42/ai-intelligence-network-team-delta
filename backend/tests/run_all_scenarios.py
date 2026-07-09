@@ -6,7 +6,7 @@ against every *.json file found in the data/ folder, for a given target node.
 
 Usage (from backend/):
     python run_all_scenarios.py
-    python run_all_scenarios.py --target Gaurav_Sustainable_Corp
+    python run_all_scenarios.py --target Entity_A
     python run_all_scenarios.py --data-dir ../data --verbose
 """
 
@@ -68,7 +68,7 @@ def print_summary_table(results: list[dict]) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run all scenario_config-style JSON files through the pipeline.")
-    parser.add_argument("--target", default="Gaurav_Sustainable_Corp", help="Target node to analyze in each scenario")
+    parser.add_argument("--target", default="Entity_A", help="Target node to analyze in each scenario")
     parser.add_argument("--data-dir", default="../data", help="Folder containing scenario *.json files")
     parser.add_argument("--verbose", action="store_true", help="Print full rationale + risk indicators for each scenario")
     args = parser.parse_args()

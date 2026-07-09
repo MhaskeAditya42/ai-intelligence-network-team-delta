@@ -30,7 +30,7 @@ export default function GraphView({ graphData, roleAnalysis }) {
         function update() {
             if (!containerRef.current) return;
             const rect = containerRef.current.getBoundingClientRect();
-            setSize({ width: Math.max(600, Math.floor(rect.width)), height: Math.max(400, Math.floor(rect.height)) });
+            setSize({ width: Math.max(900, Math.floor(rect.width)), height: Math.max(900, Math.floor(rect.height)) });
         }
         update();
         window.addEventListener("resize", update);
@@ -57,7 +57,7 @@ export default function GraphView({ graphData, roleAnalysis }) {
     }, [graphData, roleAnalysis]);
 
     return (
-        <div ref={containerRef} style={{ width: "100%", height: "650px", border: "1px solid #ddd", borderRadius: 8 }}>
+        <div ref={containerRef} style={{ width: "100%", height: "850px", border: "1px solid #ddd", borderRadius: 8 }}>
             <ForceGraph2D
                 graphData={formattedData}
                 nodeLabel={(node) => `${node.id}\nType: ${node.type || "N/A"}`}

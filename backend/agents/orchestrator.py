@@ -204,5 +204,5 @@ def generate_ai_recommendation(graph: nx.DiGraph, target_node: str) -> dict:
 
 if __name__ == "__main__":
     G = build_synthetic_network()
-    result = generate_ai_recommendation(G, "Gaurav_Sustainable_Corp")
+    result = generate_ai_recommendation(G, "Entity_A")
     print(json.dumps(result, indent=2))

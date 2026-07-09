@@ -6,7 +6,7 @@ import { fetchSarReport, fetchScenarios } from "./api/client";
 export default function App() {
   const [scenarios, setScenarios] = useState([]);
   const [scenario, setScenario] = useState("scenario_config");
-  const [entity, setEntity] = useState("Gaurav_Sustainable_Corp");
+  const [entity, setEntity] = useState("Entity_A");
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ export default function App() {
   return (
     <div className="container py-4" style={{ fontFamily: "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial" }}>
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h1 className="h4 mb-0">Network Intelligence</h1>
+        <h1 className="h3 mb-0">Network Intelligence for Green Financing</h1>
         <small className="text-muted">Minimalist analysis dashboard</small>
       </div>
 
