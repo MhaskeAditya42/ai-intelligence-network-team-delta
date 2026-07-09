@@ -1,0 +1,76 @@
+{
+  "scenario": "Green_Subsidy_Diversion",
+  "typology": "Government green energy subsidy diverted from stated solar-panel purpose into unrelated real-estate purchase",
+  "nodes": [
+    {
+      "id": "GOV_017",
+      "type": "Government_Scheme",
+      "name": "Entity Q",
+      "jurisdiction": "India"
+    },
+    {
+      "id": "MSME_018",
+      "type": "MSME",
+      "name": "Entity R",
+      "registered_address": "Add10, Toronto, America",
+      "esg_score": 55,
+      "risk_score": 78
+    },
+    {
+      "id": "IND_019",
+      "type": "Individual",
+      "name": "Entity S",
+      "role": "Director",
+      "pep_flag": false,
+      "risk_score": 82
+    },
+    {
+      "id": "CORP_020",
+      "type": "Corporate",
+      "name": "Entity T",
+      "registered_address": "Add10, Toronto, America",
+      "risk_score": 70
+    },
+    {
+      "id": "BANK_021",
+      "type": "Bank_Account",
+      "name": "Entity U"
+    }
+  ],
+  "edges": [
+    {
+      "source": "GOV_017",
+      "target": "MSME_018",
+      "relationship": "subsidy_disbursement",
+      "amount": 12000000,
+      "currency": "INR",
+      "date": "2023-01-10"
+    },
+    {
+      "source": "MSME_018",
+      "target": "BANK_021",
+      "relationship": "deposit",
+      "amount": 12000000,
+      "currency": "INR",
+      "date": "2023-01-11"
+    },
+    {
+      "source": "BANK_021",
+      "target": "IND_019",
+      "relationship": "fund_transfer",
+      "amount": 9500000,
+      "currency": "INR",
+      "date": "2023-01-25",
+      "suspicious_flag": true
+    },
+    {
+      "source": "IND_019",
+      "target": "CORP_020",
+      "relationship": "property_purchase_payment",
+      "amount": 9300000,
+      "currency": "INR",
+      "date": "2023-02-02",
+      "suspicious_flag": true
+    }
+  ]
+}

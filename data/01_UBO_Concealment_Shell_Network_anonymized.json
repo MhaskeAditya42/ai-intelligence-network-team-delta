@@ -1,0 +1,101 @@
+{
+  "scenario": "UBO_Concealment_Shell_Network",
+  "typology": "Ultimate Beneficial Owner concealment behind multi-hop shell structure controlling a green energy MSME",
+  "nodes": [
+    {
+      "id": "IND_001",
+      "type": "Individual",
+      "name": "Entity A",
+      "pep_flag": true,
+      "sanctions_flag": false,
+      "risk_score": 88,
+      "jurisdiction": "India"
+    },
+    {
+      "id": "SHELL_002",
+      "type": "Intermediate_Shell",
+      "name": "Entity B",
+      "jurisdiction": "Mauritius",
+      "esg_score": 22,
+      "risk_score": 76
+    },
+    {
+      "id": "SHELL_003",
+      "type": "Intermediate_Shell",
+      "name": "Entity C",
+      "jurisdiction": "Singapore",
+      "esg_score": 30,
+      "risk_score": 70
+    },
+    {
+      "id": "MSME_004",
+      "type": "MSME",
+      "name": "Entity D",
+      "registered_address": "Add1, Pune, MH",
+      "esg_score": 81,
+      "risk_score": 64
+    },
+    {
+      "id": "MSME_005",
+      "type": "MSME",
+      "name": "Entity E",
+      "registered_address": "Add2, Toronto, America",
+      "esg_score": 74,
+      "risk_score": 58
+    },
+    {
+      "id": "BANK_006",
+      "type": "Bank_Account",
+      "name": "Entity F",
+      "jurisdiction": "India"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IND_001",
+      "target": "SHELL_002",
+      "relationship": "beneficial_owner",
+      "ownership_pct": 92,
+      "start_date": "2020-04-11"
+    },
+    {
+      "source": "SHELL_002",
+      "target": "SHELL_003",
+      "relationship": "controls",
+      "ownership_pct": 100,
+      "start_date": "2020-06-02"
+    },
+    {
+      "source": "SHELL_003",
+      "target": "MSME_004",
+      "relationship": "controls",
+      "ownership_pct": 68,
+      "start_date": "2021-01-15"
+    },
+    {
+      "source": "SHELL_003",
+      "target": "MSME_005",
+      "relationship": "controls",
+      "ownership_pct": 55,
+      "start_date": "2021-03-09"
+    },
+    {
+      "source": "MSME_004",
+      "target": "BANK_006",
+      "relationship": "green_loan_disbursement",
+      "amount": 4200000,
+      "currency": "INR",
+      "date": "2023-02-18",
+      "fee_skim_flag": true
+    },
+    {
+      "source": "MSME_005",
+      "target": "BANK_006",
+      "relationship": "green_loan_disbursement",
+      "amount": 3100000,
+      "currency": "INR",
+      "date": "2023-03-02",
+      "fee_skim_flag": true
+    }
+  ]
+}

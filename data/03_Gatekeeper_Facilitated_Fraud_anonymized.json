@@ -1,0 +1,104 @@
+{
+  "scenario": "Gatekeeper_Facilitated_Fraud",
+  "typology": "Chartered accountant / auditor facilitating fraudulent green loan documentation for MSME clients",
+  "nodes": [
+    {
+      "id": "IND_007",
+      "type": "Individual",
+      "name": "Entity G",
+      "role": "Chartered Accountant / Gatekeeper",
+      "pep_flag": false,
+      "risk_score": 90
+    },
+    {
+      "id": "FIRM_008",
+      "type": "Professional_Firm",
+      "name": "Entity H",
+      "registered_address": "Add3, London, UK",
+      "risk_score": 85
+    },
+    {
+      "id": "MSME_009",
+      "type": "MSME",
+      "name": "Entity I",
+      "registered_address": "Add4, Singapore",
+      "esg_score": 40,
+      "risk_score": 72
+    },
+    {
+      "id": "MSME_010",
+      "type": "MSME",
+      "name": "Entity J",
+      "registered_address": "Add5, Dubai, UAE",
+      "esg_score": 38,
+      "risk_score": 74
+    },
+    {
+      "id": "MSME_011",
+      "type": "MSME",
+      "name": "Entity K",
+      "registered_address": "Add6, Berlin, Germany",
+      "esg_score": 44,
+      "risk_score": 69
+    },
+    {
+      "id": "BANK_012",
+      "type": "Bank_Account",
+      "name": "Entity L"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IND_007",
+      "target": "FIRM_008",
+      "relationship": "principal_of",
+      "start_date": "2015-01-01"
+    },
+    {
+      "source": "FIRM_008",
+      "target": "MSME_009",
+      "relationship": "prepared_fraudulent_esg_audit",
+      "date": "2022-11-02",
+      "suspicious_flag": true
+    },
+    {
+      "source": "FIRM_008",
+      "target": "MSME_010",
+      "relationship": "prepared_fraudulent_esg_audit",
+      "date": "2022-11-14",
+      "suspicious_flag": true
+    },
+    {
+      "source": "FIRM_008",
+      "target": "MSME_011",
+      "relationship": "prepared_fraudulent_esg_audit",
+      "date": "2022-12-01",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_009",
+      "target": "BANK_012",
+      "relationship": "green_loan_disbursement",
+      "amount": 6200000,
+      "currency": "INR",
+      "date": "2022-12-20"
+    },
+    {
+      "source": "MSME_010",
+      "target": "BANK_012",
+      "relationship": "green_loan_disbursement",
+      "amount": 5100000,
+      "currency": "INR",
+      "date": "2023-01-05"
+    },
+    {
+      "source": "MSME_011",
+      "target": "IND_007",
+      "relationship": "kickback_payment",
+      "amount": 480000,
+      "currency": "INR",
+      "date": "2023-01-18",
+      "suspicious_flag": true
+    }
+  ]
+}

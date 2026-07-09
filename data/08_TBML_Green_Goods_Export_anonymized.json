@@ -1,0 +1,71 @@
+{
+  "scenario": "Trade_Based_Money_Laundering_Green_Goods",
+  "typology": "Over-invoiced solar panel exports used to move value cross-border disguised as legitimate green trade",
+  "nodes": [
+    {
+      "id": "CORP_044",
+      "type": "Corporate",
+      "name": "Entity 44",
+      "registered_address": "Add23, Mumbai, MH",
+      "esg_score": 65,
+      "risk_score": 76
+    },
+    {
+      "id": "CORP_045",
+      "type": "Corporate",
+      "name": "Entity 45",
+      "jurisdiction": "Germany",
+      "risk_score": 68
+    },
+    {
+      "id": "SHELL_046",
+      "type": "Intermediate_Shell",
+      "name": "Entity 46",
+      "jurisdiction": "Hong Kong",
+      "risk_score": 74
+    },
+    {
+      "id": "BANK_047",
+      "type": "Bank_Account",
+      "name": "Entity 47"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CORP_044",
+      "target": "CORP_045",
+      "relationship": "export_invoice",
+      "declared_value": 18000000,
+      "market_value_estimate": 9500000,
+      "currency": "INR",
+      "date": "2023-04-12",
+      "suspicious_flag": true
+    },
+    {
+      "source": "CORP_045",
+      "target": "SHELL_046",
+      "relationship": "freight_and_handling_payment",
+      "amount": 6200000,
+      "currency": "INR",
+      "date": "2023-04-20",
+      "suspicious_flag": true
+    },
+    {
+      "source": "SHELL_046",
+      "target": "CORP_044",
+      "relationship": "commission_kickback",
+      "amount": 5800000,
+      "currency": "INR",
+      "date": "2023-05-02",
+      "suspicious_flag": true
+    },
+    {
+      "source": "CORP_044",
+      "target": "BANK_047",
+      "relationship": "export_proceeds_deposit",
+      "amount": 17600000,
+      "currency": "INR",
+      "date": "2023-04-25"
+    }
+  ]
+}

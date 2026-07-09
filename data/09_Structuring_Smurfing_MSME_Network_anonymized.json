@@ -1,0 +1,104 @@
+{
+  "scenario": "Structuring_Smurfing_MSME_Network",
+  "typology": "Large sum broken into multiple sub-threshold deposits across an MSME network to avoid reporting triggers",
+  "nodes": [
+    {
+      "id": "IND_048",
+      "type": "Individual",
+      "name": "Entity 48",
+      "risk_score": 86
+    },
+    {
+      "id": "MSME_049",
+      "type": "MSME",
+      "name": "Entity 49",
+      "registered_address": "Add24, Chennai, TN",
+      "esg_score": 50,
+      "risk_score": 75
+    },
+    {
+      "id": "MSME_050",
+      "type": "MSME",
+      "name": "Entity 50",
+      "registered_address": "Add25, Pune, MH",
+      "esg_score": 53,
+      "risk_score": 72
+    },
+    {
+      "id": "MSME_051",
+      "type": "MSME",
+      "name": "Entity 51",
+      "registered_address": "Add26, Toronto, America",
+      "esg_score": 48,
+      "risk_score": 77
+    },
+    {
+      "id": "BANK_052",
+      "type": "Bank_Account",
+      "name": "Entity 52"
+    },
+    {
+      "id": "BANK_053",
+      "type": "Bank_Account",
+      "name": "Entity 53"
+    },
+    {
+      "id": "BANK_054",
+      "type": "Bank_Account",
+      "name": "Entity 54"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IND_048",
+      "target": "MSME_049",
+      "relationship": "cash_deposit",
+      "amount": 480000,
+      "currency": "INR",
+      "date": "2023-07-01",
+      "suspicious_flag": true
+    },
+    {
+      "source": "IND_048",
+      "target": "MSME_050",
+      "relationship": "cash_deposit",
+      "amount": 470000,
+      "currency": "INR",
+      "date": "2023-07-01",
+      "suspicious_flag": true
+    },
+    {
+      "source": "IND_048",
+      "target": "MSME_051",
+      "relationship": "cash_deposit",
+      "amount": 490000,
+      "currency": "INR",
+      "date": "2023-07-02",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_049",
+      "target": "BANK_052",
+      "relationship": "deposit",
+      "amount": 480000,
+      "currency": "INR",
+      "date": "2023-07-02"
+    },
+    {
+      "source": "MSME_050",
+      "target": "BANK_053",
+      "relationship": "deposit",
+      "amount": 470000,
+      "currency": "INR",
+      "date": "2023-07-02"
+    },
+    {
+      "source": "MSME_051",
+      "target": "BANK_054",
+      "relationship": "deposit",
+      "amount": 490000,
+      "currency": "INR",
+      "date": "2023-07-03"
+    }
+  ]
+}

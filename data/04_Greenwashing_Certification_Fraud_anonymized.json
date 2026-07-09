@@ -1,0 +1,92 @@
+{
+  "scenario": "Greenwashing_Certification_Fraud",
+  "typology": "Fake or captured ESG certification body issuing green certificates to non-compliant manufacturers",
+  "nodes": [
+    {
+      "id": "ORG_034",
+      "type": "Certification_Body",
+      "name": "Entity 34",
+      "jurisdiction": "India",
+      "risk_score": 82,
+      "legitimacy_flag": false
+    },
+    {
+      "id": "CORP_035",
+      "type": "Corporate",
+      "name": "Entity 35",
+      "registered_address": "Add17, Pune, MH",
+      "esg_score": 25,
+      "risk_score": 77
+    },
+    {
+      "id": "MSME_036",
+      "type": "MSME",
+      "name": "Entity 36",
+      "registered_address": "Add18, Toronto, America",
+      "esg_score": 20,
+      "risk_score": 80
+    },
+    {
+      "id": "MSME_037",
+      "type": "MSME",
+      "name": "Entity 37",
+      "registered_address": "Add19, London, UK",
+      "esg_score": 18,
+      "risk_score": 83
+    },
+    {
+      "id": "BANK_038",
+      "type": "Bank_Account",
+      "name": "Entity 38"
+    }
+  ],
+  "edges": [
+    {
+      "source": "ORG_034",
+      "target": "CORP_035",
+      "relationship": "issued_green_certificate",
+      "date": "2023-04-01",
+      "suspicious_flag": true
+    },
+    {
+      "source": "ORG_034",
+      "target": "MSME_036",
+      "relationship": "issued_green_certificate",
+      "date": "2023-04-10",
+      "suspicious_flag": true
+    },
+    {
+      "source": "ORG_034",
+      "target": "MSME_037",
+      "relationship": "issued_green_certificate",
+      "date": "2023-04-22",
+      "suspicious_flag": true
+    },
+    {
+      "source": "CORP_035",
+      "target": "ORG_034",
+      "relationship": "certification_fee_payment",
+      "amount": 350000,
+      "currency": "INR",
+      "date": "2023-03-25",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_036",
+      "target": "ORG_034",
+      "relationship": "certification_fee_payment",
+      "amount": 210000,
+      "currency": "INR",
+      "date": "2023-04-02"
+    },
+    {
+      "source": "CORP_035",
+      "target": "BANK_038",
+      "relationship": "green_subsidy_claim",
+      "amount": 9800000,
+      "currency": "INR",
+      "date": "2023-05-15",
+      "suspicious_flag": true
+    }
+  ]
+}

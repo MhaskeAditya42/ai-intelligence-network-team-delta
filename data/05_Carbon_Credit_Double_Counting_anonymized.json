@@ -1,0 +1,80 @@
+{
+  "scenario": "Carbon_Credit_Double_Counting",
+  "typology": "Same underlying carbon credits registered and sold to multiple buyers through intermediary brokers",
+  "nodes": [
+    {
+      "id": "MSME_039",
+      "type": "MSME",
+      "name": "Entity 39",
+      "registered_address": "Add20, Singapore",
+      "esg_score": 66,
+      "risk_score": 73
+    },
+    {
+      "id": "BROKER_040",
+      "type": "Intermediate_Shell",
+      "name": "Entity 40",
+      "jurisdiction": "UAE",
+      "risk_score": 79
+    },
+    {
+      "id": "BROKER_041",
+      "type": "Intermediate_Shell",
+      "name": "Entity 41",
+      "jurisdiction": "UAE",
+      "risk_score": 81
+    },
+    {
+      "id": "CORP_042",
+      "type": "Corporate",
+      "name": "Entity 42",
+      "registered_address": "Add21, Dubai, UAE",
+      "risk_score": 40
+    },
+    {
+      "id": "CORP_043",
+      "type": "Corporate",
+      "name": "Entity 43",
+      "registered_address": "Add22, Berlin, Germany",
+      "risk_score": 42
+    }
+  ],
+  "edges": [
+    {
+      "source": "MSME_039",
+      "target": "BROKER_040",
+      "relationship": "carbon_credit_transfer",
+      "credit_batch_id": "CB-2023-0091",
+      "quantity_tonnes": 15000,
+      "date": "2023-02-10",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_039",
+      "target": "BROKER_041",
+      "relationship": "carbon_credit_transfer",
+      "credit_batch_id": "CB-2023-0091",
+      "quantity_tonnes": 15000,
+      "date": "2023-02-14",
+      "suspicious_flag": true
+    },
+    {
+      "source": "BROKER_040",
+      "target": "CORP_042",
+      "relationship": "carbon_credit_sale",
+      "quantity_tonnes": 15000,
+      "amount": 22500000,
+      "currency": "INR",
+      "date": "2023-03-01"
+    },
+    {
+      "source": "BROKER_041",
+      "target": "CORP_043",
+      "relationship": "carbon_credit_sale",
+      "quantity_tonnes": 15000,
+      "amount": 21800000,
+      "currency": "INR",
+      "date": "2023-03-05"
+    }
+  ]
+}
