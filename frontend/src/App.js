@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ScenarioDetailPage from "./pages/ScenarioDetailPage";
+import ConsolidatedGraphPage from "./pages/ConsolidatedGraphPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,6 +15,7 @@ export default function App() {
         <div className="flex-grow-1 bg-light">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/consolidated" element={<ConsolidatedGraphPage />} />
             <Route path="/scenario/:scenarioId" element={<ScenarioDetailPage />} />
           </Routes>
         </div>
