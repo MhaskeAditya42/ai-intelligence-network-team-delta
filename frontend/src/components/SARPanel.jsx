@@ -7,15 +7,30 @@ const CLASSIFICATION_STYLES = {
 };
 
 export default function SARPanel({ recommendation }) {
+  // Debug logging
+  React.useEffect(() => {
+    console.log("🔍 SARPanel received recommendation:", recommendation);
+  }, [recommendation]);
+
+  // Handle undefined recommendation
+  if (!recommendation) {
+    return (
+      <div className="alert alert-info shadow-sm" role="alert">
+        <h4 className="alert-heading">ℹ️ No Recommendation Available</h4>
+        <p className="mb-0">Recommendation data is not available for this scenario.</p>
+      </div>
+    );
+  }
+
   const style = CLASSIFICATION_STYLES[recommendation.classification] || {
     alertClass: "alert-secondary",
-    label: recommendation.classification,
+    label: recommendation.classification || "Unknown Classification",
   };
 
   return (
     <div className={`alert ${style.alertClass} shadow-sm`} role="alert">
       <h4 className="alert-heading">{style.label}</h4>
-      <p className="mb-3">{recommendation.rationale}</p>
+      <p className="mb-3">{recommendation.rationale || "No rationale provided"}</p>
 
       <div className="border-top pt-3">
         {Object.entries(recommendation.risk_indicators || {}).map(([key, value]) =>

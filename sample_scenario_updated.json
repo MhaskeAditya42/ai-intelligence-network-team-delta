@@ -1,0 +1,26 @@
+{
+  "scenario": {
+    "id": "sample_uploaded_scenario",
+    "name": "Green Energy Project Funding",
+    "description": "Analysis of fund flows for a sustainable renewable energy company applying for green financing",
+    "trigger_entity": "green_energy_inc"
+  },
+  "graph": {
+    "nodes": [
+      {"id": "green_energy_inc", "type": "Company"},
+      {"id": "bank_account_1", "type": "Account"},
+      {"id": "supplier_company", "type": "Supplier"},
+      {"id": "intermediary_xyz", "type": "Intermediary"},
+      {"id": "beneficial_owner", "type": "Individual"},
+      {"id": "offshore_entity", "type": "Entity"}
+    ],
+    "edges": [
+      {"source": "green_energy_inc", "target": "bank_account_1", "amount": 500000, "relation": "Wire Transfer", "edge_type": "transfer"},
+      {"source": "bank_account_1", "target": "supplier_company", "amount": 300000, "relation": "Payment", "edge_type": "payment"},
+      {"source": "supplier_company", "target": "intermediary_xyz", "amount": 250000, "relation": "Service Fee", "edge_type": "fee"},
+      {"source": "intermediary_xyz", "target": "beneficial_owner", "amount": 200000, "relation": "Transfer", "edge_type": "transfer"},
+      {"source": "beneficial_owner", "target": "offshore_entity", "amount": 150000, "relation": "Investment", "edge_type": "investment"},
+      {"source": "offshore_entity", "target": "green_energy_inc", "amount": 100000, "relation": "Funding", "edge_type": "funding"}
+    ]
+  }
+}

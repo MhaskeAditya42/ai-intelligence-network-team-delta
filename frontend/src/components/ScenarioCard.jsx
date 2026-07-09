@@ -8,6 +8,23 @@ export default function ScenarioCard({ scenario }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Check if this is an uploaded scenario
+    if (scenario._isUploaded && scenario._uploadedData) {
+      // Use uploaded data directly - don't call API
+      const uploadedGraph = scenario._uploadedData.graph;
+      setGraphData({
+        nodes: uploadedGraph.nodes.map((n) => ({ id: n.id })),
+        links: uploadedGraph.edges.map((e) => ({
+          source: e.source,
+          target: e.target,
+          amount: e.amount,
+          edgeType: e.edge_type || e.relation,
+        })),
+      });
+      return;
+    }
+
+    // For API scenarios, call fetchGraph endpoint
     fetchGraph(scenario.id, scenario.trigger_entity)
       .then((data) =>
         setGraphData({
