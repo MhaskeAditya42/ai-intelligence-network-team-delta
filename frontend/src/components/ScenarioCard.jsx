@@ -26,18 +26,12 @@ export default function ScenarioCard({ scenario }) {
   return (
     <div
       onClick={() => navigate(`/scenario/${scenario.id}`)}
-      style={{
-        borderRadius: "12px",
-        padding: "10px",
-        cursor: "pointer",
-        width: "420px",
-        transition: "box-shadow 0.2s",
-        background: "#f7f8fb",
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 6px 18px rgba(0,0,0,0.08)")}
-      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+      className="card h-100 shadow-sm cursor-pointer transition-all"
+      style={{ cursor: "pointer" }}
+      onMouseEnter={(e) => e.currentTarget.classList.add("shadow-lg")}
+      onMouseLeave={(e) => e.currentTarget.classList.remove("shadow-lg")}
     >
-      <div style={{ height: "280px", background: "#f7f8fb", borderRadius: "10px", overflow: "hidden" }}>
+      <div style={{ height: "280px", overflow: "hidden", position: "relative" }} className="bg-light">
         {graphData ? (
           <ForceGraph2D
             graphData={graphData}
@@ -51,13 +45,13 @@ export default function ScenarioCard({ scenario }) {
             cooldownTicks={80}
           />
         ) : (
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "#aaa" }}>
-            Loading graph...
+          <div className="d-flex align-items-center justify-content-center h-100 text-muted">
+            <small>Loading graph...</small>
           </div>
         )}
       </div>
-      <div style={{ marginTop: "10px", textAlign: "center" }}>
-        <h3 style={{ fontSize: "16px", margin: 0, color: "#1f2937" }}>{scenario.name}</h3>
+      <div className="card-body p-3">
+        <h5 className="card-title mb-0 text-center">{scenario.name}</h5>
       </div>
     </div>
   );

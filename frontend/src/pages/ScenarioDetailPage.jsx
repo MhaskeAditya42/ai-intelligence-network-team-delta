@@ -34,34 +34,58 @@ export default function ScenarioDetailPage() {
     load();
   }, [scenarioId]);
 
-  if (error) return <div style={{ padding: "24px", color: "red" }}>Error: {error}</div>;
-  if (!data) return <div style={{ padding: "24px" }}>Loading analysis...</div>;
+  if (error) {
+    return (
+      <div className="container py-5">
+        <div className="alert alert-danger" role="alert">
+          <h4 className="alert-heading">Error!</h4>
+          <p>{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return (
+      <div className="container py-5">
+        <div className="alert alert-info d-flex align-items-center" role="alert">
+          <div className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></div>
+          Loading analysis...
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ padding: "24px", fontFamily: "sans-serif" }}>
-      <Link to="/" style={{ fontSize: "14px", color: "#457b9d" }}>
-        ← Back to all scenarios
-      </Link>
+    <div className="py-4">
+      <div className="container-fluid px-4">
+        <Link to="/" className="btn btn-outline-primary btn-sm mb-3">
+          ← Back to all scenarios
+        </Link>
 
-      <h1 style={{ marginTop: "12px" }}>{data.scenario.name}</h1>
-      <p style={{ color: "#666" }}>{data.scenario.description}</p>
+        <h1 className="display-5 fw-bold mb-2">{data.scenario.name}</h1>
+        <p className="text-muted lead mb-4">{data.scenario.description}</p>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px", marginTop: "20px" }}>
-        <div style={{ width: "100%", minHeight: "700px" }}>
-          <GraphView graphData={data.graph} roleAnalysis={data.role_analysis} edgeScores={scores} width={920} height={700} />
-        </div>
+        <div className="row g-3">
+          <div className="col-lg-8">
+            <div className="card shadow-sm border-0">
+              <div className="card-body p-2">
+                <GraphView graphData={data.graph} roleAnalysis={data.role_analysis} edgeScores={scores} width={1000} height={500} />
+              </div>
+            </div>
+          </div>
 
-        <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", alignItems: "stretch" }}>
-          <div style={{ flex: 1, minWidth: "320px" }}>
+          <div className="col-lg-4">
             <SARPanel recommendation={data.recommendation} />
           </div>
-          <div style={{ flex: 1, minWidth: "320px" }}>
+
+          <div className="col-12">
             <RiskScorePanel edgeScores={scores} />
           </div>
-        </div>
 
-        <div style={{ marginTop: "0" }}>
-          <TransactionToGraphExplainer graphData={data.graph} />
+          <div className="col-12">
+            <TransactionToGraphExplainer graphData={data.graph} />
+          </div>
         </div>
       </div>
     </div>

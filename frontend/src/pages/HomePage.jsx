@@ -13,18 +13,27 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div style={{ padding: "32px", fontFamily: "sans-serif" }}>
-      <h1>Network Intelligence Framework</h1>
-      <p style={{ color: "#666" }}>
-        Select a scenario to view its network graph, SAR recommendation, and relationship risk scores.
-      </p>
+    <div className="py-5">
+      <div className="container-fluid px-4">
+        <h1 className="display-4 fw-bold mb-2">Network Intelligence Framework</h1>
+        <p className="lead text-muted mb-4">
+          Select a scenario to view its network graph, SAR recommendation, and relationship risk scores.
+        </p>
 
-      {loading && <p>Loading scenarios...</p>}
+        {loading && (
+          <div className="alert alert-info d-flex align-items-center" role="alert">
+            <div className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></div>
+            Loading scenarios...
+          </div>
+        )}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "24px" }}>
-        {scenarios.map((s) => (
-          <ScenarioCard key={s.id} scenario={s} />
-        ))}
+        <div className="row g-4">
+          {scenarios.map((s) => (
+            <div key={s.id} className="col-lg-6 col-xl-4">
+              <ScenarioCard scenario={s} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

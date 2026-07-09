@@ -4,7 +4,7 @@ import ForceGraph2D from "react-force-graph-2d";
 const ROLE_COLORS = {
   gatekeeper: "#e63946",
   mule: "#f4a261",
-  ultimate_beneficiary: "#9d4edd",
+    ultimate_beneficiary: "#e63950", //"#9d4edd",
   default: "#457b9d",
 };
 
@@ -54,15 +54,15 @@ export default function GraphView({ graphData, roleAnalysis, edgeScores, width =
   }, [graphData, roleAnalysis, scoreMap]);
 
   return (
-    <div style={{ border: "1px solid #ddd", borderRadius: "8px", padding: "8px" }}>
+    <div className="border rounded p-5 bg-white">
       <ForceGraph2D
         graphData={formattedData}
         width={width}
         height={height}
         nodeLabel={(node) => `${node.id}\nType: ${node.type || "N/A"}`}
-        linkDirectionalArrowLength={6}
+        linkDirectionalArrowLength={12}
         linkDirectionalArrowRelPos={1}
-        linkWidth={(link) => 1 + (link.score || 0.2) * 4}
+        linkWidth={(link) => 3.5 + (link.score || 0.2) * 6}
         linkColor={(link) => getEdgeColor(link.score)}
         nodeCanvasObject={(node, ctx, globalScale) => {
           const label = node.id.replace(/_/g, " ");
@@ -70,10 +70,10 @@ export default function GraphView({ graphData, roleAnalysis, edgeScores, width =
           ctx.font = `${fontSize}px Sans-Serif`;
           ctx.fillStyle = node.color;
           ctx.beginPath();
-          ctx.arc(node.x, node.y, 6, 0, 2 * Math.PI, false);
+          ctx.arc(node.x, node.y, 14, 0, 2 * Math.PI, false);
           ctx.fill();
           ctx.fillStyle = "#222";
-          ctx.fillText(label, node.x + 8, node.y + 3);
+          ctx.fillText(label, node.x + 16, node.y + 3);
         }}
         linkCanvasObjectMode={() => "after"}
         linkCanvasObject={(link, ctx, globalScale) => {
@@ -97,7 +97,7 @@ export default function GraphView({ graphData, roleAnalysis, edgeScores, width =
           ctx.fillText(label, midX, midY);
         }}
       />
-      <div style={{ fontSize: "11px", color: "#666", marginTop: "8px" }}>
+      <div className="small text-muted mt-2">
         🔴 High risk edge · 🟠 Medium risk · 🔵 Low risk — thickness reflects composite risk score
       </div>
     </div>

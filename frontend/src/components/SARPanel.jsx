@@ -1,39 +1,30 @@
 import React from "react";
 
 const CLASSIFICATION_STYLES = {
-  SAR_FILING_REQUIRED: { bg: "#fdecea", border: "#e63946", label: "🚨 SAR Filing Required" },
-  ENHANCED_DUE_DILIGENCE: { bg: "#fff8e1", border: "#f4a261", label: "⚠️ Enhanced Due Diligence" },
-  NO_ACTION_REQUIRED: { bg: "#e8f5e9", border: "#2a9d8f", label: "✅ No Action Required" },
+  SAR_FILING_REQUIRED: { alertClass: "alert-danger", label: "🚨 SAR Filing Required" },
+  ENHANCED_DUE_DILIGENCE: { alertClass: "alert-warning", label: "⚠️ Enhanced Due Diligence" },
+  NO_ACTION_REQUIRED: { alertClass: "alert-success", label: "✅ No Action Required" },
 };
 
 export default function SARPanel({ recommendation }) {
   const style = CLASSIFICATION_STYLES[recommendation.classification] || {
-    bg: "#f5f5f5",
-    border: "#ccc",
+    alertClass: "alert-secondary",
     label: recommendation.classification,
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: style.bg,
-        border: `2px solid ${style.border}`,
-        borderRadius: "8px",
-        padding: "16px",
-        maxWidth: "500px",
-      }}
-    >
-      <h3 style={{ marginTop: 0 }}>{style.label}</h3>
-      <p style={{ fontSize: "14px", lineHeight: "1.5" }}>{recommendation.rationale}</p>
+    <div className={`alert ${style.alertClass} shadow-sm`} role="alert">
+      <h4 className="alert-heading">{style.label}</h4>
+      <p className="mb-3">{recommendation.rationale}</p>
 
-      <div style={{ marginTop: "12px" }}>
+      <div className="border-top pt-3">
         {Object.entries(recommendation.risk_indicators || {}).map(([key, value]) =>
           value ? (
-            <div key={key} style={{ marginBottom: "10px" }}>
-              <strong style={{ fontSize: "13px", textTransform: "capitalize" }}>
-                {key.replace(/_/g, " ")}:
+            <div key={key} className="mb-3">
+              <strong className="d-block mb-1 text-capitalize">
+                {key.replace(/_/g, " ")}
               </strong>
-              <p style={{ fontSize: "13px", margin: "4px 0", color: "#444" }}>{value}</p>
+              <p className="mb-0 text-muted small">{value}</p>
             </div>
           ) : null
         )}
