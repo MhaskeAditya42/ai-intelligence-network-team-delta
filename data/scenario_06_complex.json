@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 06 (Complex)",
+    "description": "Auto-generated complex scenario. 8 nodes, 7 edges; entity types: Corporate, Individual, MSME; relationship types: CONSULTING_FEE, DIVIDEND_PAYOUT, INTERCOMPANY_TRANSFER, REMITTANCE_OUTWARD, SHAREHOLDER_LOAN_REPAYMENT, TRADE_INVOICE_PAYMENT, VENDOR_PAYMENT; 1 watchlisted entity present.",
+    "trigger_entity": "CORP-4001"
+  },
+  "nodes": [
+    {
+      "id": "CORP-4001",
+      "type": "Corporate",
+      "name": "Nakshatra Overseas Trading Private Limited",
+      "registered_address": "5th Floor, Spencer Corporate Plaza, Guindy, Chennai - 600032",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "industry": "Import/Export Trading"
+    },
+    {
+      "id": "CORP-4002",
+      "type": "Corporate",
+      "name": "Silverline Shipping & Logistics Private Limited",
+      "registered_address": "Old No. 14, New No. 27, TTK Road, Teynampet, Chennai - 600018",
+      "kyc_status": "Verified - Standard Review",
+      "industry": "Freight & Logistics"
+    },
+    {
+      "id": "CORP-4003",
+      "type": "Corporate",
+      "name": "BlueWave Freight Consultants Private Limited",
+      "registered_address": "Unit 7, Oakwood Business Centre, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Freight Forwarding"
+    },
+    {
+      "id": "CORP-4004",
+      "type": "Corporate",
+      "name": "Everwin Renewable Ventures Private Limited",
+      "registered_address": "Unit 7, Oakwood Business Centre, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Renewable Energy"
+    },
+    {
+      "id": "IND-4001",
+      "type": "Individual",
+      "name": "Suresh Iyer",
+      "registered_address": "Old No. 14, New No. 27, TTK Road, Teynampet, Chennai - 600018",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "role": "Authorised Signatory"
+    },
+    {
+      "id": "IND-4002",
+      "type": "Individual",
+      "name": "Priya Nair",
+      "registered_address": "88, 100 Feet Road, Indiranagar, Bengaluru - 560038",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "role": "Director"
+    },
+    {
+      "id": "IND-4003",
+      "type": "Individual",
+      "name": "Vikram Sinha",
+      "registered_address": "9 Park Street, Kolkata - 700016",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "role": "Director",
+      "watchlist_hit": "Adverse_Media_Match"
+    },
+    {
+      "id": "MSME-4001",
+      "type": "MSME",
+      "name": "Shree Balaji Traders",
+      "registered_address": "B-45, Ajmal Khan Road, Karol Bagh, New Delhi - 110005",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "General Trading"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IND-4001",
+      "target": "IND-4002",
+      "amount": 6980000,
+      "edge_type": "REMITTANCE_OUTWARD"
+    },
+    {
+      "source": "CORP-4004",
+      "target": "IND-4003",
+      "amount": 6800000,
+      "edge_type": "DIVIDEND_PAYOUT"
+    },
+    {
+      "source": "IND-4002",
+      "target": "CORP-4003",
+      "amount": 6900000,
+      "edge_type": "SHAREHOLDER_LOAN_REPAYMENT"
+    },
+    {
+      "source": "CORP-4002",
+      "target": "MSME-4001",
+      "amount": 7150000,
+      "edge_type": "VENDOR_PAYMENT"
+    },
+    {
+      "source": "CORP-4001",
+      "target": "CORP-4002",
+      "amount": 7400000,
+      "edge_type": "TRADE_INVOICE_PAYMENT"
+    },
+    {
+      "source": "CORP-4003",
+      "target": "CORP-4004",
+      "amount": 6850000,
+      "edge_type": "INTERCOMPANY_TRANSFER"
+    },
+    {
+      "source": "MSME-4001",
+      "target": "IND-4001",
+      "amount": 7050000,
+      "edge_type": "CONSULTING_FEE"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 07 (Mixed)",
+    "description": "Auto-generated mixed scenario. 6 nodes, 6 edges; entity types: Corporate, Individual, Internal_Account, MSME; relationship types: CONSULTING_FEE, ROUND_TRIP_SETTLEMENT, SETTLEMENT_TRANSFER, TRADE_INVOICE_PAYMENT, VENDOR_PAYMENT; contains a closed cycle (UBO round-trip pattern).",
+    "trigger_entity": "MSME-5001"
+  },
+  "nodes": [
+    {
+      "id": "CORP-5001",
+      "type": "Corporate",
+      "name": "Vishwas Pharma Distributors Limited",
+      "registered_address": "402, Zodiac Square, SG Highway, Ahmedabad - 380054",
+      "kyc_status": "Verified - Standard Review",
+      "industry": "Pharmaceutical Distribution"
+    },
+    {
+      "id": "IACC-5001",
+      "type": "Internal_Account",
+      "name": "HSBC Internal Suspense Account - Retail Ops Delhi",
+      "registered_address": "512, Devika Tower, Nehru Place, New Delhi - 110019",
+      "kyc_status": "Verified - Standard Review",
+      "account_class": "Suspense"
+    },
+    {
+      "id": "IND-5001",
+      "type": "Individual",
+      "name": "Rohan Deshmukh",
+      "registered_address": "3rd Floor, Ashoka Trade Centre, Kothrud, Pune - 411038",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "role": "Director"
+    },
+    {
+      "id": "IND-5002",
+      "type": "Individual",
+      "name": "Anjali Mehta",
+      "registered_address": "402, Silverline Business Park, Andheri East, Mumbai - 400069",
+      "kyc_status": "Verified - Low Risk",
+      "role": "Director"
+    },
+    {
+      "id": "MSME-5001",
+      "type": "MSME",
+      "name": "Ganesh Engineering Works",
+      "registered_address": "Gala No. 22, Bhosari MIDC, Pune - 411026",
+      "kyc_status": "Verified - Standard Review",
+      "industry": "Fabrication"
+    },
+    {
+      "id": "MSME-5002",
+      "type": "MSME",
+      "name": "Konkan Fresh Produce Co.",
+      "registered_address": "402, Silverline Business Park, Andheri East, Mumbai - 400069",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Agro Processing"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IACC-5001",
+      "target": "CORP-5001",
+      "amount": 1340000,
+      "edge_type": "ROUND_TRIP_SETTLEMENT"
+    },
+    {
+      "source": "MSME-5002",
+      "target": "IND-5001",
+      "amount": 88000,
+      "edge_type": "VENDOR_PAYMENT"
+    },
+    {
+      "source": "MSME-5001",
+      "target": "IND-5001",
+      "amount": 1400000,
+      "edge_type": "VENDOR_PAYMENT"
+    },
+    {
+      "source": "IND-5001",
+      "target": "IACC-5001",
+      "amount": 1370000,
+      "edge_type": "SETTLEMENT_TRANSFER"
+    },
+    {
+      "source": "CORP-5001",
+      "target": "MSME-5001",
+      "amount": 1450000,
+      "edge_type": "TRADE_INVOICE_PAYMENT"
+    },
+    {
+      "source": "IND-5002",
+      "target": "MSME-5002",
+      "amount": 88000,
+      "edge_type": "CONSULTING_FEE"
+    }
+  ]
+}

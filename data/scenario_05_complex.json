@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 05 (Complex)",
+    "description": "Auto-generated complex scenario. 9 nodes, 9 edges; entity types: Corporate, Individual, Internal_Account, MSME; relationship types: CONSULTING_FEE, GREEN_LOAN_DISBURSEMENT, INTERCOMPANY_TRANSFER, ROUND_TRIP_SETTLEMENT, SETTLEMENT_TRANSFER, TRADE_INVOICE_PAYMENT, VENDOR_PAYMENT; contains a closed cycle (UBO round-trip pattern); 1 watchlisted entity present.",
+    "trigger_entity": "CORP-3001"
+  },
+  "nodes": [
+    {
+      "id": "CORP-3001",
+      "type": "Corporate",
+      "name": "Meridian AgroExports Private Limited",
+      "registered_address": "18th Floor, Meridian Corporate Tower, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "industry": "Agro Exports"
+    },
+    {
+      "id": "CORP-3002",
+      "type": "Corporate",
+      "name": "Anmol Green Energy Solutions Private Limited",
+      "registered_address": "Unit 7, Oakwood Business Centre, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Solar EPC"
+    },
+    {
+      "id": "CORP-3003",
+      "type": "Corporate",
+      "name": "BlueWave Freight Consultants Private Limited",
+      "registered_address": "Unit 7, Oakwood Business Centre, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Freight Forwarding"
+    },
+    {
+      "id": "CORP-3004",
+      "type": "Corporate",
+      "name": "Everwin Renewable Ventures Private Limited",
+      "registered_address": "Unit 7, Oakwood Business Centre, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Renewable Energy"
+    },
+    {
+      "id": "CORP-3005",
+      "type": "Corporate",
+      "name": "Konkan Coastal Exports Private Limited",
+      "registered_address": "402, Silverline Business Park, Andheri East, Mumbai - 400069",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Marine Exports",
+      "watchlist_hit": "OFAC_SDN_Partial_Name_Match"
+    },
+    {
+      "id": "IACC-3001",
+      "type": "Internal_Account",
+      "name": "HSBC Nostro Clearing Account - INR Trade Settlement",
+      "registered_address": "Unit 6B, Kamala Industrial Estate, Lower Parel, Mumbai - 400013",
+      "kyc_status": "Verified - Standard Review",
+      "account_class": "Nostro",
+      "emission_gCO2_kWh": 200
+    },
+    {
+      "id": "IND-3001",
+      "type": "Individual",
+      "name": "Kabir Malhotra",
+      "registered_address": "House No. 22, Pocket C, Vasant Kunj, New Delhi - 110070",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "role": "Beneficial Owner"
+    },
+    {
+      "id": "IND-3002",
+      "type": "Individual",
+      "name": "Ritu Chawla",
+      "registered_address": "B-45, Ajmal Khan Road, Karol Bagh, New Delhi - 110005",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "role": "Authorised Signatory"
+    },
+    {
+      "id": "MSME-3001",
+      "type": "MSME",
+      "name": "Deccan Precision Tools",
+      "registered_address": "Plot 14, Phase II, Hinjewadi Industrial Area, Pune - 411057",
+      "kyc_status": "Verified - Standard Review",
+      "industry": "Precision Engineering"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IACC-3001",
+      "target": "CORP-3001",
+      "amount": 3850000,
+      "edge_type": "ROUND_TRIP_SETTLEMENT"
+    },
+    {
+      "source": "CORP-3003",
+      "target": "CORP-3002",
+      "amount": 810000,
+      "edge_type": "INTERCOMPANY_TRANSFER"
+    },
+    {
+      "source": "MSME-3001",
+      "target": "IND-3001",
+      "amount": 3950000,
+      "edge_type": "VENDOR_PAYMENT"
+    },
+    {
+      "source": "CORP-3002",
+      "target": "MSME-3001",
+      "amount": 800000,
+      "edge_type": "INTERCOMPANY_TRANSFER"
+    },
+    {
+      "source": "IND-3002",
+      "target": "CORP-3004",
+      "amount": 825000,
+      "edge_type": "CONSULTING_FEE"
+    },
+    {
+      "source": "CORP-3005",
+      "target": "IND-3002",
+      "amount": 828000,
+      "edge_type": "TRADE_INVOICE_PAYMENT"
+    },
+    {
+      "source": "CORP-3001",
+      "target": "MSME-3001",
+      "amount": 4100000,
+      "edge_type": "GREEN_LOAN_DISBURSEMENT"
+    },
+    {
+      "source": "IND-3001",
+      "target": "IACC-3001",
+      "amount": 3900000,
+      "edge_type": "SETTLEMENT_TRANSFER"
+    },
+    {
+      "source": "CORP-3004",
+      "target": "CORP-3003",
+      "amount": 820000,
+      "edge_type": "INTERCOMPANY_TRANSFER"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "scenarios": [
+    {
+      "file": "scenario_group_01.json",
+      "name": "Synthetic Siphoning Network 01",
+      "trigger_entity": "Entity 1",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_02.json",
+      "name": "Synthetic Siphoning Network 02",
+      "trigger_entity": "Entity 5",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_03.json",
+      "name": "Synthetic Siphoning Network 03",
+      "trigger_entity": "Entity 9",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_04.json",
+      "name": "Synthetic Siphoning Network 04",
+      "trigger_entity": "Entity 13",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_05.json",
+      "name": "Synthetic Siphoning Network 05",
+      "trigger_entity": "Entity 17",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_06.json",
+      "name": "Synthetic Siphoning Network 06",
+      "trigger_entity": "Entity 21",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_07.json",
+      "name": "Synthetic Siphoning Network 07",
+      "trigger_entity": "Entity 25",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_08.json",
+      "name": "Synthetic Siphoning Network 08",
+      "trigger_entity": "Entity 29",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_09.json",
+      "name": "Synthetic Siphoning Network 09",
+      "trigger_entity": "Entity 33",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_10.json",
+      "name": "Synthetic Siphoning Network 10",
+      "trigger_entity": "Entity 37",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_11.json",
+      "name": "Synthetic Siphoning Network 11",
+      "trigger_entity": "Entity 41",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_12.json",
+      "name": "Synthetic Siphoning Network 12",
+      "trigger_entity": "Entity 45",
+      "node_count": 4,
+      "edge_count": 4,
+      "is_cycle": true
+    },
+    {
+      "file": "scenario_group_13.json",
+      "name": "Synthetic Partial Chain 13",
+      "trigger_entity": "Entity 49",
+      "node_count": 2,
+      "edge_count": 1,
+      "is_cycle": false
+    }
+  ]
+}
