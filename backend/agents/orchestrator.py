@@ -1,6 +1,7 @@
 import os
 import json
 import networkx as nx
+import requests
 from dotenv import load_dotenv
 
 from graph.build_graph import build_synthetic_network
@@ -10,20 +11,23 @@ from agents.worker_gatekeeper import identify_gatekeepers
 from agents.worker_ubo import identify_ultimate_beneficiaries
 
 load_dotenv()
-API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL") or os.getenv("GEMINI_MODEL", "openai/gpt-4o-mini")
+OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+OPENROUTER_HTTP_REFERER = os.getenv("OPENROUTER_HTTP_REFERER", "http://localhost:3000")
+OPENROUTER_TITLE = os.getenv("OPENROUTER_TITLE", "AI Intelligence Network Team Delta")
 
 # MOCK MODE: if no key is set yet, generate_ai_recommendation() falls back to
 # a deterministic, rule-based response instead of crashing. This lets
 # teammates build/test the rest of the pipeline before anyone has a key.
-# Once GEMINI_API_KEY is set in the environment, live calls kick in
+# Once OPENROUTER_API_KEY is set in the environment, live calls kick in
 # automatically — no code changes needed.
-MOCK_MODE = API_KEY is None
+MOCK_MODE = not OPENROUTER_API_KEY
 
 if MOCK_MODE:
     print(
-        "[orchestrator] GEMINI_API_KEY not set — running in MOCK MODE. "
-        "Set GEMINI_API_KEY in your .env to enable live Gemini calls."
+        "[orchestrator] OPENROUTER_API_KEY not set — running in MOCK MODE. "
+        "Set OPENROUTER_API_KEY in your .env to enable live OpenRouter calls."
     )
 
 
@@ -102,28 +106,39 @@ def _build_prompt(target_node: str, signals: dict, worker_output: dict, decision
         "network_signals": signals,
         "worker_agent_findings": worker_output,
     }, default=str)
+    deterministic_classification = decision.get("classification", "NO_ACTION_REQUIRED")
 
     return f"""You are an expert financial crime investigator protecting the HSBC Green Financing Framework.
-
+ 
 Review the following automated counterparty risk network payload for the entity '{target_node}'.
-
+ 
 Payload: {payload}
-
-A deterministic rules engine has already classified this alert as: '{decision["classification"]}'.
-Your job is NOT to re-classify it — the classification is final and must be repeated exactly as given.
-Your job is only to write a clear, plain-language rationale that explains this classification using
-ONLY the signals and worker findings actually present in the payload above.
-
+ 
+A deterministic rules engine has already classified this alert as: '{deterministic_classification}'.
+Do NOT assume this is correct. Independently review the same signals and worker findings and form
+your OWN classification from scratch, as if the deterministic result did not exist.
+ 
 Ground rules:
-- If "circular_flow_detected" is null or empty, there is NO cycle — do not describe or infer one.
-- If "exposure_to_exclusion" is empty, there is NO exclusion-rule violation — do not describe or infer one.
-- If "gatekeeper_candidates" is empty, there is NO shared-address/shell-company evidence — do not describe or infer one.
-- Only include evidence for a risk_indicators field if the corresponding signal or worker finding is non-empty in the payload; otherwise set that field to null.
-
+•⁠  ⁠If "circular_flow_detected" is null or empty, there is NO cycle — do not describe or infer one.
+•⁠  ⁠If "exposure_to_exclusion" is empty, there is NO exclusion-rule violation — do not describe or infer one.
+•⁠  ⁠If "gatekeeper_candidates" is empty, there is NO shared-address/shell-company evidence — do not describe or infer one.
+•⁠  ⁠Base your classification ONLY on the signals and worker findings actually present in the payload — do not invent evidence.
+•⁠  ⁠Only include evidence for a risk_indicators field if the corresponding signal or worker finding is non-empty in the payload; otherwise set that field to null.
+ 
+After you have formed your own independent classification, compare it to the deterministic
+classification given above:
+•⁠  ⁠If they match, set "agrees_with_deterministic" to true and set "disagreement_reason" to null.
+•⁠  ⁠If they differ, set "agrees_with_deterministic" to false, and in "disagreement_reason" explain
+  specifically and concretely why the deterministic rule-based classification appears too strict,
+  too lenient, or otherwise wrong given the actual evidence in the payload.
+ 
 Respond ONLY in the following JSON format, with no preamble, no markdown formatting, no code fences:
 {{
-  "classification": "{decision["classification"]}",
-  "rationale": "plain language explanation",
+  "deterministic_classification": "{deterministic_classification}",
+  "ai_classification": "SAR_FILING_REQUIRED" or "ENHANCED_DUE_DILIGENCE" or "NO_ACTION_REQUIRED",
+  "agrees_with_deterministic": true or false,
+  "disagreement_reason": "explanation or null",
+  "rationale": "plain language explanation of your ai_classification",
   "risk_indicators": {{
     "gatekeeper_evidence": "explanation or null",
     "ubo_siphoning_evidence": "explanation or null",
@@ -132,9 +147,10 @@ Respond ONLY in the following JSON format, with no preamble, no markdown formatt
 }}"""
 
 
+
 def _mock_recommendation(target_node: str, signals: dict, worker_output: dict) -> dict:
     """
-    Deterministic stand-in for Gemini, used in MOCK_MODE. Just returns the
+    Deterministic stand-in for OpenRouter, used in MOCK_MODE. Just returns the
     rules-engine decision directly, tagged as mock.
     """
     decision = _determine_classification(target_node, signals, worker_output)
@@ -143,24 +159,38 @@ def _mock_recommendation(target_node: str, signals: dict, worker_output: dict) -
 
 
 def _call_llm(prompt: str, decision: dict) -> dict:
-    try:
-        from google import genai  # lazy import — only needed on the live-LLM path
-        from google.genai import errors as genai_errors
-    except ImportError as e:
-        return {**decision, "_mock": True, "_fallback_reason": f"llm_import_error: {e}"}
+    if not OPENROUTER_API_KEY:
+        return {**decision, "_mock": True, "_fallback_reason": "openrouter_api_key_not_configured"}
+
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": OPENROUTER_HTTP_REFERER,
+        "X-OpenRouter-Title": OPENROUTER_TITLE,
+    }
+    payload = {
+        "model": OPENROUTER_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
+    }
 
     try:
-        client = genai.Client(api_key=API_KEY)
-        response = client.models.generate_content(
-            model=MODEL_NAME,
-            contents=prompt,
+        response = requests.post(
+            url=f"{OPENROUTER_BASE_URL}/chat/completions",
+            headers=headers,
+            json=payload,
+            timeout=60,
         )
-        raw_text = response.text.strip()
-    except genai_errors.ClientError as e:
+        response.raise_for_status()
+        response_data = response.json()
+        raw_text = response_data["choices"][0]["message"]["content"].strip()
+    except requests.RequestException as exc:
         # Rate limit / quota exhaustion / other API-side failure — don't crash
         # the whole pipeline. Fall back to the deterministic decision's own
         # rationale so the caller still gets a usable, correct classification.
-        return {**decision, "_llm_unavailable": True, "_llm_error": str(e)}
+        return {**decision, "_llm_unavailable": True, "_llm_error": str(exc)}
+    except (KeyError, IndexError, TypeError, ValueError) as exc:
+        return {**decision, "_llm_parse_failed": True, "_llm_error": str(exc)}
 
     if raw_text.startswith("```"):
         raw_text = raw_text.strip("`")
@@ -185,7 +215,7 @@ def generate_ai_recommendation(graph: nx.DiGraph, target_node: str) -> dict:
     """
     Main entry point. Runs extract_signals.py + all three worker agents
     against the graph for the given target, computes the classification
-    deterministically, then (if a live key is configured) asks Gemini to
+    deterministically, then (if a live key is configured) asks OpenRouter to
     write a narrative rationale on top of that fixed decision.
     """
     signals, worker_output = _run_pipeline(graph, target_node)

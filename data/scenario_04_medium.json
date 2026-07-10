@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 04 (Medium)",
+    "description": "Auto-generated medium scenario. 5 nodes, 4 edges; entity types: Corporate, Individual, MSME; relationship types: CONSULTING_FEE, DIRECTOR_OF, REMITTANCE_OUTWARD, SHAREHOLDER_LOAN_REPAYMENT; 1 watchlisted entity present.",
+    "trigger_entity": "CORP-2002"
+  },
+  "nodes": [
+    {
+      "id": "CORP-2002",
+      "type": "Corporate",
+      "name": "Suryakiran Textiles Limited",
+      "registered_address": "402, Zodiac Square, SG Highway, Ahmedabad - 380054",
+      "kyc_status": "Verified - Standard Review",
+      "industry": "Textiles"
+    },
+    {
+      "id": "IND-2002",
+      "type": "Individual",
+      "name": "Divya Shenoy",
+      "registered_address": "18th Floor, Meridian Corporate Tower, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Verified - Standard Review",
+      "role": "Director"
+    },
+    {
+      "id": "IND-2003",
+      "type": "Individual",
+      "name": "Arvind Rao",
+      "registered_address": "Tower B, ITPL Main Road, Whitefield, Bengaluru - 560066",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "role": "Consultant"
+    },
+    {
+      "id": "IND-2004",
+      "type": "Individual",
+      "name": "Kabir Malhotra",
+      "registered_address": "House No. 22, Pocket C, Vasant Kunj, New Delhi - 110070",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "role": "Beneficial Owner",
+      "watchlist_hit": "Framework_Exclusion_List"
+    },
+    {
+      "id": "MSME-2002",
+      "type": "MSME",
+      "name": "Sai Krupa Yarns & Textiles",
+      "registered_address": "402, Zodiac Square, SG Highway, Ahmedabad - 380054",
+      "kyc_status": "Pending Enhanced Due Diligence",
+      "industry": "Textile Trading"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IND-2003",
+      "target": "IND-2004",
+      "amount": 60000,
+      "edge_type": "REMITTANCE_OUTWARD"
+    },
+    {
+      "source": "CORP-2002",
+      "target": "IND-2002",
+      "amount": 180000,
+      "edge_type": "DIRECTOR_OF"
+    },
+    {
+      "source": "IND-2002",
+      "target": "MSME-2002",
+      "amount": 950000,
+      "edge_type": "SHAREHOLDER_LOAN_REPAYMENT"
+    },
+    {
+      "source": "MSME-2002",
+      "target": "IND-2003",
+      "amount": 210000,
+      "edge_type": "CONSULTING_FEE"
+    }
+  ]
+}

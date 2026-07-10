@@ -4,3 +4,5 @@ networkx
 google-generativeai
 python-dotenv
 pydantic
+watchdog
+requests

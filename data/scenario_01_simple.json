@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 01 (Simple)",
+    "description": "Auto-generated simple scenario. 3 nodes, 2 edges; entity types: Corporate, Internal_Account, MSME; relationship types: SETTLEMENT_TRANSFER, TRADE_INVOICE_PAYMENT.",
+    "trigger_entity": "CORP-1001"
+  },
+  "nodes": [
+    {
+      "id": "CORP-1001",
+      "type": "Corporate",
+      "name": "Silverline Shipping & Logistics Private Limited",
+      "registered_address": "Old No. 14, New No. 27, TTK Road, Teynampet, Chennai - 600018",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Freight & Logistics"
+    },
+    {
+      "id": "IACC-1001",
+      "type": "Internal_Account",
+      "name": "HSBC Trade Finance Escrow Account - Mumbai",
+      "registered_address": "18th Floor, Meridian Corporate Tower, Bandra Kurla Complex, Mumbai - 400051",
+      "kyc_status": "Verified - Low Risk",
+      "account_class": "Escrow"
+    },
+    {
+      "id": "MSME-1001",
+      "type": "MSME",
+      "name": "Anand Auto Components",
+      "registered_address": "Plot 14, Phase II, Hinjewadi Industrial Area, Pune - 411057",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Auto Ancillary"
+    }
+  ],
+  "edges": [
+    {
+      "source": "MSME-1001",
+      "target": "IACC-1001",
+      "amount": 842000,
+      "edge_type": "SETTLEMENT_TRANSFER"
+    },
+    {
+      "source": "CORP-1001",
+      "target": "MSME-1001",
+      "amount": 842000,
+      "edge_type": "TRADE_INVOICE_PAYMENT"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 03 (Mixed)",
+    "description": "Auto-generated mixed scenario. 4 nodes, 4 edges; entity types: Corporate, Individual, Internal_Account, MSME; relationship types: GREEN_LOAN_DISBURSEMENT, ROUND_TRIP_SETTLEMENT, SETTLEMENT_TRANSFER, VENDOR_PAYMENT; contains a closed cycle (UBO round-trip pattern); 1 watchlisted entity present.",
+    "trigger_entity": "IACC-2001"
+  },
+  "nodes": [
+    {
+      "id": "CORP-2001",
+      "type": "Corporate",
+      "name": "Kaveri Renewable Power Private Limited",
+      "registered_address": "Unit 6B, Kamala Industrial Estate, Lower Parel, Mumbai - 400013",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "industry": "Renewable Energy"
+    },
+    {
+      "id": "IACC-2001",
+      "type": "Internal_Account",
+      "name": "HSBC Settlement Account - Corporate Banking Chennai Hub",
+      "registered_address": "5th Floor, Spencer Corporate Plaza, Guindy, Chennai - 600032",
+      "kyc_status": "Verified - Standard Review",
+      "account_class": "Settlement",
+      "emission_gCO2_kWh": 180
+    },
+    {
+      "id": "IND-2001",
+      "type": "Individual",
+      "name": "Neha Kulkarni",
+      "registered_address": "3rd Floor, Ashoka Trade Centre, Kothrud, Pune - 411038",
+      "kyc_status": "Active Monitoring - Periodic Review",
+      "role": "Director",
+      "watchlist_hit": "Internal_PEP_List"
+    },
+    {
+      "id": "MSME-2001",
+      "type": "MSME",
+      "name": "Malhar Packaging Industries",
+      "registered_address": "3rd Floor, Ashoka Trade Centre, Kothrud, Pune - 411038",
+      "kyc_status": "Verified - Standard Review",
+      "industry": "Packaging"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IACC-2001",
+      "target": "CORP-2001",
+      "amount": 2900000,
+      "edge_type": "ROUND_TRIP_SETTLEMENT"
+    },
+    {
+      "source": "CORP-2001",
+      "target": "MSME-2001",
+      "amount": 3200000,
+      "edge_type": "GREEN_LOAN_DISBURSEMENT"
+    },
+    {
+      "source": "MSME-2001",
+      "target": "IND-2001",
+      "amount": 3050000,
+      "edge_type": "VENDOR_PAYMENT"
+    },
+    {
+      "source": "IND-2001",
+      "target": "IACC-2001",
+      "amount": 2980000,
+      "edge_type": "SETTLEMENT_TRANSFER"
+    }
+  ]
+}

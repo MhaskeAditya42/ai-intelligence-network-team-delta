@@ -1,0 +1,73 @@
+{
+  "scenario": "Circular_Trading_Round_Tripping",
+  "typology": "Funds circulated among related MSMEs to artificially inflate green revenue for loan eligibility",
+  "nodes": [
+    {
+      "id": "MSME_013",
+      "type": "MSME",
+      "name": "Entity M",
+      "registered_address": "Add7, Mumbai, MH",
+      "esg_score": 60,
+      "risk_score": 71
+    },
+    {
+      "id": "MSME_014",
+      "type": "MSME",
+      "name": "Entity N",
+      "registered_address": "Add8, Chennai, TN",
+      "esg_score": 58,
+      "risk_score": 73
+    },
+    {
+      "id": "MSME_015",
+      "type": "MSME",
+      "name": "Entity O",
+      "registered_address": "Add9, Pune, MH",
+      "esg_score": 62,
+      "risk_score": 69
+    },
+    {
+      "id": "BANK_016",
+      "type": "Bank_Account",
+      "name": "Entity P"
+    }
+  ],
+  "edges": [
+    {
+      "source": "MSME_013",
+      "target": "MSME_014",
+      "relationship": "invoice_payment",
+      "amount": 2800000,
+      "currency": "INR",
+      "date": "2023-06-01",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_014",
+      "target": "MSME_015",
+      "relationship": "invoice_payment",
+      "amount": 2750000,
+      "currency": "INR",
+      "date": "2023-06-05",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_015",
+      "target": "MSME_013",
+      "relationship": "invoice_payment",
+      "amount": 2700000,
+      "currency": "INR",
+      "date": "2023-06-09",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_013",
+      "target": "BANK_016",
+      "relationship": "green_loan_application_revenue_proof",
+      "amount": 2700000,
+      "currency": "INR",
+      "date": "2023-06-15",
+      "suspicious_flag": true
+    }
+  ]
+}

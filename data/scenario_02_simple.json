@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "name": "Auto-Generated Scenario 02 (Simple)",
+    "description": "Auto-generated simple scenario. 3 nodes, 2 edges; entity types: Corporate, Individual, MSME; relationship types: CONSULTING_FEE, VENDOR_PAYMENT.",
+    "trigger_entity": "CORP-1002"
+  },
+  "nodes": [
+    {
+      "id": "CORP-1002",
+      "type": "Corporate",
+      "name": "Om Sai Infrastructure Limited",
+      "registered_address": "6th Floor, Cyber Gateway, HITEC City, Hyderabad - 500081",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Construction & Infrastructure"
+    },
+    {
+      "id": "IND-1002",
+      "type": "Individual",
+      "name": "Manoj Pillai",
+      "registered_address": "5th Floor, Spencer Corporate Plaza, Guindy, Chennai - 600032",
+      "kyc_status": "Verified - Low Risk",
+      "role": "Authorised Signatory"
+    },
+    {
+      "id": "MSME-1002",
+      "type": "MSME",
+      "name": "Vinayak Electricals & Hardware",
+      "registered_address": "512, Devika Tower, Nehru Place, New Delhi - 110019",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Electrical Wholesale"
+    }
+  ],
+  "edges": [
+    {
+      "source": "MSME-1002",
+      "target": "IND-1002",
+      "amount": 45000,
+      "edge_type": "CONSULTING_FEE"
+    },
+    {
+      "source": "CORP-1002",
+      "target": "MSME-1002",
+      "amount": 316000,
+      "edge_type": "VENDOR_PAYMENT"
+    }
+  ]
+}

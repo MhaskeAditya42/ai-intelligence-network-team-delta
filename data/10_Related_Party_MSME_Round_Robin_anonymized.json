@@ -1,0 +1,100 @@
+{
+  "scenario": "Related_Party_MSME_Round_Robin",
+  "typology": "Family-controlled MSME cluster round-tripping green loan disbursements between related entities",
+  "nodes": [
+    {
+      "id": "IND_022",
+      "type": "Individual",
+      "name": "Entity V",
+      "pep_flag": false,
+      "risk_score": 80
+    },
+    {
+      "id": "MSME_023",
+      "type": "MSME",
+      "name": "Entity W",
+      "registered_address": "Add11, London, UK",
+      "esg_score": 57,
+      "risk_score": 74
+    },
+    {
+      "id": "MSME_024",
+      "type": "MSME",
+      "name": "Entity X",
+      "registered_address": "Add12, Singapore",
+      "esg_score": 54,
+      "risk_score": 76
+    },
+    {
+      "id": "MSME_025",
+      "type": "MSME",
+      "name": "Entity Y",
+      "registered_address": "Add13, Dubai, UAE",
+      "esg_score": 52,
+      "risk_score": 78
+    },
+    {
+      "id": "BANK_026",
+      "type": "Bank_Account",
+      "name": "Entity Z"
+    }
+  ],
+  "edges": [
+    {
+      "source": "IND_022",
+      "target": "MSME_023",
+      "relationship": "beneficial_owner",
+      "ownership_pct": 70,
+      "start_date": "2019-05-01"
+    },
+    {
+      "source": "IND_022",
+      "target": "MSME_024",
+      "relationship": "beneficial_owner",
+      "ownership_pct": 65,
+      "start_date": "2019-08-12"
+    },
+    {
+      "source": "IND_022",
+      "target": "MSME_025",
+      "relationship": "beneficial_owner",
+      "ownership_pct": 60,
+      "start_date": "2020-02-20"
+    },
+    {
+      "source": "BANK_026",
+      "target": "MSME_023",
+      "relationship": "green_loan_disbursement",
+      "amount": 7000000,
+      "currency": "INR",
+      "date": "2023-01-05"
+    },
+    {
+      "source": "MSME_023",
+      "target": "MSME_024",
+      "relationship": "intercompany_transfer",
+      "amount": 6800000,
+      "currency": "INR",
+      "date": "2023-01-10",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_024",
+      "target": "MSME_025",
+      "relationship": "intercompany_transfer",
+      "amount": 6600000,
+      "currency": "INR",
+      "date": "2023-01-16",
+      "suspicious_flag": true
+    },
+    {
+      "source": "MSME_025",
+      "target": "BANK_026",
+      "relationship": "loan_repayment",
+      "amount": 6500000,
+      "currency": "INR",
+      "date": "2023-01-22",
+      "suspicious_flag": true
+    }
+  ]
+}
