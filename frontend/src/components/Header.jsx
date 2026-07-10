@@ -1,15 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
+  const [logoUnavailable, setLogoUnavailable] = useState(false);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav className="navbar navbar-expand-lg argus-navbar">
       <div className="container-fluid px-4">
-        <Link className="navbar-brand fw-bold" to="/">
-          <span className="badge bg-success me-2">🌱</span>
-          Network Intelligence Framework
-          <br />
-          <small className="text-success">for Green Financing</small>
+        <Link className="navbar-brand argus-brand" to="/" aria-label="Argus AML home">
+          {logoUnavailable ? (
+            <span className="hsbc-logo-fallback" aria-label="HSBC logo placeholder">LOGO</span>
+          ) : (
+            <img
+              className="hsbc-logo"
+              src="/assets/hsbc_logo.png"
+              alt="HSBC logo"
+              onError={() => setLogoUnavailable(true)}
+            />
+          )}
+          <span>
+            <strong>Argus AML</strong>
+            <small>Financial crime intelligence</small>
+          </span>
         </Link>
 
         <button
@@ -27,9 +39,9 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
+              <NavLink className="nav-link" to="/" end>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#about">

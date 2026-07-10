@@ -1,13 +1,73 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --argus-teal: #0F3D3E;
+  --argus-teal-bright: #0F6E56;
+  --argus-mint: #9FE1CB;
+  --argus-coral: #D85A30;
+  --argus-blue: #378ADD;
+  --argus-surface: #ffffff;
+  --argus-border: rgba(15, 61, 62, 0.14);
+  --argus-ink: #173234;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--argus-ink);
+  background: #f5f8f7;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+code { font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+.argus-navbar {
+  min-height: 68px;
+  background: var(--argus-teal);
+  box-shadow: none;
+}
+
+.argus-brand { display: flex; align-items: center; gap: 10px; color: #fff !important; line-height: 1.1; }
+.argus-brand strong { display: block; font-size: 1.04rem; letter-spacing: .01em; }
+.argus-brand small { display: block; margin-top: 3px; color: rgba(255, 255, 255, .68); font-size: .69rem; font-weight: 500; }
+.hsbc-logo, .hsbc-logo-fallback { width: 28px; height: 28px; border-radius: 7px; flex: 0 0 28px; }
+.hsbc-logo { object-fit: contain; background: rgba(255,255,255,.15); }
+.hsbc-logo-fallback { display: grid; place-items: center; color: rgba(255,255,255,.9); background: rgba(255,255,255,.15); font-size: 9px; line-height: 1; }
+.argus-navbar .nav-link { color: rgba(255,255,255,.7) !important; font-size: .9rem; padding: .5rem .8rem !important; }
+.argus-navbar .nav-link:hover, .argus-navbar .nav-link.active { color: #fff !important; }
+.argus-navbar .nav-link.active { font-weight: 600; }
+.argus-navbar .navbar-toggler { border-color: rgba(255,255,255,.35); }
+
+.argus-page { background: #f5f8f7; min-height: 70vh; }
+.page-heading { margin-bottom: 1.5rem; }
+.eyebrow { display: block; color: var(--argus-teal-bright); font-size: .72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.page-heading h1 { margin: .2rem 0 .35rem; color: var(--argus-teal); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -.04em; }
+.page-heading p { margin: 0; color: #637474; font-size: 1.05rem; }
+
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.25rem 0 2rem; }
+.metric-card, .scenario-card, .argus-graph-shell { background: var(--argus-surface); border: .5px solid var(--argus-border); border-radius: 12px; box-shadow: none !important; }
+.metric-card { min-height: 172px; padding: 1rem !important; }
+.metric-card p:first-child { color: #617170; font-size: .82rem; font-weight: 600; }
+.metric-card p:nth-child(2) { color: var(--argus-ink); font-size: 1.85rem; font-weight: 700; line-height: 1.1; margin: .2rem 0; }
+.metric-spark, .metric-line { height: 52px !important; margin-top: .25rem; }
+.metric-progress { margin: 1.35rem 0 1.15rem; }
+.metric-progress > div { background: var(--argus-blue) !important; }
+.metric-note { color: #718080; font-size: .75rem; }
+
+.scenario-card { cursor: pointer; overflow: hidden; transition: transform .18s ease, border-color .18s ease; }
+.scenario-card:hover { border-color: rgba(15,110,86,.48); transform: translateY(-2px); }
+.scenario-visual { height: 108px; position: relative; overflow: hidden; background: linear-gradient(135deg, #eef8f3, #e8f1fb); }
+.scenario-visual span { position: absolute; width: 14px; height: 14px; background: #5DCAA5; border-radius: 50%; }
+.scenario-visual span:nth-child(1) { left: 22%; top: 30%; }.scenario-visual span:nth-child(2) { left: 53%; top: 24%; background: #85B7EB; }.scenario-visual span:nth-child(3) { left: 70%; top: 62%; background: #F0997B; }
+.scenario-visual i { position: absolute; height: 1px; background: #aab5b5; transform-origin: left center; }.scenario-visual i:nth-child(4) { left: 25%; top: 38%; width: 29%; transform: rotate(-9deg); }.scenario-visual i:nth-child(5) { left: 55%; top: 35%; width: 24%; transform: rotate(42deg); }.scenario-visual i:nth-child(6) { left: 27%; top: 42%; width: 49%; transform: rotate(29deg); }
+.scenario-chip { color: var(--argus-teal-bright); background: #e8f6f0; border-radius: 999px; font-size: .69rem; font-weight: 700; padding: .28rem .55rem; text-transform: uppercase; letter-spacing: .04em; }.scenario-link { color: var(--argus-teal-bright); font-size: .85rem; font-weight: 700; }
+
+.argus-graph-shell { overflow: hidden; position: relative; padding: .5rem; }
+.argus-graph-canvas { background: #fbfcfc; border-radius: 9px; width: 100%; }
+.graph-legend { display: flex; flex-wrap: wrap; gap: .8rem; padding: .75rem .5rem .25rem; color: #526361; font-size: .75rem; }.graph-legend span { display: inline-flex; gap: .35rem; align-items: center; }.graph-legend i { width: 10px; height: 10px; border-radius: 50%; }.legend-person { background: #5DCAA5; }.legend-entity { background: #85B7EB; }.legend-flagged { background: #F0997B; }.graph-legend b { width: 16px; height: 2px; background: var(--argus-coral); }
+.node-detail { position: absolute; right: 1rem; top: 1rem; display: flex; justify-content: space-between; gap: 1rem; min-width: 210px; padding: .75rem; background: rgba(255,255,255,.96); border: .5px solid var(--argus-border); border-radius: 10px; }.node-detail strong, .node-detail small { display: block; }.node-detail strong { margin: .2rem 0; font-size: .9rem; }.node-detail small { color: #647473; font-size: .75rem; }.node-detail button { width: 24px; height: 24px; border: 0; color: #60706f; background: transparent; font-size: 1.25rem; line-height: 1; }
+.g6-tooltip { color: #193335; font-size: 12px; line-height: 1.55; }
+
+.argus-footer { color: #fff; background: var(--argus-teal); }.argus-footer-muted { color: rgba(255,255,255,.66) !important; }.argus-footer hr { border-color: rgba(255,255,255,.18); }
+
+@media (max-width: 576px) { .argus-page { padding-top: 2rem !important; }.metric-grid { grid-template-columns: 1fr; }.node-detail { left: 1rem; bottom: 2.4rem; top: auto; } }

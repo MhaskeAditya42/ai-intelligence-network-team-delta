@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from graph.build_graph import get_scenario_info, list_available_batch_dates, list_scenario_infos
 from routes import analyze, sar_report, relationship_scores, openrouter
 
-app = FastAPI(title="Network Intelligence Framework API")
+app = FastAPI(title="Argus AML API")
 
 # Allow frontend (React dev server) to call this API
 app.add_middleware(

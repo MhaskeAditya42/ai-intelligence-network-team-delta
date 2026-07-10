@@ -1,10 +1,10 @@
-# 🌱 Network Intelligence Framework for Green Financing
+# Argus AML
 
 A sophisticated AI-powered financial network analysis platform designed to enable financial institutions to assess risk and compliance requirements for companies applying for Green Financing Loans.
 
 ## 📋 Overview
 
-The **Network Intelligence Framework** is an advanced analytical system that processes transactional data to identify suspicious patterns, evaluate financial relationships, and determine regulatory compliance requirements. By analyzing the network of transactions between a target client and their connected entities, the framework provides comprehensive risk assessments and actionable recommendations for Suspicious Activity Report (SAR) filing decisions.
+**Argus AML** is an advanced analytical system that processes transactional data to identify suspicious patterns, evaluate financial relationships, and determine regulatory compliance requirements. By analyzing the network of transactions between a target client and their connected entities, the framework provides comprehensive risk assessments and actionable recommendations for Suspicious Activity Report (SAR) filing decisions.
 
 ### Key Purpose
 
@@ -32,8 +32,7 @@ python3 backend/generate_scenarios.py \
 This creates `data/batches/2026-07-10/`. The API exposes the available dates at
 `GET /batches`; then use `?batch_date=2026-07-10` with `/scenarios`, `/analyze`,
 `/sar-report`, and `/relationship-scores`. The home page calendar passes that date
-through to every request. Existing JSON files directly inside `data/` remain
-available as legacy sample data when no date is selected.
+through to every request.
 
 ### Tech Stack
 - **Frontend**: React 19 with Bootstrap 5
@@ -347,4 +346,4 @@ By supporting **Green Financing** loans through rigorous AI-powered financial an
 
 ---
 
-**Network Intelligence Framework for Green Financing** - Empowering Financial Institutions with AI-Driven Risk Analysis 🌱
+**Argus AML** - Empowering financial institutions with AI-driven risk analysis.
