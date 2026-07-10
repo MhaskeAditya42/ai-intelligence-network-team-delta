@@ -1,0 +1,443 @@
+{
+  "description": "Daily AML test batch for 2026-06-19 \u2014 FinCrime Intelligence Platform synthetic data.",
+  "scenario_count": 5,
+  "scenarios_included": [
+    "Carbon_Credit_Double_Counting",
+    "Greenwashing_Certification_Fraud",
+    "Routine_Business_Activity",
+    "Structuring_Smurfing_MSME_Network",
+    "Trade_Based_Money_Laundering_Green_Goods"
+  ],
+  "node_count": 31,
+  "edge_count": 23,
+  "nodes": [
+    {
+      "id": "BANK_002",
+      "type": "Bank_Account",
+      "name": "Entity 159"
+    },
+    {
+      "id": "BANK_003",
+      "type": "Bank_Account",
+      "name": "Entity 291"
+    },
+    {
+      "id": "BANK_004",
+      "type": "Bank_Account",
+      "name": "Entity 353"
+    },
+    {
+      "id": "BANK_045",
+      "type": "Bank_Account",
+      "name": "Entity 134"
+    },
+    {
+      "id": "BANK_046",
+      "type": "Bank_Account",
+      "name": "Entity 363"
+    },
+    {
+      "id": "BANK_047",
+      "type": "Bank_Account",
+      "name": "Entity 288"
+    },
+    {
+      "id": "BANK_048",
+      "type": "Bank_Account",
+      "name": "Entity 133"
+    },
+    {
+      "id": "BANK_049",
+      "type": "Bank_Account",
+      "name": "Entity 91"
+    },
+    {
+      "id": "BANK_050",
+      "type": "Bank_Account",
+      "name": "Entity 391"
+    },
+    {
+      "id": "BANK_051",
+      "type": "Bank_Account",
+      "name": "Entity 204"
+    },
+    {
+      "id": "BANK_052",
+      "type": "Bank_Account",
+      "name": "Entity 299"
+    },
+    {
+      "id": "BROKER_003",
+      "type": "Intermediate_Shell",
+      "name": "Entity H",
+      "jurisdiction": "UAE",
+      "risk_score": 81
+    },
+    {
+      "id": "BROKER_004",
+      "type": "Intermediate_Shell",
+      "name": "Entity 397",
+      "jurisdiction": "UAE",
+      "risk_score": 82
+    },
+    {
+      "id": "CORP_008",
+      "type": "Corporate",
+      "name": "Entity 230",
+      "registered_address": "Add30, Dubai, UAE",
+      "risk_score": 44
+    },
+    {
+      "id": "CORP_009",
+      "type": "Corporate",
+      "name": "Entity 321",
+      "registered_address": "Add345, Berlin, Germany",
+      "risk_score": 44
+    },
+    {
+      "id": "CORP_010",
+      "type": "Corporate",
+      "name": "Entity 306",
+      "registered_address": "Add861, Mumbai, MH",
+      "esg_score": 69,
+      "risk_score": 74
+    },
+    {
+      "id": "CORP_011",
+      "type": "Corporate",
+      "name": "Entity 379",
+      "jurisdiction": "Germany",
+      "risk_score": 70
+    },
+    {
+      "id": "CORP_012",
+      "type": "Corporate",
+      "name": "Entity 119",
+      "registered_address": "Add139, Berlin, Germany",
+      "esg_score": 25,
+      "risk_score": 74
+    },
+    {
+      "id": "IND_002",
+      "type": "Individual",
+      "name": "Entity 372",
+      "risk_score": 82
+    },
+    {
+      "id": "MSME_003",
+      "type": "MSME",
+      "name": "Entity 198",
+      "registered_address": "Add216, Mauritius",
+      "esg_score": 62,
+      "risk_score": 75
+    },
+    {
+      "id": "MSME_004",
+      "type": "MSME",
+      "name": "Entity 82",
+      "registered_address": "Add704, Singapore",
+      "esg_score": 60,
+      "risk_score": 73
+    },
+    {
+      "id": "MSME_005",
+      "type": "MSME",
+      "name": "Entity 332",
+      "registered_address": "Add501, Hong Kong",
+      "esg_score": 48,
+      "risk_score": 66
+    },
+    {
+      "id": "MSME_053",
+      "type": "MSME",
+      "name": "Entity 202",
+      "registered_address": "Add500, Singapore",
+      "esg_score": 62,
+      "risk_score": 72
+    },
+    {
+      "id": "MSME_054",
+      "type": "MSME",
+      "name": "Entity 297",
+      "registered_address": "Add336, Berlin, Germany",
+      "esg_score": 61,
+      "risk_score": 29
+    },
+    {
+      "id": "MSME_055",
+      "type": "MSME",
+      "name": "Entity 77",
+      "registered_address": "Add285, Berlin, Germany",
+      "esg_score": 79,
+      "risk_score": 28
+    },
+    {
+      "id": "MSME_056",
+      "type": "MSME",
+      "name": "Entity 168",
+      "registered_address": "Add20, Toronto, America",
+      "esg_score": 78,
+      "risk_score": 32
+    },
+    {
+      "id": "MSME_057",
+      "type": "MSME",
+      "name": "Entity 211",
+      "registered_address": "Add666, Singapore",
+      "esg_score": 57,
+      "risk_score": 35
+    },
+    {
+      "id": "MSME_058",
+      "type": "MSME",
+      "name": "Entity 268",
+      "registered_address": "Add973, Pune, MH",
+      "esg_score": 62,
+      "risk_score": 21
+    },
+    {
+      "id": "MSME_059",
+      "type": "MSME",
+      "name": "Entity 217",
+      "registered_address": "Add245, Chennai, TN",
+      "esg_score": 59,
+      "risk_score": 30
+    },
+    {
+      "id": "ORG_002",
+      "type": "Certification_Body",
+      "name": "Entity 399",
+      "jurisdiction": "India",
+      "risk_score": 88,
+      "legitimacy_flag": false
+    },
+    {
+      "id": "SHELL_004",
+      "type": "Intermediate_Shell",
+      "name": "Entity 278",
+      "jurisdiction": "Hong Kong",
+      "risk_score": 70
+    }
+  ],
+  "edges": [
+    {
+      "source": "MSME_053",
+      "target": "BROKER_003",
+      "relationship": "carbon_credit_transfer",
+      "credit_batch_id": "CB-2026-3704",
+      "quantity_tonnes": 15932,
+      "date": "2026-06-19",
+      "suspicious_flag": true,
+      "scenario": "Carbon_Credit_Double_Counting"
+    },
+    {
+      "source": "MSME_053",
+      "target": "BROKER_004",
+      "relationship": "carbon_credit_transfer",
+      "credit_batch_id": "CB-2026-3704",
+      "quantity_tonnes": 15932,
+      "date": "2026-06-20",
+      "suspicious_flag": true,
+      "scenario": "Carbon_Credit_Double_Counting"
+    },
+    {
+      "source": "BROKER_003",
+      "target": "CORP_008",
+      "relationship": "carbon_credit_sale",
+      "quantity_tonnes": 15932,
+      "amount": 23898000,
+      "currency": "INR",
+      "date": "2026-06-22",
+      "scenario": "Carbon_Credit_Double_Counting"
+    },
+    {
+      "source": "BROKER_004",
+      "target": "CORP_009",
+      "relationship": "carbon_credit_sale",
+      "quantity_tonnes": 15932,
+      "amount": 23101400,
+      "currency": "INR",
+      "date": "2026-06-23",
+      "scenario": "Carbon_Credit_Double_Counting"
+    },
+    {
+      "source": "CORP_010",
+      "target": "CORP_011",
+      "relationship": "export_invoice",
+      "declared_value": 17305281,
+      "market_value_estimate": 9118949,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "suspicious_flag": true,
+      "scenario": "Trade_Based_Money_Laundering_Green_Goods"
+    },
+    {
+      "source": "CORP_011",
+      "target": "SHELL_004",
+      "relationship": "freight_and_handling_payment",
+      "amount": 5883795,
+      "currency": "INR",
+      "date": "2026-06-27",
+      "suspicious_flag": true,
+      "scenario": "Trade_Based_Money_Laundering_Green_Goods"
+    },
+    {
+      "source": "SHELL_004",
+      "target": "CORP_010",
+      "relationship": "commission_kickback",
+      "amount": 5537689,
+      "currency": "INR",
+      "date": "2026-07-06",
+      "suspicious_flag": true,
+      "scenario": "Trade_Based_Money_Laundering_Green_Goods"
+    },
+    {
+      "source": "CORP_010",
+      "target": "BANK_045",
+      "relationship": "export_proceeds_deposit",
+      "amount": 16959175,
+      "currency": "INR",
+      "date": "2026-06-29",
+      "scenario": "Trade_Based_Money_Laundering_Green_Goods"
+    },
+    {
+      "source": "IND_002",
+      "target": "MSME_003",
+      "relationship": "cash_deposit",
+      "amount": 501725,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "suspicious_flag": true,
+      "scenario": "Structuring_Smurfing_MSME_Network"
+    },
+    {
+      "source": "MSME_003",
+      "target": "BANK_002",
+      "relationship": "deposit",
+      "amount": 501725,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Structuring_Smurfing_MSME_Network"
+    },
+    {
+      "source": "IND_002",
+      "target": "MSME_004",
+      "relationship": "cash_deposit",
+      "amount": 480888,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "suspicious_flag": true,
+      "scenario": "Structuring_Smurfing_MSME_Network"
+    },
+    {
+      "source": "MSME_004",
+      "target": "BANK_003",
+      "relationship": "deposit",
+      "amount": 480888,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Structuring_Smurfing_MSME_Network"
+    },
+    {
+      "source": "IND_002",
+      "target": "MSME_005",
+      "relationship": "cash_deposit",
+      "amount": 482750,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "suspicious_flag": true,
+      "scenario": "Structuring_Smurfing_MSME_Network"
+    },
+    {
+      "source": "MSME_005",
+      "target": "BANK_004",
+      "relationship": "deposit",
+      "amount": 482750,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Structuring_Smurfing_MSME_Network"
+    },
+    {
+      "source": "ORG_002",
+      "target": "CORP_012",
+      "relationship": "issued_green_certificate",
+      "date": "2026-06-19",
+      "suspicious_flag": true,
+      "scenario": "Greenwashing_Certification_Fraud"
+    },
+    {
+      "source": "CORP_012",
+      "target": "ORG_002",
+      "relationship": "certification_fee_payment",
+      "amount": 213181,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "suspicious_flag": true,
+      "scenario": "Greenwashing_Certification_Fraud"
+    },
+    {
+      "source": "CORP_012",
+      "target": "BANK_046",
+      "relationship": "green_subsidy_claim",
+      "amount": 9091174,
+      "currency": "INR",
+      "date": "2026-06-29",
+      "suspicious_flag": true,
+      "scenario": "Greenwashing_Certification_Fraud"
+    },
+    {
+      "source": "MSME_054",
+      "target": "BANK_047",
+      "relationship": "utility_payment",
+      "amount": 757789,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_055",
+      "target": "BANK_048",
+      "relationship": "utility_payment",
+      "amount": 221769,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_056",
+      "target": "BANK_049",
+      "relationship": "invoice_payment",
+      "amount": 783920,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_057",
+      "target": "BANK_050",
+      "relationship": "invoice_payment",
+      "amount": 1631741,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_058",
+      "target": "BANK_051",
+      "relationship": "invoice_payment",
+      "amount": 1353035,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_059",
+      "target": "BANK_052",
+      "relationship": "vendor_payment",
+      "amount": 289892,
+      "currency": "INR",
+      "date": "2026-06-19",
+      "scenario": "Routine_Business_Activity"
+    }
+  ]
+}

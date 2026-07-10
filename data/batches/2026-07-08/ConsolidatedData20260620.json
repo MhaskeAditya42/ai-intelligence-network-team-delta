@@ -1,0 +1,410 @@
+{
+  "description": "Daily AML test batch for 2026-06-20 \u2014 FinCrime Intelligence Platform synthetic data.",
+  "scenario_count": 5,
+  "scenarios_included": [
+    "Circular_Trading_Round_Tripping",
+    "Gatekeeper_Facilitated_Fraud",
+    "Green_Subsidy_Diversion",
+    "Routine_Business_Activity",
+    "UBO_Concealment_Shell_Network"
+  ],
+  "node_count": 29,
+  "edge_count": 21,
+  "nodes": [
+    {
+      "id": "BANK_001",
+      "type": "Bank_Account",
+      "name": "Entity 389",
+      "jurisdiction": "India"
+    },
+    {
+      "id": "BANK_016",
+      "type": "Bank_Account",
+      "name": "Entity 209"
+    },
+    {
+      "id": "BANK_053",
+      "type": "Bank_Account",
+      "name": "Entity I"
+    },
+    {
+      "id": "BANK_054",
+      "type": "Bank_Account",
+      "name": "Entity 385"
+    },
+    {
+      "id": "BANK_055",
+      "type": "Bank_Account",
+      "name": "Entity 188"
+    },
+    {
+      "id": "BANK_056",
+      "type": "Bank_Account",
+      "name": "Entity 275"
+    },
+    {
+      "id": "BANK_057",
+      "type": "Bank_Account",
+      "name": "Entity F"
+    },
+    {
+      "id": "BANK_058",
+      "type": "Bank_Account",
+      "name": "Entity 282"
+    },
+    {
+      "id": "BANK_059",
+      "type": "Bank_Account",
+      "name": "Entity 350"
+    },
+    {
+      "id": "BANK_060",
+      "type": "Bank_Account",
+      "name": "Entity 144"
+    },
+    {
+      "id": "CORP_013",
+      "type": "Corporate",
+      "name": "Entity B",
+      "registered_address": "Add965, Toronto, America",
+      "risk_score": 68
+    },
+    {
+      "id": "FIRM_003",
+      "type": "Professional_Firm",
+      "name": "Entity 160",
+      "registered_address": "Add477, London, UK",
+      "risk_score": 84
+    },
+    {
+      "id": "GOV_002",
+      "type": "Government_Scheme",
+      "name": "Entity 329",
+      "jurisdiction": "India"
+    },
+    {
+      "id": "IND_009",
+      "type": "Individual",
+      "name": "Entity 89",
+      "role": "Chartered Accountant / Gatekeeper",
+      "pep_flag": false,
+      "risk_score": 88
+    },
+    {
+      "id": "IND_010",
+      "type": "Individual",
+      "name": "Entity S",
+      "role": "Director",
+      "pep_flag": false,
+      "risk_score": 84
+    },
+    {
+      "id": "MSME_001",
+      "type": "MSME",
+      "name": "Entity 296",
+      "registered_address": "Add912, Pune, MH",
+      "esg_score": 58,
+      "risk_score": 71
+    },
+    {
+      "id": "MSME_002",
+      "type": "MSME",
+      "name": "Entity 227",
+      "registered_address": "Add567, Toronto, America",
+      "esg_score": 54,
+      "risk_score": 59
+    },
+    {
+      "id": "MSME_018",
+      "type": "MSME",
+      "name": "Entity 128",
+      "registered_address": "Add359, Toronto, America",
+      "esg_score": 54,
+      "risk_score": 68
+    },
+    {
+      "id": "MSME_019",
+      "type": "MSME",
+      "name": "Entity 149",
+      "registered_address": "Add25, Singapore",
+      "esg_score": 51,
+      "risk_score": 71
+    },
+    {
+      "id": "MSME_020",
+      "type": "MSME",
+      "name": "Entity 240",
+      "registered_address": "Add286, London, UK",
+      "esg_score": 47,
+      "risk_score": 69
+    },
+    {
+      "id": "MSME_060",
+      "type": "MSME",
+      "name": "Entity 351",
+      "registered_address": "Add172, London, UK",
+      "esg_score": 44,
+      "risk_score": 69
+    },
+    {
+      "id": "MSME_061",
+      "type": "MSME",
+      "name": "Entity 113",
+      "registered_address": "Add988, Chennai, TN",
+      "esg_score": 39,
+      "risk_score": 69
+    },
+    {
+      "id": "MSME_062",
+      "type": "MSME",
+      "name": "Entity 186",
+      "registered_address": "Add952, Toronto, America",
+      "esg_score": 54,
+      "risk_score": 81
+    },
+    {
+      "id": "MSME_063",
+      "type": "MSME",
+      "name": "Entity 381",
+      "registered_address": "Add708, Mauritius",
+      "esg_score": 81,
+      "risk_score": 35
+    },
+    {
+      "id": "MSME_064",
+      "type": "MSME",
+      "name": "Entity 87",
+      "registered_address": "Add792, Zurich, Switzerland",
+      "esg_score": 64,
+      "risk_score": 34
+    },
+    {
+      "id": "MSME_065",
+      "type": "MSME",
+      "name": "Entity 346",
+      "registered_address": "Add802, Mauritius",
+      "esg_score": 56,
+      "risk_score": 26
+    },
+    {
+      "id": "MSME_066",
+      "type": "MSME",
+      "name": "Entity 115",
+      "registered_address": "Add380, Cayman Islands",
+      "esg_score": 57,
+      "risk_score": 31
+    },
+    {
+      "id": "MSME_067",
+      "type": "MSME",
+      "name": "Entity 398",
+      "registered_address": "Add870, Pune, MH",
+      "esg_score": 68,
+      "risk_score": 30
+    },
+    {
+      "id": "MSME_068",
+      "type": "MSME",
+      "name": "Entity 59",
+      "registered_address": "Add651, London, UK",
+      "esg_score": 83,
+      "risk_score": 29
+    }
+  ],
+  "edges": [
+    {
+      "source": "MSME_018",
+      "target": "MSME_019",
+      "relationship": "invoice_payment",
+      "amount": 2650000,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "suspicious_flag": true,
+      "scenario": "Circular_Trading_Round_Tripping"
+    },
+    {
+      "source": "MSME_019",
+      "target": "MSME_020",
+      "relationship": "invoice_payment",
+      "amount": 2597000,
+      "currency": "INR",
+      "date": "2026-06-21",
+      "suspicious_flag": true,
+      "scenario": "Circular_Trading_Round_Tripping"
+    },
+    {
+      "source": "MSME_020",
+      "target": "MSME_018",
+      "relationship": "invoice_payment",
+      "amount": 2544000,
+      "currency": "INR",
+      "date": "2026-06-22",
+      "suspicious_flag": true,
+      "scenario": "Circular_Trading_Round_Tripping"
+    },
+    {
+      "source": "MSME_018",
+      "target": "BANK_016",
+      "relationship": "green_loan_application_revenue_proof",
+      "amount": 2544000,
+      "currency": "INR",
+      "date": "2026-06-23",
+      "suspicious_flag": true,
+      "scenario": "Circular_Trading_Round_Tripping"
+    },
+    {
+      "source": "MSME_001",
+      "target": "BANK_001",
+      "relationship": "green_loan_disbursement",
+      "amount": 3950000,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "fee_skim_flag": true,
+      "scenario": "UBO_Concealment_Shell_Network"
+    },
+    {
+      "source": "MSME_002",
+      "target": "BANK_001",
+      "relationship": "green_loan_disbursement",
+      "amount": 2923000,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "fee_skim_flag": true,
+      "scenario": "UBO_Concealment_Shell_Network"
+    },
+    {
+      "source": "IND_009",
+      "target": "FIRM_003",
+      "relationship": "principal_of",
+      "start_date": "2022-05-12",
+      "scenario": "Gatekeeper_Facilitated_Fraud"
+    },
+    {
+      "source": "FIRM_003",
+      "target": "MSME_060",
+      "relationship": "prepared_fraudulent_esg_audit",
+      "date": "2026-06-20",
+      "suspicious_flag": true,
+      "scenario": "Gatekeeper_Facilitated_Fraud"
+    },
+    {
+      "source": "FIRM_003",
+      "target": "MSME_061",
+      "relationship": "prepared_fraudulent_esg_audit",
+      "date": "2026-06-21",
+      "suspicious_flag": true,
+      "scenario": "Gatekeeper_Facilitated_Fraud"
+    },
+    {
+      "source": "MSME_060",
+      "target": "BANK_053",
+      "relationship": "green_loan_disbursement",
+      "amount": 5713589,
+      "currency": "INR",
+      "date": "2026-06-22",
+      "scenario": "Gatekeeper_Facilitated_Fraud"
+    },
+    {
+      "source": "MSME_061",
+      "target": "IND_009",
+      "relationship": "kickback_payment",
+      "amount": 356731,
+      "currency": "INR",
+      "date": "2026-06-23",
+      "suspicious_flag": true,
+      "scenario": "Gatekeeper_Facilitated_Fraud"
+    },
+    {
+      "source": "GOV_002",
+      "target": "MSME_062",
+      "relationship": "subsidy_disbursement",
+      "amount": 9318752,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Green_Subsidy_Diversion"
+    },
+    {
+      "source": "MSME_062",
+      "target": "BANK_054",
+      "relationship": "deposit",
+      "amount": 9318752,
+      "currency": "INR",
+      "date": "2026-06-21",
+      "scenario": "Green_Subsidy_Diversion"
+    },
+    {
+      "source": "BANK_054",
+      "target": "IND_010",
+      "relationship": "fund_transfer",
+      "amount": 7455001,
+      "currency": "INR",
+      "date": "2026-07-04",
+      "suspicious_flag": true,
+      "scenario": "Green_Subsidy_Diversion"
+    },
+    {
+      "source": "IND_010",
+      "target": "CORP_013",
+      "relationship": "property_purchase_payment",
+      "amount": 7268626,
+      "currency": "INR",
+      "date": "2026-07-12",
+      "suspicious_flag": true,
+      "scenario": "Green_Subsidy_Diversion"
+    },
+    {
+      "source": "MSME_063",
+      "target": "BANK_055",
+      "relationship": "salary_payment",
+      "amount": 263702,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_064",
+      "target": "BANK_056",
+      "relationship": "invoice_payment",
+      "amount": 1719809,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_065",
+      "target": "BANK_057",
+      "relationship": "deposit",
+      "amount": 948373,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_066",
+      "target": "BANK_058",
+      "relationship": "vendor_payment",
+      "amount": 765613,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_067",
+      "target": "BANK_059",
+      "relationship": "invoice_payment",
+      "amount": 959164,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Routine_Business_Activity"
+    },
+    {
+      "source": "MSME_068",
+      "target": "BANK_060",
+      "relationship": "vendor_payment",
+      "amount": 370845,
+      "currency": "INR",
+      "date": "2026-06-20",
+      "scenario": "Routine_Business_Activity"
+    }
+  ]
+}
