@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useSearchParams } from "react-router-dom";
 import GraphView from "../components/GraphView";
 import SARPanel from "../components/SARPanel";
 import RiskScorePanel from "../components/RiskScorePanel";
@@ -8,6 +8,8 @@ import { fetchScenarios, fetchSarReport, fetchGraph, fetchRelationshipScores } f
 
 export default function ScenarioDetailPage() {
   const { scenarioId } = useParams();
+  const [searchParams] = useSearchParams();
+  const batchDate = searchParams.get("batch_date") || undefined;
   const [data, setData] = useState(null);
   const [scores, setScores] = useState(null);
   const [error, setError] = useState(null);
@@ -15,14 +17,14 @@ export default function ScenarioDetailPage() {
   useEffect(() => {
     async function load() {
       try {
-        const scenarios = await fetchScenarios();
+        const scenarios = await fetchScenarios(batchDate);
         const scenario = scenarios.find((s) => s.id === scenarioId);
         if (!scenario) throw new Error("Scenario not found");
 
         const [sarData, graphData, scoreData] = await Promise.all([
-          fetchSarReport(scenarioId, scenario.trigger_entity),
-          fetchGraph(scenarioId, scenario.trigger_entity),
-          fetchRelationshipScores(scenarioId),
+          fetchSarReport(scenarioId, scenario.trigger_entity, batchDate),
+          fetchGraph(scenarioId, scenario.trigger_entity, batchDate),
+          fetchRelationshipScores(scenarioId, batchDate),
         ]);
 
         setData({ ...sarData, graph: graphData.graph, scenario });
@@ -32,7 +34,7 @@ export default function ScenarioDetailPage() {
       }
     }
     load();
-  }, [scenarioId]);
+  }, [scenarioId, batchDate]);
 
   if (error) {
     return (
@@ -59,8 +61,8 @@ export default function ScenarioDetailPage() {
   return (
     <div className="py-4">
       <div className="container-fluid px-4">
-        <Link to="/" className="btn btn-outline-primary btn-sm mb-3">
-          ← Back to all scenarios
+        <Link to={batchDate ? `/?batch_date=${batchDate}` : "/"} className="btn btn-outline-primary btn-sm mb-3">
+          ← Back to {batchDate ? `${batchDate} batch` : "all scenarios"}
         </Link>
 
         <h1 className="display-5 fw-bold mb-2">{data.scenario.name}</h1>

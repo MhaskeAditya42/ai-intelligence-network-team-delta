@@ -41,6 +41,7 @@ import argparse
 import json
 import threading
 import time
+from datetime import date
 from pathlib import Path
 
 import networkx as nx
@@ -54,7 +55,7 @@ except ImportError:  # pragma: no cover
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INPUT_PATH = PROJECT_ROOT / "data" / "raw" / "aggregated_entity_properties.json"
-OUTPUT_DIR = PROJECT_ROOT / "data"
+DATA_DIR = PROJECT_ROOT / "data"
 
 EDGE_LINK_FIELDS = ("target_node", "amount", "edge_type")
 
@@ -151,15 +152,27 @@ def build_scenario_payload(component_graph: nx.DiGraph, index: int, complexity: 
     }
 
 
-def main():
-    entities = load_entities(INPUT_PATH)
+def batch_output_dir(batch_date: str | None) -> Path:
+    """Place dated batches in data/batches/YYYY-MM-DD, away from legacy samples."""
+    if batch_date is None:
+        return DATA_DIR
+    try:
+        normalized = date.fromisoformat(batch_date).isoformat()
+    except ValueError as exc:
+        raise ValueError("--batch-date must use the YYYY-MM-DD format") from exc
+    return DATA_DIR / "batches" / normalized
+
+
+def main(input_path: Path = INPUT_PATH, batch_date: str | None = None):
+    entities = load_entities(input_path)
     full_graph = build_full_graph(entities)
+    output_dir = batch_output_dir(batch_date)
 
     components = list(nx.weakly_connected_components(full_graph))
     # deterministic ordering: sort components by their smallest node id
     components.sort(key=lambda comp: sorted(comp)[0])
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
     written = []
 
     for i, comp_nodes in enumerate(components, start=1):
@@ -168,7 +181,7 @@ def main():
         payload = build_scenario_payload(component_graph, i, complexity)
 
         filename = f"scenario_{i:02d}_{complexity}.json"
-        out_path = OUTPUT_DIR / filename
+        out_path = output_dir / filename
         with out_path.open("w", encoding="utf-8") as f:
             json.dump(payload, f, indent=2)
 
@@ -176,11 +189,11 @@ def main():
         print(f"wrote {out_path}  ({component_graph.number_of_nodes()} nodes, "
               f"{component_graph.number_of_edges()} edges, {complexity})")
 
-    print(f"\nFound {len(components)} independent graph(s) in {INPUT_PATH.name}; "
-          f"wrote {len(written)} scenario file(s) to {OUTPUT_DIR}/")
+    print(f"\nFound {len(components)} independent graph(s) in {input_path.name}; "
+          f"wrote {len(written)} scenario file(s) to {output_dir}/")
 
 
-def watch_input_file(path: Path):
+def watch_input_file(path: Path, batch_date: str | None = None):
     if Observer is None or PatternMatchingEventHandler is None:
         raise RuntimeError(
             "watchdog is required for watch mode. Install it with 'pip install watchdog'."
@@ -192,7 +205,7 @@ def watch_input_file(path: Path):
     def trigger_generation():
         print(f"Detected update to {path}. Regenerating scenarios...")
         try:
-            main()
+            main(path, batch_date)
         except Exception as exc:
             print(f"Generation failed: {exc}")
 
@@ -228,8 +241,10 @@ def watch_input_file(path: Path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate scenario JSON files from raw aggregated data.")
     parser.add_argument("--watch", action="store_true", help="Watch the input JSON and regenerate when it changes.")
+    parser.add_argument("--input", type=Path, default=INPUT_PATH, help="Raw batch JSON to process.")
+    parser.add_argument("--batch-date", help="Store output under data/batches/YYYY-MM-DD.")
     args = parser.parse_args()
 
-    main()
+    main(args.input, args.batch_date)
     if args.watch:
-        watch_input_file(INPUT_PATH)
+        watch_input_file(args.input, args.batch_date)

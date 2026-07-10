@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 
 from graph.build_graph import build_synthetic_network, list_available_scenarios
 from graph.extract_signals import extract_network_signals
@@ -6,18 +6,23 @@ from graph.extract_signals import extract_network_signals
 router = APIRouter()
 
 
-def get_graph(scenario: str = "scenario_config"):
+def get_graph(scenario: str = "scenario_config", batch_date: str | None = None):
     try:
-        return build_synthetic_network(scenario)
+        return build_synthetic_network(scenario, batch_date)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f"Scenario '{scenario}' not found")
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
 
 @router.get("/scenarios")
-def list_scenarios():
-    return {"scenarios": list_available_scenarios()}
+def list_scenarios(batch_date: str | None = Query(default=None)):
+    try:
+        return {"scenarios": list_available_scenarios(batch_date)}
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
 
 
 @router.get("/{entity}")
@@ -44,8 +49,8 @@ def analyze_entity(entity: str):
 
 
 @router.get("/{scenario}/{entity}")
-def analyze_entity_scenario(scenario: str, entity: str):
-    G = get_graph(scenario)
+def analyze_entity_scenario(scenario: str, entity: str, batch_date: str | None = Query(default=None)):
+    G = get_graph(scenario, batch_date)
 
     if entity not in G.nodes:
         raise HTTPException(status_code=404, detail=f"Entity '{entity}' not found in scenario '{scenario}'")
@@ -55,6 +60,7 @@ def analyze_entity_scenario(scenario: str, entity: str):
     return {
         "entity": entity,
         "scenario": scenario,
+        "batch_date": batch_date,
         "signals": signals,
         "graph": {
             "nodes": [{"id": n, **attrs} for n, attrs in G.nodes(data=True)],

@@ -1,7 +1,6 @@
-from fastapi import APIRouter, HTTPException
-from pathlib import Path
+from fastapi import APIRouter, HTTPException, Query
 
-from graph.build_graph import build_graph_from_json, list_available_scenarios
+from graph.build_graph import build_synthetic_network, list_available_scenarios
 from graph.extract_signals import extract_network_signals
 from graph.score_relation import score_relationships
 from agents.orchestrator import generate_ai_recommendation
@@ -10,7 +9,6 @@ from agents.worker_mule import identify_mule_layerers
 from agents.worker_ubo import identify_ultimate_beneficiaries
 
 router = APIRouter()
-SCENARIOS_DIR = Path(__file__).parent.parent.parent / "data"
 _graph_cache = {}
 
 
@@ -27,23 +25,29 @@ def graph_to_json(G):
     }
 
 
-def get_graph(scenario: str):
-    if scenario not in _graph_cache:
-        filepath = SCENARIOS_DIR / f"{scenario}.json"
-        if not filepath.exists():
+def get_graph(scenario: str, batch_date: str | None = None):
+    cache_key = (scenario, batch_date)
+    if cache_key not in _graph_cache:
+        try:
+            _graph_cache[cache_key] = build_synthetic_network(scenario, batch_date)
+        except FileNotFoundError:
             raise HTTPException(status_code=404, detail=f"Scenario '{scenario}' not found")
-        _graph_cache[scenario] = build_graph_from_json(str(filepath))
-    return _graph_cache[scenario]
+        except ValueError as exc:
+            raise HTTPException(status_code=422, detail=str(exc))
+    return _graph_cache[cache_key]
 
 
 @router.get("/scenarios")
-def list_scenarios():
-    return {"scenarios": list_available_scenarios()}
+def list_scenarios(batch_date: str | None = Query(default=None)):
+    try:
+        return {"scenarios": list_available_scenarios(batch_date)}
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
 
 
 @router.get("/{scenario}/{entity}")
-def sar_report(scenario: str, entity: str):
-    G = get_graph(scenario)
+def sar_report(scenario: str, entity: str, batch_date: str | None = Query(default=None)):
+    G = get_graph(scenario, batch_date)
 
     if entity not in G.nodes:
         raise HTTPException(status_code=404, detail=f"Entity '{entity}' not found")
@@ -56,6 +60,7 @@ def sar_report(scenario: str, entity: str):
     return {
         "entity": entity,
         "scenario": scenario,
+        "batch_date": batch_date,
         "signals": signals,
         "recommendation": recommendation,
         "relationship_scores": {

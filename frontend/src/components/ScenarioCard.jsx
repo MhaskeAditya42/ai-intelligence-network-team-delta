@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import ForceGraph2D from "react-force-graph-2d";
 import { fetchGraph } from "../api/client";
 
-export default function ScenarioCard({ scenario }) {
+export default function ScenarioCard({ scenario, batchDate }) {
   const [graphData, setGraphData] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchGraph(scenario.id, scenario.trigger_entity)
+    fetchGraph(scenario.id, scenario.trigger_entity, batchDate)
       .then((data) =>
         setGraphData({
           nodes: data.graph.nodes.map((n) => ({ id: n.id })),
@@ -21,11 +21,11 @@ export default function ScenarioCard({ scenario }) {
         })
       )
       .catch(() => setGraphData(null));
-  }, [scenario]);
+  }, [scenario, batchDate]);
 
   return (
     <div
-      onClick={() => navigate(`/scenario/${scenario.id}`)}
+      onClick={() => navigate(`/scenario/${scenario.id}${batchDate ? `?batch_date=${batchDate}` : ""}`)}
       className="card h-100 shadow-sm cursor-pointer transition-all"
       style={{ cursor: "pointer" }}
       onMouseEnter={(e) => e.currentTarget.classList.add("shadow-lg")}

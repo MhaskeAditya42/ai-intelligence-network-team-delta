@@ -1,7 +1,7 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from graph.build_graph import get_scenario_info, list_scenario_infos
+from graph.build_graph import get_scenario_info, list_available_batch_dates, list_scenario_infos
 from routes import analyze, sar_report, relationship_scores, openrouter
 
 app = FastAPI(title="Network Intelligence Framework API")
@@ -21,14 +21,23 @@ app.include_router(relationship_scores.router, prefix="/relationship-scores", ta
 app.include_router(openrouter.router, prefix="/openrouter", tags=["openrouter"])
 
 @app.get("/scenarios")
-def list_scenarios():
-    return {"scenarios": list_scenario_infos()}
+def list_scenarios(batch_date: str | None = Query(default=None)):
+    try:
+        return {"scenarios": list_scenario_infos(batch_date)}
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+
+
+@app.get("/batches")
+def list_batches():
+    """Dates that have completed, queryable data batches."""
+    return {"batch_dates": list_available_batch_dates()}
 
 
 @app.get("/scenarios/{scenario_id}")
-def get_scenario(scenario_id: str):
+def get_scenario(scenario_id: str, batch_date: str | None = Query(default=None)):
     try:
-        return get_scenario_info(scenario_id)
+        return get_scenario_info(scenario_id, batch_date)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f"Scenario '{scenario_id}' not found")
 

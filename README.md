@@ -19,6 +19,22 @@ This framework enables banks and financial institutions to:
 
 ## 🏗️ Architecture Overview
 
+### Daily batch workflow
+
+Process each incoming day's raw entity file into an isolated batch directory:
+
+```bash
+python3 backend/generate_scenarios.py \
+  --input data/raw/aggregated_entity_properties.json \
+  --batch-date 2026-07-10
+```
+
+This creates `data/batches/2026-07-10/`. The API exposes the available dates at
+`GET /batches`; then use `?batch_date=2026-07-10` with `/scenarios`, `/analyze`,
+`/sar-report`, and `/relationship-scores`. The home page calendar passes that date
+through to every request. Existing JSON files directly inside `data/` remain
+available as legacy sample data when no date is selected.
+
 ### Tech Stack
 - **Frontend**: React 19 with Bootstrap 5
 - **Graph Visualization**: react-force-graph-2d (Force-directed graph rendering)
