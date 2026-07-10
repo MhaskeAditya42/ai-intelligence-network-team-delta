@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from graph.build_graph import get_scenario_info, list_scenario_infos
-from routes import analyze, sar_report, relationship_scores
+from routes import analyze, sar_report, relationship_scores, openrouter
 
 app = FastAPI(title="Network Intelligence Framework API")
 
@@ -18,6 +18,7 @@ app.add_middleware(
 app.include_router(analyze.router, prefix="/analyze", tags=["analyze"])
 app.include_router(sar_report.router, prefix="/sar-report", tags=["sar-report"])
 app.include_router(relationship_scores.router, prefix="/relationship-scores", tags=["relationship-scores"])
+app.include_router(openrouter.router, prefix="/openrouter", tags=["openrouter"])
 
 @app.get("/scenarios")
 def list_scenarios():
