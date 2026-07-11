@@ -35,22 +35,24 @@ export default function HomePage() {
           <div>
             <span className="eyebrow">AML investigation workspace</span>
             <h1>Argus AML</h1>
-            <p>Choose a processing date to review that day’s network intelligence.</p>
+            <p>Choose a processing month to review that month’s network intelligence.</p>
           </div>
         </div>
 
         <div className="row align-items-end mb-4">
           <div className="col-sm-5 col-md-4 col-lg-3">
-            <label htmlFor="batch-date" className="form-label fw-semibold">Processing date</label>
+            <label htmlFor="batch-date" className="form-label fw-semibold">Processing month</label>
             <input
               id="batch-date"
-              type="date"
+              type="month"
               className="form-control"
+              min="2026-01"
+              max="2026-07"
               value={selectedDate}
               onChange={(event) => setSelectedDate(event.target.value)}
-              list="available-batch-dates"
+              list="available-batch-months"
             />
-            <datalist id="available-batch-dates">
+            <datalist id="available-batch-months">
               {batchDates.map((batchDate) => <option key={batchDate} value={batchDate} />)}
             </datalist>
           </div>

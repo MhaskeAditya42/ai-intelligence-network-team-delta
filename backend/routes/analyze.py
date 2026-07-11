@@ -6,9 +6,19 @@ from graph.extract_signals import extract_network_signals
 router = APIRouter()
 
 
-def get_graph(scenario: str = "scenario_config", batch_date: str | None = None):
+def get_graph(
+    scenario: str = "scenario_config",
+    batch_date: str | None = None,
+    pass_through_threshold: float = 0.80,
+    time_window_days: int = 7,
+):
     try:
-        return build_synthetic_network(scenario, batch_date)
+        return build_synthetic_network(
+            scenario,
+            batch_date,
+            pass_through_threshold=pass_through_threshold,
+            time_window_days=time_window_days,
+        )
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f"Scenario '{scenario}' not found")
     except ValueError as exc:
@@ -42,15 +52,21 @@ def analyze_entity(entity: str):
             "nodes": [{"id": n, **attrs} for n, attrs in G.nodes(data=True)],
             "edges": [
                 {"source": u, "target": v, **attrs}
-                for u, v, attrs in G.edges(data=True)
+                for u, v, _, attrs in G.edges(keys=True, data=True)
             ],
         },
     }
 
 
 @router.get("/{scenario}/{entity}")
-def analyze_entity_scenario(scenario: str, entity: str, batch_date: str | None = Query(default=None)):
-    G = get_graph(scenario, batch_date)
+def analyze_entity_scenario(
+    scenario: str,
+    entity: str,
+    batch_date: str | None = Query(default=None),
+    pass_through_threshold: float = Query(default=0.80, gt=0, le=1),
+    time_window_days: int = Query(default=7, ge=0),
+):
+    G = get_graph(scenario, batch_date, pass_through_threshold, time_window_days)
 
     if entity not in G.nodes:
         raise HTTPException(status_code=404, detail=f"Entity '{entity}' not found in scenario '{scenario}'")
@@ -61,12 +77,17 @@ def analyze_entity_scenario(scenario: str, entity: str, batch_date: str | None =
         "entity": entity,
         "scenario": scenario,
         "batch_date": batch_date,
+        "inference_config": {
+            "pass_through_threshold": pass_through_threshold,
+            "time_window_days": time_window_days,
+            "max_hops": 2,
+        },
         "signals": signals,
         "graph": {
             "nodes": [{"id": n, **attrs} for n, attrs in G.nodes(data=True)],
             "edges": [
                 {"source": u, "target": v, **attrs}
-                for u, v, attrs in G.edges(data=True)
+                for u, v, _, attrs in G.edges(keys=True, data=True)
             ],
         },
     }

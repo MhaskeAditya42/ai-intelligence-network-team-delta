@@ -17,9 +17,16 @@ export default function SARPanel({ recommendation }) {
       <h4 className="alert-heading">{style.label}</h4>
       <p className="mb-3">{recommendation.rationale}</p>
 
+      {recommendation.risk_indicators?.relationship_score_evidence && (
+        <div className="border-top pt-3 mb-3">
+          <strong className="d-block mb-1">Relationship score assessment</strong>
+          <p className="mb-0 text-muted small">{recommendation.risk_indicators.relationship_score_evidence}</p>
+        </div>
+      )}
+
       <div className="border-top pt-3">
         {Object.entries(recommendation.risk_indicators || {}).map(([key, value]) =>
-          value ? (
+          value && key !== "relationship_score_evidence" ? (
             <div key={key} className="mb-3">
               <strong className="d-block mb-1 text-capitalize">
                 {key.replace(/_/g, " ")}

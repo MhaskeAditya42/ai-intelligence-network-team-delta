@@ -19,8 +19,8 @@ def graph_to_json(G):
             for node in G.nodes
         ],
         "edges": [
-            {"source": u, "target": v, **G.edges[u, v]}
-            for u, v in G.edges
+            {"source": u, "target": v, **attrs}
+            for u, v, _, attrs in G.edges(keys=True, data=True)
         ],
     }
 
@@ -70,7 +70,7 @@ def sar_report(scenario: str, entity: str, batch_date: str | None = Query(defaul
                     "target": target,
                     **info,
                 }
-                for (source, target), info in edge_scores.items()
+                for (source, target, _), info in edge_scores.items()
             ]
         },
         "role_analysis": {

@@ -25,7 +25,10 @@ export default function GraphView({ graphData = { nodes: [], edges: [] }, roleAn
   const [containerWidth, setContainerWidth] = useState(320);
 
   const graphPayload = useMemo(() => {
-    const scoreMap = new Map((edgeScores || []).map((edge) => [`${edge.source}->${edge.target}`, edge.score]));
+    const scoreMap = new Map((edgeScores || []).map((edge) => [
+      `${edge.source}->${edge.target}:${edge.edge_type || "direct"}`,
+      edge.score,
+    ]));
     const nodes = Array.isArray(graphData?.nodes) ? graphData.nodes : [];
     const edges = Array.isArray(graphData?.edges) ? graphData.edges : [];
 
@@ -39,7 +42,10 @@ export default function GraphView({ graphData = { nodes: [], edges: [] }, roleAn
         id: `${edge.source}-${edge.target}-${index}`,
         source: edge.source,
         target: edge.target,
-        data: { ...edge, score: scoreMap.get(`${edge.source}->${edge.target}`) || 0 },
+        data: {
+          ...edge,
+          score: scoreMap.get(`${edge.source}->${edge.target}:${edge.edge_type || "direct"}`) || 0,
+        },
       })),
     };
   }, [graphData, roleAnalysis, edgeScores]);
@@ -97,8 +103,12 @@ export default function GraphView({ graphData = { nodes: [], edges: [] }, roleAn
           height={height}
           nodeCanvasObject={drawNode}
           nodeLabel={(node) => node.data?.name || node.id}
-          linkColor={(link) => (link.data?.score > 0.6 ? "#D85A30" : "#9CA6AF")}
-          linkWidth={(link) => (link.data?.score > 0.6 ? 2.4 : 1.2)}
+          linkColor={(link) => {
+            if (link.data?.edge_type === "inferred") return link.data.confidence_score >= 0.75 ? "#D85A30" : "#F59E0B";
+            return link.data?.score > 0.6 ? "#D85A30" : "#9CA6AF";
+          }}
+          linkWidth={(link) => (link.data?.edge_type === "inferred" ? 2.2 : (link.data?.score > 0.6 ? 2.4 : 1.2))}
+          linkLineDash={(link) => (link.data?.edge_type === "inferred" ? [5, 4] : null)}
           linkDirectionalArrowLength={6}
           linkDirectionalArrowRelPos={0.85}
           onNodeClick={(node) => setSelectedNode(node.data || node)}
@@ -111,6 +121,7 @@ export default function GraphView({ graphData = { nodes: [], edges: [] }, roleAn
         <span><i className="legend-entity" />Organization</span>
         <span><i className="legend-flagged" />Flagged</span>
         <span><b />Flagged transaction path</span>
+        <span><b className="legend-inferred" />Inferred pass-through path</span>
       </div>
       {selectedNode && (
         <aside className="node-detail" aria-live="polite">

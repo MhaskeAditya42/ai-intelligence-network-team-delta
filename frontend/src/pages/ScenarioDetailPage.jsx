@@ -62,7 +62,7 @@ export default function ScenarioDetailPage() {
     <div className="py-4">
       <div className="container-fluid px-4">
         <Link to={batchDate ? `/?batch_date=${batchDate}` : "/"} className="btn btn-outline-primary btn-sm mb-3">
-          ← Back to {batchDate ? `${batchDate} batch` : "all scenarios"}
+          ← Back to {batchDate ? `${batchDate} month` : "all scenarios"}
         </Link>
 
         <h1 className="display-5 fw-bold mb-2">{data.scenario.name}</h1>
