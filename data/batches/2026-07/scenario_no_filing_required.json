@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "name": "Routine Green-Energy Procurement — No Filing Required",
+    "description": "A low-risk, documented green-energy procurement flow with no circular movement, pass-through layering, shared-address cluster, or exclusion exposure.",
+    "trigger_entity": "CORP-1101"
+  },
+  "nodes": [
+    {
+      "id": "CORP-1101",
+      "type": "Corporate",
+      "name": "Sunridge Renewable Energy Limited",
+      "registered_address": "41 Solar Park Road, Banjara Hills, Hyderabad - 500034",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Renewable Energy Generation"
+    },
+    {
+      "id": "MSME-1101",
+      "type": "MSME",
+      "name": "Prism Solar Components",
+      "registered_address": "18 Industrial Estate, Peenya, Bengaluru - 560058",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Solar Equipment Manufacturing"
+    },
+    {
+      "id": "MSME-1102",
+      "type": "MSME",
+      "name": "Evergreen Grid Services",
+      "registered_address": "77 Clean Tech Avenue, Viman Nagar, Pune - 411014",
+      "kyc_status": "Verified - Low Risk",
+      "industry": "Electrical Installation Services"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CORP-1101",
+      "target": "MSME-1101",
+      "amount": 1240000,
+      "date": "2026-07-02",
+      "edge_type": "VENDOR_PAYMENT",
+      "purpose": "Purchase of solar inverter components under approved procurement contract"
+    },
+    {
+      "source": "CORP-1101",
+      "target": "MSME-1102",
+      "amount": 485000,
+      "date": "2026-07-05",
+      "edge_type": "SUPPLY_CHAIN_PAYMENT",
+      "purpose": "Scheduled installation and grid-connection services"
+    }
+  ]
+}

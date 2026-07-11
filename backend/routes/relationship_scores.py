@@ -28,6 +28,6 @@ def relationship_scores(scenario: str, batch_date: str | None = Query(default=No
         "batch_date": batch_date,
         "edge_scores": [
             {"source": s, "target": t, **info}
-            for (s, t), info in scores.items()
+            for (s, t, _), info in scores.items()
         ],
     }

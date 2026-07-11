@@ -23,7 +23,10 @@ export default function RiskScorePanel({ edgeScores }) {
                 </span>
               </div>
               <p className="text-muted small mb-2">
-                {edge.relation} · £{edge.amount?.toLocaleString()}
+                {edge.relation}
+                {edge.edge_type === "inferred"
+                  ? ` · ${edge.hops} hops · ${(edge.pass_through_ratio * 100).toFixed(0)}% pass-through`
+                  : ` · £${edge.amount?.toLocaleString()}`}
               </p>
               {edge.reasons?.length > 0 && (
                 <ul className="small text-muted mb-0 ps-3">

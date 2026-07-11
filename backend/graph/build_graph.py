@@ -1,29 +1,35 @@
 import json
 import networkx as nx
 from pathlib import Path
-from datetime import date
+from datetime import datetime
+from graph.infer_relationships import (
+    DEFAULT_MAX_HOPS,
+    DEFAULT_PASS_THROUGH_THRESHOLD,
+    DEFAULT_TIME_WINDOW_DAYS,
+    infer_pass_through_relationships,
+)
 
 SCENARIOS_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 BATCHES_DIR = SCENARIOS_DIR / "batches"
 
 
-def _validate_batch_date(batch_date: str) -> str:
-    """Validate the calendar value and return its ISO representation."""
+def _validate_batch_month(batch_date: str) -> str:
+    """Validate a monthly batch value and return its YYYY-MM representation."""
     try:
-        return date.fromisoformat(batch_date).isoformat()
+        return datetime.strptime(batch_date, "%Y-%m").strftime("%Y-%m")
     except (TypeError, ValueError) as exc:
-        raise ValueError("batch_date must use the YYYY-MM-DD format") from exc
+        raise ValueError("batch_date must use the YYYY-MM format") from exc
 
 
 def get_scenarios_dir(batch_date: str | None = None) -> Path:
-    """Return the data folder for a dated batch, or the legacy data folder."""
+    """Return the data folder for a monthly batch, or the legacy data folder."""
     if batch_date is None:
         return SCENARIOS_DIR
-    return BATCHES_DIR / _validate_batch_date(batch_date)
+    return BATCHES_DIR / _validate_batch_month(batch_date)
 
 
 def list_available_batch_dates() -> list[str]:
-    """Return only dates that contain at least one batch scenario JSON file."""
+    """Return only months that contain at least one generated scenario JSON file."""
     if not BATCHES_DIR.exists():
         return []
     dates = []
@@ -31,7 +37,7 @@ def list_available_batch_dates() -> list[str]:
         if not path.is_dir():
             continue
         try:
-            normalized = _validate_batch_date(path.name)
+            normalized = _validate_batch_month(path.name)
         except ValueError:
             continue
         if any(path.glob("*.json")):
@@ -39,7 +45,13 @@ def list_available_batch_dates() -> list[str]:
     return sorted(dates, reverse=True)
 
 
-def build_graph_from_json(filepath: str) -> nx.DiGraph:
+def build_graph_from_json(
+    filepath: str,
+    *,
+    pass_through_threshold: float = DEFAULT_PASS_THROUGH_THRESHOLD,
+    time_window_days: int = DEFAULT_TIME_WINDOW_DAYS,
+    max_hops: int = DEFAULT_MAX_HOPS,
+) -> nx.MultiDiGraph:
     """
     Builds a DiGraph from a scenario JSON file.
     Expects: {"nodes": [{"id": ..., ...attrs}], "edges": [{"source": ..., "target": ..., ...attrs}]}
@@ -47,7 +59,7 @@ def build_graph_from_json(filepath: str) -> nx.DiGraph:
     with open(filepath, "r") as f:
         data = json.load(f)
 
-    G = nx.DiGraph()
+    G = nx.MultiDiGraph()
 
     for node in data["nodes"]:
         node = dict(node)  # avoid mutating the original dict
@@ -58,7 +70,19 @@ def build_graph_from_json(filepath: str) -> nx.DiGraph:
         edge = dict(edge)
         source = edge.pop("source")
         target = edge.pop("target")
-        G.add_edge(source, target, **edge)
+        # ``edge_type`` is now the API/rendering contract. Preserve the old
+        # business relationship label separately for scoring and display.
+        relationship_type = edge.pop("edge_type", None)
+        if relationship_type is None:
+            relationship_type = edge.pop("relationship", None)
+        G.add_edge(source, target, edge_type="direct", relationship_type=relationship_type, **edge)
+
+    infer_pass_through_relationships(
+        G,
+        pass_through_threshold=pass_through_threshold,
+        time_window_days=time_window_days,
+        max_hops=max_hops,
+    )
 
     return G
 
@@ -109,10 +133,22 @@ def get_scenario_info(scenario: str, batch_date: str | None = None) -> dict:
     raise FileNotFoundError(f"Scenario '{scenario}' not found")
 
 
-def build_synthetic_network(scenario: str = "scenario_config", batch_date: str | None = None) -> nx.DiGraph:
+def build_synthetic_network(
+    scenario: str = "scenario_config",
+    batch_date: str | None = None,
+    *,
+    pass_through_threshold: float = DEFAULT_PASS_THROUGH_THRESHOLD,
+    time_window_days: int = DEFAULT_TIME_WINDOW_DAYS,
+    max_hops: int = DEFAULT_MAX_HOPS,
+) -> nx.MultiDiGraph:
     """Convenience wrapper — loads a scenario JSON file from the data folder."""
     default_path = get_scenarios_dir(batch_date) / f"{scenario}.json"
-    return build_graph_from_json(str(default_path))
+    return build_graph_from_json(
+        str(default_path),
+        pass_through_threshold=pass_through_threshold,
+        time_window_days=time_window_days,
+        max_hops=max_hops,
+    )
 
 
 if __name__ == "__main__":

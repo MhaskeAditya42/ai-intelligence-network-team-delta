@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ScenarioCard from "../components/ScenarioCard";
+import DashboardMetrics from "../components/DashboardMetrics";
 import { fetchBatchDates, fetchScenarios } from "../api/client";
 
 export default function HomePage() {
@@ -12,9 +13,12 @@ export default function HomePage() {
 
   useEffect(() => {
     fetchBatchDates()
-      .then(setBatchDates)
+      .then((dates) => {
+        setBatchDates(dates);
+        if (!selectedDate && dates[0]) setSelectedDate(dates[0]);
+      })
       .catch(() => setBatchDates([]));
-  }, []);
+  }, [selectedDate]);
 
   useEffect(() => {
     setLoading(true);
@@ -25,32 +29,39 @@ export default function HomePage() {
   }, [selectedDate]);
 
   return (
-    <div className="py-5">
+    <div className="argus-page py-5">
       <div className="container-fluid px-4">
-        <h1 className="display-4 fw-bold mb-2">Network Intelligence Framework</h1>
-        <p className="lead text-muted mb-4">
-          Choose a processing date to view that day's batch, then open a network for its risk analysis.
-        </p>
+        <div className="page-heading">
+          <div>
+            <span className="eyebrow">AML investigation workspace</span>
+            <h1>Argus AML</h1>
+            <p>Choose a processing month to review that month’s network intelligence.</p>
+          </div>
+        </div>
 
         <div className="row align-items-end mb-4">
           <div className="col-sm-5 col-md-4 col-lg-3">
-            <label htmlFor="batch-date" className="form-label fw-semibold">Processing date</label>
+            <label htmlFor="batch-date" className="form-label fw-semibold">Processing month</label>
             <input
               id="batch-date"
-              type="date"
+              type="month"
               className="form-control"
+              min="2026-01"
+              max="2026-07"
               value={selectedDate}
               onChange={(event) => setSelectedDate(event.target.value)}
-              list="available-batch-dates"
+              list="available-batch-months"
             />
-            <datalist id="available-batch-dates">
+            <datalist id="available-batch-months">
               {batchDates.map((batchDate) => <option key={batchDate} value={batchDate} />)}
             </datalist>
           </div>
           <div className="col-sm-auto mt-2 mt-sm-0">
-            <button type="button" className="btn btn-outline-secondary" onClick={() => setSelectedDate("")}>All sample data</button>
+            <button type="button" className="btn btn-outline-secondary" onClick={() => setSelectedDate(batchDates[0] || "")}>Latest batch</button>
           </div>
         </div>
+
+        <DashboardMetrics scenarios={scenarios} />
 
         {loading && (
           <div className="alert alert-info d-flex align-items-center" role="alert">

@@ -46,7 +46,33 @@ def score_relationships(graph: nx.DiGraph) -> dict:
         n for entities in address_map.values() if len(entities) >= 2 for n in entities
     }
 
-    for source, target, attrs in graph.edges(data=True):
+    for source, target, _, attrs in graph.edges(keys=True, data=True):
+        # The inference engine's confidence is the risk score for a derived
+        # relationship. Keep it alongside (rather than overwriting) a direct
+        # edge with the same endpoints.
+        if attrs.get("edge_type") == "inferred":
+            ratio = attrs.get("pass_through_ratio", 0)
+            hops = attrs.get("hops", 2)
+            path = attrs.get("path", [])
+            reasons = [
+                f"{ratio:.0%} of funds passed through {' → '.join(path) or 'an intermediary'} within {attrs.get('time_delta_days', 0)} days",
+                f"derived from a {hops}-hop transaction path",
+            ]
+            if attrs.get("matched_identifiers"):
+                reasons.append(
+                    "shared entity identifiers: " + ", ".join(attrs["matched_identifiers"])
+                )
+            edge_scores[(source, target, "inferred")] = {
+                "score": attrs.get("confidence_score", 0),
+                "relation": "Inferred pass-through",
+                "edge_type": "inferred",
+                "amount": attrs.get("inferred_amount"),
+                "hops": hops,
+                "pass_through_ratio": ratio,
+                "path": path,
+                "reasons": reasons,
+            }
+            continue
         score = 0.0
         reasons = []
 
@@ -81,16 +107,17 @@ def score_relationships(graph: nx.DiGraph) -> dict:
                     reasons.append(f"high pass-through retention ({retention_ratio:.0%} of inbound funds forwarded)")
 
         # 5. Relationship type base risk
-        relation_type = attrs.get("edge_type") or attrics.get("relation") if False else attrs.get("edge_type")
+        relation_type = attrs.get("relationship_type")
         type_weight = RELATION_RISK_WEIGHTS.get(relation_type, 0.3)
         score += type_weight * 0.15  # scaled contribution
 
         # Clamp to 0-1
         score = min(round(score, 3), 1.0)
 
-        edge_scores[(source, target)] = {
+        edge_scores[(source, target, "direct")] = {
             "score": score,
             "relation": relation_type,
+            "edge_type": "direct",
             "amount": attrs.get("amount"),
             "reasons": reasons,
         }
@@ -112,9 +139,12 @@ def find_strongest_connection(graph: nx.DiGraph, node_a: str, node_b: str, edge_
 
     for i in range(len(path) - 1):
         u, v = path[i], path[i + 1]
-        key = (u, v) if (u, v) in edge_scores else (v, u)
-        if key in edge_scores:
-            path_scores.append(edge_scores[key]["score"])
+        candidates = [
+            info for (source, target, _), info in edge_scores.items()
+            if (source, target) in {(u, v), (v, u)}
+        ]
+        if candidates:
+            path_scores.append(max(candidate["score"] for candidate in candidates))
 
     avg_score = sum(path_scores) / len(path_scores) if path_scores else 0
 
