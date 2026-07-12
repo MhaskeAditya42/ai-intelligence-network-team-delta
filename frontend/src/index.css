@@ -69,6 +69,6 @@ code { font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", mon
 .node-detail { position: absolute; right: 1rem; top: 1rem; display: flex; justify-content: space-between; gap: 1rem; min-width: 210px; padding: .75rem; background: rgba(255,255,255,.96); border: .5px solid var(--argus-border); border-radius: 10px; }.node-detail strong, .node-detail small { display: block; }.node-detail strong { margin: .2rem 0; font-size: .9rem; }.node-detail small { color: #647473; font-size: .75rem; }.node-detail button { width: 24px; height: 24px; border: 0; color: #60706f; background: transparent; font-size: 1.25rem; line-height: 1; }
 .g6-tooltip { color: #193335; font-size: 12px; line-height: 1.55; }
 
-.argus-footer { color: #F4FCF9; background: #2B645C; border-top: 1px solid rgba(255, 255, 255, 0.16); }.argus-footer-muted { color: rgba(234, 248, 243, 0.78) !important; }.argus-footer hr { border-color: rgba(255, 255, 255, 0.2); }
+.argus-footer { color: #F4FCF9; background: linear-gradient(135deg, #3F8A7F 0%, #2F6F67 100%); border-top: 1px solid rgba(255, 255, 255, 0.16); }.argus-footer-muted { color: rgba(234, 248, 243, 0.78) !important; }.argus-footer hr { border-color: rgba(255, 255, 255, 0.2); }
 
 @media (max-width: 576px) { .argus-page { padding-top: 2rem !important; }.metric-grid { grid-template-columns: 1fr; }.node-detail { left: 1rem; bottom: 2.4rem; top: auto; } }
