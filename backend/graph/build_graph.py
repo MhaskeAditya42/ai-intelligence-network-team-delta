@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 import json
 import networkx as nx
 from pathlib import Path
 from datetime import datetime
+from typing import Optional
 from graph.infer_relationships import (
     DEFAULT_MAX_HOPS,
     DEFAULT_PASS_THROUGH_THRESHOLD,
@@ -21,7 +24,7 @@ def _validate_batch_month(batch_date: str) -> str:
         raise ValueError("batch_date must use the YYYY-MM format") from exc
 
 
-def get_scenarios_dir(batch_date: str | None = None) -> Path:
+def get_scenarios_dir(batch_date: Optional[str] = None) -> Path:
     """Return the data folder for a monthly batch, or the legacy data folder."""
     if batch_date is None:
         return SCENARIOS_DIR
@@ -87,7 +90,7 @@ def build_graph_from_json(
     return G
 
 
-def list_available_scenarios(batch_date: str | None = None) -> list[str]:
+def list_available_scenarios(batch_date: Optional[str] = None) -> list[str]:
     """Return the stem names of all JSON scenario files in the data folder."""
     return sorted(path.stem for path in get_scenarios_dir(batch_date).glob("*.json"))
 
@@ -96,7 +99,7 @@ def _humanize_scenario_name(scenario_id: str) -> str:
     return scenario_id.replace("_", " ").title()
 
 
-def list_scenario_infos(batch_date: str | None = None) -> list[dict]:
+def list_scenario_infos(batch_date: Optional[str] = None) -> list[dict]:
     """Return metadata objects for all scenario JSON files."""
     scenarios = []
     scenarios_dir = get_scenarios_dir(batch_date)
@@ -125,7 +128,7 @@ def list_scenario_infos(batch_date: str | None = None) -> list[dict]:
     return scenarios
 
 
-def get_scenario_info(scenario: str, batch_date: str | None = None) -> dict:
+def get_scenario_info(scenario: str, batch_date: Optional[str] = None) -> dict:
     """Return metadata for a single scenario ID."""
     for info in list_scenario_infos(batch_date):
         if info["id"] == scenario:
@@ -135,7 +138,7 @@ def get_scenario_info(scenario: str, batch_date: str | None = None) -> dict:
 
 def build_synthetic_network(
     scenario: str = "scenario_config",
-    batch_date: str | None = None,
+    batch_date: Optional[str] = None,
     *,
     pass_through_threshold: float = DEFAULT_PASS_THROUGH_THRESHOLD,
     time_window_days: int = DEFAULT_TIME_WINDOW_DAYS,

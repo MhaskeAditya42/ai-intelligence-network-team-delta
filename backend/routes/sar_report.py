@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException, Query
 
 from graph.build_graph import build_synthetic_network, list_available_scenarios
@@ -25,7 +29,7 @@ def graph_to_json(G):
     }
 
 
-def get_graph(scenario: str, batch_date: str | None = None):
+def get_graph(scenario: str, batch_date: Optional[str] = None):
     cache_key = (scenario, batch_date)
     if cache_key not in _graph_cache:
         try:
@@ -38,7 +42,7 @@ def get_graph(scenario: str, batch_date: str | None = None):
 
 
 @router.get("/scenarios")
-def list_scenarios(batch_date: str | None = Query(default=None)):
+def list_scenarios(batch_date: Optional[str] = Query(default=None)):
     try:
         return {"scenarios": list_available_scenarios(batch_date)}
     except ValueError as exc:
@@ -46,7 +50,7 @@ def list_scenarios(batch_date: str | None = Query(default=None)):
 
 
 @router.get("/{scenario}/{entity}")
-def sar_report(scenario: str, entity: str, batch_date: str | None = Query(default=None)):
+def sar_report(scenario: str, entity: str, batch_date: Optional[str] = Query(default=None)):
     G = get_graph(scenario, batch_date)
 
     if entity not in G.nodes:

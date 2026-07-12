@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 """
 generate_scenarios_from_properties.py
 
@@ -43,6 +45,7 @@ import threading
 import time
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 import networkx as nx
 
@@ -174,7 +177,7 @@ def _validate_batch_month(batch_month: str) -> str:
         raise ValueError("--month must use the YYYY-MM format") from exc
 
 
-def batch_output_dir(batch_month: str | None) -> Path:
+def batch_output_dir(batch_month: Optional[str]) -> Path:
     """Place generated scenarios in data/batches/YYYY-MM."""
     if batch_month is None:
         return DATA_DIR
@@ -187,7 +190,7 @@ def monthly_input_path(batch_month: str) -> Path:
     return MONTHLY_INPUTS_DIR / _validate_batch_month(batch_month) / "consolidated.json"
 
 
-def main(input_path: Path | None = None, batch_month: str | None = None):
+def main(input_path: Optional[Path] = None, batch_month: Optional[str] = None):
     if batch_month and input_path is None:
         input_path = monthly_input_path(batch_month)
     input_path = input_path or INPUT_PATH
@@ -219,7 +222,7 @@ def main(input_path: Path | None = None, batch_month: str | None = None):
           f"wrote {len(written)} scenario file(s) to {output_dir}/")
 
 
-def watch_input_file(path: Path, batch_month: str | None = None):
+def watch_input_file(path: Path, batch_month: Optional[str] = None):
     if Observer is None or PatternMatchingEventHandler is None:
         raise RuntimeError(
             "watchdog is required for watch mode. Install it with 'pip install watchdog'."

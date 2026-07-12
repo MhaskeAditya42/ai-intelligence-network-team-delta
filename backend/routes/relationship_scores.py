@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException, Query
 
 from graph.build_graph import build_synthetic_network
@@ -7,7 +11,7 @@ router = APIRouter()
 _graph_cache = {}
 
 
-def get_graph(scenario: str, batch_date: str | None = None):
+def get_graph(scenario: str, batch_date: Optional[str] = None):
     cache_key = (scenario, batch_date)
     if cache_key not in _graph_cache:
         try:
@@ -20,7 +24,7 @@ def get_graph(scenario: str, batch_date: str | None = None):
 
 
 @router.get("/{scenario}")
-def relationship_scores(scenario: str, batch_date: str | None = Query(default=None)):
+def relationship_scores(scenario: str, batch_date: Optional[str] = Query(default=None)):
     G = get_graph(scenario, batch_date)
     scores = score_relationships(G)
     return {

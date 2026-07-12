@@ -59,14 +59,18 @@ export default function ScenarioDetailPage() {
   }
 
   return (
-    <div className="py-4">
+    <div className="pt-2 pb-4">
       <div className="container-fluid px-4">
-        <Link to={batchDate ? `/?batch_date=${batchDate}` : "/"} className="btn btn-outline-primary btn-sm mb-3">
-          ← Back to {batchDate ? `${batchDate} month` : "all scenarios"}
-        </Link>
+        <div className="d-flex justify-content-between align-items-start mb-1">
+          <h1 className="fw-bold mb-0 fs-2">{data.scenario.name}</h1>
+          <div className="ms-3">
+            <Link to={batchDate ? `/?batch_date=${batchDate}` : "/"} className="btn btn-outline-primary btn-sm">
+              ← Back to {batchDate ? `${batchDate} month` : "all scenarios"}
+            </Link>
+          </div>
+        </div>
 
-        <h1 className="display-5 fw-bold mb-2">{data.scenario.name}</h1>
-        <p className="text-muted lead mb-4">{data.scenario.description}</p>
+        <p className="text-muted lead mb-3">{data.scenario.description}</p>
 
         <div className="row g-3">
           <div className="col-lg-8">

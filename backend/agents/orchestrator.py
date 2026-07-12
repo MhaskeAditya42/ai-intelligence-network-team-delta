@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 import os
 import json
 import networkx as nx
 import requests
+from typing import Optional
 from dotenv import load_dotenv
 
 from graph.build_graph import build_synthetic_network
@@ -80,7 +83,7 @@ def _relationship_score_summary(graph: nx.DiGraph, target_node: str) -> dict:
     }
 
 
-def _relationship_score_feedback(summary: dict) -> str | None:
+def _relationship_score_feedback(summary: dict) -> Optional[str]:
     """Explain the strongest relationship score without overstating it as fact."""
     relationships = summary["subject_relationships"]
     if not relationships:
@@ -103,7 +106,7 @@ def _relationship_score_feedback(summary: dict) -> str | None:
 
 
 def _determine_classification(
-    target_node: str, signals: dict, worker_output: dict, relationship_summary: dict | None = None
+    target_node: str, signals: dict, worker_output: dict, relationship_summary: Optional[dict] = None
 ) -> dict:
     """
     Single source of truth for the SAR/EDD/NO_ACTION decision. This is
@@ -204,7 +207,7 @@ def _build_prompt(
     signals: dict,
     worker_output: dict,
     decision: dict,
-    relationship_summary: dict | None = None,
+    relationship_summary: Optional[dict] = None,
 ) -> str:
     payload = json.dumps({
         "subject": target_node,

@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException, Query
 
 from graph.build_graph import build_synthetic_network, list_available_scenarios
@@ -8,7 +12,7 @@ router = APIRouter()
 
 def get_graph(
     scenario: str = "scenario_config",
-    batch_date: str | None = None,
+    batch_date: Optional[str] = None,
     pass_through_threshold: float = 0.80,
     time_window_days: int = 7,
 ):
@@ -28,7 +32,7 @@ def get_graph(
 
 
 @router.get("/scenarios")
-def list_scenarios(batch_date: str | None = Query(default=None)):
+def list_scenarios(batch_date: Optional[str] = Query(default=None)):
     try:
         return {"scenarios": list_available_scenarios(batch_date)}
     except ValueError as exc:
@@ -62,7 +66,7 @@ def analyze_entity(entity: str):
 def analyze_entity_scenario(
     scenario: str,
     entity: str,
-    batch_date: str | None = Query(default=None),
+    batch_date: Optional[str] = Query(default=None),
     pass_through_threshold: float = Query(default=0.80, gt=0, le=1),
     time_window_days: int = Query(default=7, ge=0),
 ):

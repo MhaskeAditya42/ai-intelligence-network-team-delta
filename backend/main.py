@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Optional
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -21,7 +25,7 @@ app.include_router(relationship_scores.router, prefix="/relationship-scores", ta
 app.include_router(openrouter.router, prefix="/openrouter", tags=["openrouter"])
 
 @app.get("/scenarios")
-def list_scenarios(batch_date: str | None = Query(default=None)):
+def list_scenarios(batch_date: Optional[str] = Query(default=None)):
     try:
         return {"scenarios": list_scenario_infos(batch_date)}
     except ValueError as exc:
@@ -35,7 +39,7 @@ def list_batches():
 
 
 @app.get("/scenarios/{scenario_id}")
-def get_scenario(scenario_id: str, batch_date: str | None = Query(default=None)):
+def get_scenario(scenario_id: str, batch_date: Optional[str] = Query(default=None)):
     try:
         return get_scenario_info(scenario_id, batch_date)
     except FileNotFoundError:

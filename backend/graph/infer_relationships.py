@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from datetime import date, datetime
-from typing import Any
+from typing import Any, Optional
 
 import networkx as nx
 
@@ -21,7 +21,7 @@ _IDENTIFIER_FIELDS = (
 _ACCOUNT_OPEN_FIELDS = ("account_open_date", "account_opened_at", "opened_at", "incorporation_date")
 
 
-def _as_datetime(value: Any) -> datetime | None:
+def _as_datetime(value: Any) -> Optional[datetime]:
     if not value:
         return None
     if isinstance(value, datetime):
@@ -34,7 +34,7 @@ def _as_datetime(value: Any) -> datetime | None:
         return None
 
 
-def _edge_time(attrs: dict[str, Any]) -> datetime | None:
+def _edge_time(attrs: dict[str, Any]) -> Optional[datetime]:
     return next((_as_datetime(attrs.get(field)) for field in _TIME_FIELDS if _as_datetime(attrs.get(field))), None)
 
 
