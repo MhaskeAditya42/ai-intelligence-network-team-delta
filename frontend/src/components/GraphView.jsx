@@ -93,6 +93,30 @@ export default function GraphView({ graphData = { nodes: [], edges: [] }, roleAn
     ctx.fillText(node.id.replace(/[_-]/g, " "), node.x, node.y + 20 / globalScale);
   };
 
+  const drawEdgeScore = (link, ctx, globalScale) => {
+    const source = typeof link.source === "object" ? link.source : null;
+    const target = typeof link.target === "object" ? link.target : null;
+    if (!source || !target || !Number.isFinite(source.x) || !Number.isFinite(target.x)) return;
+
+    const label = Number(link.data?.score || 0).toFixed(2);
+    const x = (source.x + target.x) / 2;
+    const y = (source.y + target.y) / 2;
+    const fontSize = 9 / globalScale;
+    const padding = 3 / globalScale;
+
+    ctx.save();
+    ctx.font = `600 ${fontSize}px Sans-Serif`;
+    const width = ctx.measureText(label).width + padding * 2;
+    const height = fontSize + padding * 2;
+    ctx.fillStyle = "rgba(255, 255, 255, 0.92)";
+    ctx.fillRect(x - width / 2, y - height / 2, width, height);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = link.data?.edge_type === "inferred" ? "#9A4D00" : "#40514F";
+    ctx.fillText(label, x, y);
+    ctx.restore();
+  };
+
   return (
     <div className="argus-graph-shell">
       <div ref={containerRef} className="argus-graph-canvas" style={{ height }}>
@@ -109,6 +133,8 @@ export default function GraphView({ graphData = { nodes: [], edges: [] }, roleAn
           }}
           linkWidth={(link) => (link.data?.edge_type === "inferred" ? 2.2 : (link.data?.score > 0.6 ? 2.4 : 1.2))}
           linkLineDash={(link) => (link.data?.edge_type === "inferred" ? [5, 4] : null)}
+          linkCanvasObjectMode={() => "after"}
+          linkCanvasObject={drawEdgeScore}
           linkDirectionalArrowLength={6}
           linkDirectionalArrowRelPos={0.85}
           onNodeClick={(node) => setSelectedNode(node.data || node)}
