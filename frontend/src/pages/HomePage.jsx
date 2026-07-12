@@ -31,14 +31,6 @@ export default function HomePage() {
   return (
     <div className="argus-page py-5">
       <div className="container-fluid px-4">
-        <div className="page-heading">
-          <div>
-            <span className="eyebrow">AML investigation workspace</span>
-            <h1>Argus AML</h1>
-            <p>Choose a processing month to review that month’s network intelligence.</p>
-          </div>
-        </div>
-
         <div className="row align-items-end mb-4">
           <div className="col-sm-5 col-md-4 col-lg-3">
             <label htmlFor="batch-date" className="form-label fw-semibold">Processing month</label>

@@ -4,6 +4,7 @@ import GraphView from "../components/GraphView";
 import SARPanel from "../components/SARPanel";
 import RiskScorePanel from "../components/RiskScorePanel";
 import TransactionToGraphExplainer from "../components/TransactionToGraphExplainer";
+import GraphExplanationPanel from "../components/GraphExplanationPanel";
 import { fetchScenarios, fetchSarReport, fetchGraph, fetchRelationshipScores } from "../api/client";
 
 export default function ScenarioDetailPage() {
@@ -59,36 +60,34 @@ export default function ScenarioDetailPage() {
   }
 
   return (
-    <div className="py-4">
+    <div className="scenario-detail-page py-4">
       <div className="container-fluid px-4">
-        <Link to={batchDate ? `/?batch_date=${batchDate}` : "/"} className="btn btn-outline-primary btn-sm mb-3">
-          ← Back to {batchDate ? `${batchDate} month` : "all scenarios"}
-        </Link>
-
-        <h1 className="display-5 fw-bold mb-2">{data.scenario.name}</h1>
-        <p className="text-muted lead mb-4">{data.scenario.description}</p>
-
-        <div className="row g-3">
-          <div className="col-lg-8">
-            <div className="card shadow-sm border-0">
-              <div className="card-body p-2">
-                <GraphView graphData={data.graph} roleAnalysis={data.role_analysis} edgeScores={scores} width={1000} height={500} />
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4">
-            <SARPanel recommendation={data.recommendation} />
-          </div>
-
-          <div className="col-12">
-            <RiskScorePanel edgeScores={scores} />
-          </div>
-
-          <div className="col-12">
-            <TransactionToGraphExplainer graphData={data.graph} />
-          </div>
+        <div className="scenario-detail-toolbar">
+          <Link to={batchDate ? `/?batch_date=${batchDate}` : "/"} className="btn btn-outline-primary btn-sm scenario-back-link">
+            ← Back to {batchDate ? `${batchDate} month` : "all scenarios"}
+          </Link>
         </div>
+
+        <header className="scenario-detail-heading">
+          <span className="eyebrow">Scenario investigation</span>
+          <h1>{data.scenario.name}</h1>
+          <p>{data.scenario.description}</p>
+        </header>
+
+        <main className="scenario-detail-layout">
+          <section className="scenario-top-grid" aria-label="Network and recommendation">
+            <div className="scenario-panel scenario-graph-panel">
+              <GraphView graphData={data.graph} roleAnalysis={data.role_analysis} edgeScores={scores} width={1000} height={500} />
+            </div>
+            <SARPanel recommendation={data.recommendation} />
+          </section>
+
+          <section className="scenario-support-grid" aria-label="Relationship scoring and methodology">
+            <GraphExplanationPanel />
+            <RiskScorePanel edgeScores={scores} />
+            <TransactionToGraphExplainer graphData={data.graph} />
+          </section>
+        </main>
       </div>
     </div>
   );

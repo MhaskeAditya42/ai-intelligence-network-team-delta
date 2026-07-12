@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "name": "Complex Vendor Network — Low-Confidence Pass-Through",
+    "description": "A seven-account supplier network containing one slower, lower-confidence inferred pass-through relationship. The relationship is retained for monitoring but does not meet the due-diligence threshold.",
+    "trigger_entity": "Entity_D"
+  },
+  "nodes": [
+    {"id": "Entity_A", "type": "Corporate", "name": "Harbour Green Infrastructure Ltd", "registered_address": "Addr-1, Mumbai"},
+    {"id": "MSME_A", "type": "MSME", "name": "Pune Solar Fabrication", "registered_address": "Addr-2, Pune"},
+    {"id": "MSME_B", "type": "MSME", "name": "Nagpur Site Services", "registered_address": "Addr-5, Nagpur"},
+    {"id": "Entity_D", "type": "Corporate", "name": "Ahmedabad Equipment Supply Ltd", "registered_address": "Addr-6, Ahmedabad"},
+    {"id": "Vendor_E", "type": "Corporate", "name": "Western Grid Contractors", "registered_address": "Addr-7, Surat"},
+    {"id": "Vendor_F", "type": "MSME", "name": "Clean Metering Works", "registered_address": "Addr-8, Vadodara"},
+    {"id": "Vendor_G", "type": "Corporate", "name": "Coastal Freight Services", "registered_address": "Addr-9, Goa"}
+  ],
+  "edges": [
+    {"source": "Entity_A", "target": "MSME_A", "amount": 500000, "date": "2026-07-01", "edge_type": "GREEN_LOAN_DISBURSEMENT"},
+    {"source": "MSME_A", "target": "Entity_D", "amount": 400000, "date": "2026-07-08", "edge_type": "VENDOR_PAYMENT"},
+    {"source": "Entity_A", "target": "MSME_B", "amount": 150000, "date": "2026-07-02", "edge_type": "CONSULTING_FEE"},
+    {"source": "MSME_B", "target": "Vendor_E", "amount": 75000, "date": "2026-07-04", "edge_type": "SUPPLY_CHAIN_PAYMENT"},
+    {"source": "Vendor_F", "target": "Vendor_G", "amount": 210000, "date": "2026-07-03", "edge_type": "VENDOR_PAYMENT"}
+  ]
+}

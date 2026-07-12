@@ -19,7 +19,7 @@ export default function Header() {
             />
           )}
           <span>
-            <strong>Argus AML</strong>
+            <strong>Green Financing <span className="argus-brand-divider">·</span> Argus AML</strong>
             <small>Financial crime intelligence</small>
           </span>
         </Link>
@@ -44,9 +44,9 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about">
+              <NavLink className="nav-link" to="/about">
                 About
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
