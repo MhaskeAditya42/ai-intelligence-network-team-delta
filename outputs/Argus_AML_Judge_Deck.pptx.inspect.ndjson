@@ -1,0 +1,299 @@
+{"kind":"deck","id":"pr/twbq8z","name":"Deck"}
+{"kind":"layout","layoutId":"3feae415-b2f7-42f4-a18d-ec8d0d5d88ea","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"93a418fd-dfde-4d2b-90d8-087e67f0ace7","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/3l1sty","slide":1,"title":"01","textShapes":18}
+{"kind":"textbox","id":"sh/m1ofqp0z","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/94zy14jq","slide":1,"text":"Green capital needs a clearer line of sight","textPreview":"Green capital needs a clearer line of sight","textChars":43,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/83qxszi5","slide":1,"text":"Argus AML turns fragmented flows into explainable network intelligence.","textPreview":"Argus AML turns fragmented flows into explainable network intelligence.","textChars":71,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/zyxgvu1o","slide":1,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/yxofmp03","slide":1,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/l0fyx4je","slide":1,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/0z6xozit","slide":1,"bbox":[72,205,515,390]}
+{"kind":"shape","id":"sh/budgra1c","slide":1,"bbox":[98,233,95,29]}
+{"kind":"textbox","id":"sh/q94fi50r","slide":1,"text":"THE GAP","textPreview":"THE GAP","textChars":7,"textLines":1,"bbox":[107,240,77,15]}
+{"kind":"textbox","id":"sh/kvy9cvap","slide":1,"text":"Green financing creates\nlegitimate complexity - and\nvaluable cover for crime.","textPreview":"Green financing creates | legitimate complexity - and | valuable cover for crime.","textChars":77,"textLines":3,"bbox":[98,282,435,130]}
+{"kind":"textbox","id":"sh/5g7a50ba","slide":1,"text":"SPVs, suppliers, consultants and offshore entities can hide diversion, layering and beneficial ownership.","textPreview":"SPVs, suppliers, consultants and offshore entities can hide diversion, layering and beneficial ownership.","textChars":105,"textLines":1,"bbox":[98,438,420,58]}
+{"kind":"textbox","id":"sh/itwra5sj","slide":1,"text":"1-hop monitoring sees a payment.\nArgus follows the money beyond it.","textPreview":"1-hop monitoring sees a payment. | Argus follows the money beyond it.","textChars":67,"textLines":2,"bbox":[98,526,408,42]}
+{"kind":"shape","id":"sh/ju5s3at4","slide":1,"bbox":[630,210,555,98]}
+{"kind":"textbox","id":"sh/wre98vat","slide":1,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[651,234,30,30]}
+{"kind":"textbox","id":"sh/xsna10by","slide":1,"text":"Ring-fenced funds","textPreview":"Ring-fenced funds","textChars":17,"textLines":1,"bbox":[697,228,440,25]}
+{"kind":"textbox","id":"sh/apwr6lsn","slide":1,"text":"Must reach verified sustainable activity.","textPreview":"Must reach verified sustainable activity.","textChars":41,"textLines":1,"bbox":[697,257,440,25]}
+{"kind":"shape","id":"sh/bq5szqt8","slide":1,"bbox":[630,335,555,98]}
+{"kind":"textbox","id":"sh/gnitkfax","slide":1,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[651,359,30,30]}
+{"kind":"textbox","id":"sh/horadkbi","slide":1,"text":"Legacy blind spot","textPreview":"Legacy blind spot","textChars":17,"textLines":1,"bbox":[697,353,440,25]}
+{"kind":"textbox","id":"sh/p4naxk3m","slide":1,"text":"Rules assess transactions in isolation.","textPreview":"Rules assess transactions in isolation.","textChars":39,"textLines":1,"bbox":[697,382,440,25]}
+{"kind":"shape","id":"sh/o3e94f21","slide":1,"bbox":[630,460,555,98]}
+{"kind":"textbox","id":"sh/325svalg","slide":1,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[651,484,30,30]}
+{"kind":"textbox","id":"sh/21wr25kv","slide":1,"text":"Argus objective","textPreview":"Argus objective","textChars":15,"textLines":1,"bbox":[697,478,440,25]}
+{"kind":"textbox","id":"sh/103atk3a","slide":1,"text":"Expose 2-hop paths, prioritize evidence, reduce review burden.","textPreview":"Expose 2-hop paths, prioritize evidence, reduce review burden.","textChars":62,"textLines":1,"bbox":[697,507,440,25]}
+{"kind":"notes","id":"nt/3l1sty","slide":1,"text":""}
+{"kind":"slide","id":"sl/uth9lx","slide":2,"title":"02","textShapes":21}
+{"kind":"textbox","id":"sh/gb694red","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/fadsvmds","slide":2,"text":"Argus enforces the intent behind green-finance controls","textPreview":"Argus enforces the intent behind green-finance controls","textChars":55,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/u94r21wn","slide":2,"text":"Every payment is assessed for purpose, provenance and destination integrity.","textPreview":"Every payment is assessed for purpose, provenance and destination integrity.","textChars":76,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/t8vatwv2","slide":2,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/snm90reh","slide":2,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/7mdsrmdw","slide":2,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/6l4ryhwb","slide":2,"bbox":[72,218,346,300]}
+{"kind":"shape","id":"sh/d4za5gv6","slide":2,"bbox":[96,244,48,29]}
+{"kind":"textbox","id":"sh/c3qtcbel","slide":2,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[105,251,30,15]}
+{"kind":"textbox","id":"sh/q1gvm50r","slide":2,"text":"USE OF PROCEEDS","textPreview":"USE OF PROCEEDS","textChars":15,"textLines":1,"bbox":[96,300,295,42]}
+{"kind":"textbox","id":"sh/rmpwva1w","slide":2,"text":"Funds should support verified green activity.","textPreview":"Funds should support verified green activity.","textChars":45,"textLines":1,"bbox":[96,355,285,52]}
+{"kind":"shape","id":"sh/snydofih","slide":2,"bbox":[96,425,298,0]}
+{"kind":"textbox","id":"sh/do7exkj2","slide":2,"text":"ARGUS ALIGNMENT","textPreview":"ARGUS ALIGNMENT","textChars":15,"textLines":1,"bbox":[96,449,190,16]}
+{"kind":"textbox","id":"sh/ixwvil0f","slide":2,"text":"Trace proceeds across direct and inferred paths.","textPreview":"Trace proceeds across direct and inferred paths.","textChars":48,"textLines":1,"bbox":[96,470,286,38]}
+{"kind":"shape","id":"sh/3y5crq10","slide":2,"bbox":[454,218,346,300]}
+{"kind":"shape","id":"sh/4zydkvil","slide":2,"bbox":[478,244,48,29]}
+{"kind":"textbox","id":"sh/507et0j6","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[487,251,30,15]}
+{"kind":"textbox","id":"sh/2t0vup0j","slide":2,"text":"KYC & BENEFICIAL OWNERSHIP","textPreview":"KYC & BENEFICIAL OWNERSHIP","textChars":26,"textLines":1,"bbox":[478,300,295,42]}
+{"kind":"textbox","id":"sh/nu9w3u14","slide":2,"text":"Counterparties and UBOs must remain transparent.","textPreview":"Counterparties and UBOs must remain transparent.","textChars":48,"textLines":1,"bbox":[478,355,285,52]}
+{"kind":"shape","id":"sh/zy1svmhw","slide":2,"bbox":[478,425,298,0]}
+{"kind":"textbox","id":"sh/yxsbmhgb","slide":2,"text":"ARGUS ALIGNMENT","textPreview":"ARGUS ALIGNMENT","textChars":15,"textLines":1,"bbox":[478,449,190,16]}
+{"kind":"textbox","id":"sh/l03axwzm","slide":2,"text":"Surface shared addresses, identifiers and hidden affiliations.","textPreview":"Surface shared addresses, identifiers and hidden affiliations.","textChars":62,"textLines":1,"bbox":[478,470,286,38]}
+{"kind":"shape","id":"sh/kzutory1","slide":2,"bbox":[836,218,346,300]}
+{"kind":"shape","id":"sh/72lszmhs","slide":2,"bbox":[860,244,48,29]}
+{"kind":"textbox","id":"sh/m1cbq1g7","slide":2,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[869,251,30,15]}
+{"kind":"textbox","id":"sh/943a1wzy","slide":2,"text":"AML / SANCTIONS SCREENING","textPreview":"AML / SANCTIONS SCREENING","textChars":25,"textLines":1,"bbox":[860,300,295,42]}
+{"kind":"textbox","id":"sh/83utsryd","slide":2,"text":"Risk must be detected, justified and escalated.","textPreview":"Risk must be detected, justified and escalated.","textChars":47,"textLines":1,"bbox":[860,355,285,52]}
+{"kind":"shape","id":"sh/v6ls36ho","slide":2,"bbox":[860,425,298,0]}
+{"kind":"textbox","id":"sh/u5cbu1gj","slide":2,"text":"ARGUS ALIGNMENT","textPreview":"ARGUS ALIGNMENT","textChars":15,"textLines":1,"bbox":[860,449,190,16]}
+{"kind":"textbox","id":"sh/sve9kbeh","slide":2,"text":"Screen exclusions, rank evidence and prepare an auditable case.","textPreview":"Screen exclusions, rank evidence and prepare an auditable case.","textChars":63,"textLines":1,"bbox":[860,470,286,38]}
+{"kind":"textbox","id":"sh/dwnatgv2","slide":2,"text":"Result: compliance logic becomes visual, explainable and reviewable - not a black-box score.","textPreview":"Result: compliance logic becomes visual, explainable and reviewable - not a black-box score.","textChars":92,"textLines":1,"bbox":[72,555,1050,32]}
+{"kind":"notes","id":"nt/uth9lx","slide":2,"text":""}
+{"kind":"slide","id":"sl/6l0o6r","slide":3,"title":"03","textShapes":22}
+{"kind":"textbox","id":"sh/b6907ql4","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/c721gv2p","slide":3,"text":"A focused agent workflow converts events into defensible evidence","textPreview":"A focused agent workflow converts events into defensible evidence","textChars":65,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/d8bi903a","slide":3,"text":"Specialized workers are orchestrated around a single investigator outcome.","textPreview":"Specialized workers are orchestrated around a single investigator outcome.","textChars":74,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/y9kji5kv","slide":3,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/zat0balg","slide":3,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/0b21kf21","slide":3,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/lcbid03m","slide":3,"bbox":[72,300,150,88]}
+{"kind":"textbox","id":"sh/edgz61kr","slide":3,"text":"EVENTS","textPreview":"EVENTS","textChars":6,"textLines":1,"bbox":[72,318,150,19]}
+{"kind":"textbox","id":"sh/fep0z6lc","slide":3,"text":"Transactions\nKYC · watchlists","textPreview":"Transactions | KYC · watchlists","textChars":29,"textLines":2,"bbox":[72,342,150,36]}
+{"kind":"shape","id":"sh/jmdgjqtw","slide":3,"bbox":[265,268,188,154]}
+{"kind":"shape","id":"sh/il4fqlcb","slide":3,"bbox":[283,288,38,29]}
+{"kind":"textbox","id":"sh/58vyl0b2","slide":3,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[292,295,20,15]}
+{"kind":"textbox","id":"sh/knmxsvuh","slide":3,"text":"Ingestion agent","textPreview":"Ingestion agent","textChars":15,"textLines":1,"bbox":[283,330,150,23]}
+{"kind":"textbox","id":"sh/vitgfqt0","slide":3,"text":"Validates, deduplicates and enriches incoming events.","textPreview":"Validates, deduplicates and enriches incoming events.","textChars":53,"textLines":1,"bbox":[283,360,150,43]}
+{"kind":"shape","id":"sh/ahkfmlcf","slide":3,"bbox":[485,268,188,154]}
+{"kind":"shape","id":"sh/xkvyhgb6","slide":3,"bbox":[503,288,38,29]}
+{"kind":"textbox","id":"sh/wjmxovul","slide":3,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[512,295,20,15]}
+{"kind":"textbox","id":"sh/netgb6to","slide":3,"text":"Graph agent","textPreview":"Graph agent","textChars":11,"textLines":1,"bbox":[503,330,150,23]}
+{"kind":"textbox","id":"sh/mdkfi1c3","slide":3,"text":"Builds the bounded scenario graph and expands 2-hop paths.","textPreview":"Builds the bounded scenario graph and expands 2-hop paths.","textChars":58,"textLines":1,"bbox":[503,360,150,43]}
+{"kind":"shape","id":"sh/qp0zu1wb","slide":3,"bbox":[705,268,188,154]}
+{"kind":"shape","id":"sh/bq9gn6xw","slide":3,"bbox":[723,288,38,29]}
+{"kind":"textbox","id":"sh/cbihwbe1","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[732,295,20,15]}
+{"kind":"textbox","id":"sh/dcbypgfm","slide":3,"text":"Signal agent","textPreview":"Signal agent","textChars":12,"textLines":1,"bbox":[723,330,150,23]}
+{"kind":"textbox","id":"sh/ydkzylw7","slide":3,"text":"Finds cycles, address density, exclusions and mule patterns.","textPreview":"Finds cycles, address density, exclusions and mule patterns.","textChars":60,"textLines":1,"bbox":[723,360,150,43]}
+{"kind":"shape","id":"sh/zetgr6xs","slide":3,"bbox":[925,268,188,154]}
+{"kind":"shape","id":"sh/0f2h0bed","slide":3,"bbox":[943,288,38,29]}
+{"kind":"textbox","id":"sh/lgbytgfy","slide":3,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[952,295,20,15]}
+{"kind":"textbox","id":"sh/mhkz2lwj","slide":3,"text":"Evidence agent","textPreview":"Evidence agent","textChars":14,"textLines":1,"bbox":[943,330,150,23]}
+{"kind":"textbox","id":"sh/nit0vqxo","slide":3,"text":"Calculates explainable scores and assembles case evidence.","textPreview":"Calculates explainable scores and assembles case evidence.","textChars":58,"textLines":1,"bbox":[943,360,150,43]}
+{"kind":"shape","id":"sh/xcf21kz6","slide":3,"bbox":[1150,300,58,88]}
+{"kind":"textbox","id":"sh/wb61sfyl","slide":3,"text":"CASE\n+ SAR","textPreview":"CASE | + SAR","textChars":10,"textLines":2,"bbox":[1150,322,58,40]}
+{"kind":"shape","id":"sh/vadkzah0","slide":3,"bbox":[226,339,35,10]}
+{"kind":"shape","id":"sh/a94jqpgf","slide":3,"bbox":[457,340,24,10]}
+{"kind":"shape","id":"sh/5gf254z2","slide":3,"bbox":[677,340,24,10]}
+{"kind":"shape","id":"sh/4f61wzyh","slide":3,"bbox":[897,340,24,10]}
+{"kind":"shape","id":"sh/jexk3uhw","slide":3,"bbox":[1117,340,29,10]}
+{"kind":"shape","id":"sh/idojupgr","slide":3,"bbox":[485,206,190,29]}
+{"kind":"textbox","id":"sh/t4z294ze","slide":3,"text":"ORCHESTRATOR","textPreview":"ORCHESTRATOR","textChars":12,"textLines":1,"bbox":[494,213,172,15]}
+{"kind":"textbox","id":"sh/s3q10zyt","slide":3,"text":"Routes jobs · manages retry / backpressure · keeps human approval in the loop","textPreview":"Routes jobs · manages retry / backpressure · keeps human approval in the loop","textChars":77,"textLines":1,"bbox":[344,486,590,25]}
+{"kind":"notes","id":"nt/6l0o6r","slide":3,"text":""}
+{"kind":"slide","id":"sl/b0o3gu","slide":4,"title":"04","textShapes":21}
+{"kind":"textbox","id":"sh/2lcnypw7","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/po3694vi","slide":4,"text":"One graph explains both the benign and the complex case","textPreview":"One graph explains both the benign and the complex case","textChars":55,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/onu50zed","slide":4,"text":"Direct risk detects known signals; inferred confidence reveals rapid pass-through.","textPreview":"Direct risk detects known signals; inferred confidence reveals rapid pass-through.","textChars":82,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/fi1o3adg","slide":4,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/exsnupwv","slide":4,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/1k365kvm","slide":4,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"textbox","id":"sh/0ja5wfe1","slide":4,"text":"EXAMPLE SCENARIOS","textPreview":"EXAMPLE SCENARIOS","textChars":17,"textLines":1,"bbox":[72,200,230,18]}
+{"kind":"shape","id":"sh/ze5ofed0","slide":4,"bbox":[72,231,500,145]}
+{"kind":"textbox","id":"sh/ydw769wf","slide":4,"text":"Simple: routine procurement","textPreview":"Simple: routine procurement","textChars":27,"textLines":1,"bbox":[94,250,250,21]}
+{"kind":"shape","id":"sh/of6hc769","slide":4,"bbox":[99,300,110,40]}
+{"kind":"shape","id":"sh/9gzy5c7u","slide":4,"bbox":[330,284,115,40]}
+{"kind":"shape","id":"sh/mdofaxo3","slide":4,"bbox":[330,329,115,40]}
+{"kind":"textbox","id":"sh/nexg32po","slide":4,"text":"CORP-1101","textPreview":"CORP-1101","textChars":9,"textLines":1,"bbox":[99,312,110,16]}
+{"kind":"textbox","id":"sh/0b6x876x","slide":4,"text":"MSME-1102\n0.09 low","textPreview":"MSME-1102 | 0.09 low","textChars":18,"textLines":2,"bbox":[330,289,115,31]}
+{"kind":"textbox","id":"sh/1cfy1c7i","slide":4,"text":"MSME-1101\n0.06 low","textPreview":"MSME-1101 | 0.06 low","textChars":18,"textLines":2,"bbox":[330,334,115,31]}
+{"kind":"shape","id":"sh/epof6xo7","slide":4,"bbox":[213,315,113,10]}
+{"kind":"shape","id":"sh/zaxgz2ps","slide":4,"bbox":[213,315,113,10]}
+{"kind":"shape","id":"sh/cnmx4nq1","slide":4,"bbox":[72,396,500,202]}
+{"kind":"textbox","id":"sh/dovyxs7m","slide":4,"text":"Complex: layered green-bond proceeds","textPreview":"Complex: layered green-bond proceeds","textChars":36,"textLines":1,"bbox":[94,415,330,21]}
+{"kind":"shape","id":"sh/tsnmlkvy","slide":4,"bbox":[98,472,88,38]}
+{"kind":"shape","id":"sh/s7e5cfet","slide":4,"bbox":[228,472,92,38]}
+{"kind":"shape","id":"sh/76l4jud8","slide":4,"bbox":[366,472,88,38]}
+{"kind":"textbox","id":"sh/65cnapwn","slide":4,"text":"CORP","textPreview":"CORP","textChars":4,"textLines":1,"bbox":[98,479,88,25]}
+{"kind":"textbox","id":"sh/543mhkv2","slide":4,"text":"MSME\nMULE","textPreview":"MSME | MULE","textChars":9,"textLines":2,"bbox":[228,479,92,25]}
+{"kind":"textbox","id":"sh/k3u58feh","slide":4,"text":"BANK","textPreview":"BANK","textChars":4,"textLines":1,"bbox":[366,479,88,25]}
+{"kind":"shape","id":"sh/j2l4fadw","slide":4,"bbox":[190,486,34,10]}
+{"kind":"shape","id":"sh/i1cn65wb","slide":4,"bbox":[324,486,38,10]}
+{"kind":"shape","id":"sh/p076t4v6","slide":4,"bbox":[142,510,268,0]}
+{"kind":"textbox","id":"sh/4zy5kze1","slide":4,"text":"100% pass-through in 24h  →  inferred confidence 0.791  →  High risk","textPreview":"100% pass-through in 24h  →  inferred confidence 0.791  →  High risk","textChars":68,"textLines":1,"bbox":[94,535,445,28]}
+{"kind":"shape","id":"sh/m58je1c3","slide":4,"bbox":[615,231,593,367]}
+{"kind":"textbox","id":"sh/n6hkn6to","slide":4,"text":"EXPLAINABLE SCORING","textPreview":"EXPLAINABLE SCORING","textChars":19,"textLines":1,"bbox":[643,257,230,18]}
+{"kind":"textbox","id":"sh/o7q1gbu9","slide":4,"text":"DIRECT EDGE RISK","textPreview":"DIRECT EDGE RISK","textChars":16,"textLines":1,"bbox":[643,294,210,21]}
+{"kind":"textbox","id":"sh/98j2pgbu","slide":4,"text":"min(1.0, 0.35 cycle + 0.20 address +\n0.25 exclusion + 0.15 pass-through + 0.15 type)","textPreview":"min(1.0, 0.35 cycle + 0.20 address + | 0.25 exclusion + 0.15 pass-through + 0.15 type)","textChars":84,"textLines":2,"bbox":[643,324,510,51]}
+{"kind":"textbox","id":"sh/eh8ja1c7","slide":4,"text":"INFERRED 2-HOP CONFIDENCE","textPreview":"INFERRED 2-HOP CONFIDENCE","textChars":25,"textLines":1,"bbox":[643,406,285,21]}
+{"kind":"textbox","id":"sh/z2hkj6ts","slide":4,"text":"min(1.0, ratio × 0.45 + timing + hop + mule + identifier match)","textPreview":"min(1.0, ratio × 0.45 + timing + hop + mule + identifier match)","textChars":63,"textLines":1,"bbox":[643,437,510,28]}
+{"kind":"textbox","id":"sh/03q1crud","slide":4,"text":"0.00-0.29  Low   ·   0.30-0.59  Monitor   ·   0.60-0.74  EDD   ·   0.75+  Investigate / SAR","textPreview":"0.00-0.29  Low   ·   0.30-0.59  Monitor   ·   0.60-0.74  EDD   ·   0.75+  Investigate / SAR","textChars":91,"textLines":1,"bbox":[643,510,510,26]}
+{"kind":"notes","id":"nt/b0o3gu","slide":4,"text":""}
+{"kind":"slide","id":"sl/8z9v7y","slide":5,"title":"05","textShapes":20}
+{"kind":"textbox","id":"sh/hsrahsz2","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/upgb6d0b","slide":5,"text":"A modular architecture keeps graph analytics fast and auditable","textPreview":"A modular architecture keeps graph analytics fast and auditable","textChars":63,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/vqpsfihw","slide":5,"text":"The source design separates ingestion, analysis and investigator action.","textPreview":"The source design separates ingestion, analysis and investigator action.","textChars":72,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/8ny943i5","slide":5,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/to7ad8zq","slide":5,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/61gr2t0f","slide":5,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/72psbyh0","slide":5,"bbox":[72,252,245,195]}
+{"kind":"shape","id":"sh/sj2tg7yp","slide":5,"bbox":[72,252,245,44]}
+{"kind":"textbox","id":"sh/dkbapcza","slide":5,"text":"DATA INTAKE","textPreview":"DATA INTAKE","textChars":11,"textLines":1,"bbox":[90,268,209,18]}
+{"kind":"textbox","id":"sh/t8rqtcna","slide":5,"text":"Monthly JSON / event streams\nTransactions · KYC · watchlists","textPreview":"Monthly JSON / event streams | Transactions · KYC · watchlists","textChars":60,"textLines":2,"bbox":[92,319,205,54]}
+{"kind":"textbox","id":"sh/s7i9k7mp","slide":5,"text":"Raw + enriched data","textPreview":"Raw + enriched data","textChars":19,"textLines":1,"bbox":[92,402,205,16]}
+{"kind":"shape","id":"sh/r698r254","slide":5,"bbox":[358,252,245,195]}
+{"kind":"shape","id":"sh/650rix4j","slide":5,"bbox":[358,252,245,44]}
+{"kind":"textbox","id":"sh/547qpsny","slide":5,"text":"SCENARIO GENERATION","textPreview":"SCENARIO GENERATION","textChars":19,"textLines":1,"bbox":[376,268,209,18]}
+{"kind":"textbox","id":"sh/43y9gn6d","slide":5,"text":"Cluster disconnected components\nCreate bounded investigation graphs","textPreview":"Cluster disconnected components | Create bounded investigation graphs","textChars":67,"textLines":2,"bbox":[378,319,205,54]}
+{"kind":"textbox","id":"sh/j2p8n25s","slide":5,"text":"Focused scenarios","textPreview":"Focused scenarios","textChars":17,"textLines":1,"bbox":[378,402,205,16]}
+{"kind":"shape","id":"sh/i1grexon","slide":5,"bbox":[644,252,245,195]}
+{"kind":"shape","id":"sh/p0ba1wn2","slide":5,"bbox":[644,252,245,44]}
+{"kind":"textbox","id":"sh/oz29srmx","slide":5,"text":"FASTAPI ANALYTICS","textPreview":"FASTAPI ANALYTICS","textChars":17,"textLines":1,"bbox":[662,268,209,18]}
+{"kind":"textbox","id":"sh/8fulkzy5","slide":5,"text":"Graph traversal · 2-hop inference\nSignals · role analysis · scoring","textPreview":"Graph traversal · 2-hop inference | Signals · role analysis · scoring","textChars":67,"textLines":2,"bbox":[664,319,205,54]}
+{"kind":"textbox","id":"sh/9g32d4zq","slide":5,"text":"Explainable evidence","textPreview":"Explainable evidence","textChars":20,"textLines":1,"bbox":[664,402,205,16]}
+{"kind":"shape","id":"sh/mtcjipgz","slide":5,"bbox":[930,252,245,195]}
+{"kind":"shape","id":"sh/7elkbuhk","slide":5,"bbox":[930,252,245,44]}
+{"kind":"textbox","id":"sh/kra1gfy9","slide":5,"text":"REACT INVESTIGATOR WORKSPACE","textPreview":"REACT INVESTIGATOR WORKSPACE","textChars":28,"textLines":1,"bbox":[948,268,209,18]}
+{"kind":"textbox","id":"sh/lsj29kze","slide":5,"text":"Interactive network · scorecards\nCase decision · SAR evidence","textPreview":"Interactive network · scorecards | Case decision · SAR evidence","textChars":61,"textLines":2,"bbox":[950,319,205,54]}
+{"kind":"textbox","id":"sh/ypsjepg3","slide":5,"text":"Human decision","textPreview":"Human decision","textChars":14,"textLines":1,"bbox":[950,402,205,16]}
+{"kind":"shape","id":"sh/zq1k7aho","slide":5,"bbox":[321,344.5,33,10]}
+{"kind":"shape","id":"sh/cna1cfyx","slide":5,"bbox":[607,344.5,33,10]}
+{"kind":"shape","id":"sh/xoj25kzi","slide":5,"bbox":[893,344.5,33,10]}
+{"kind":"textbox","id":"sh/fihkfa1k","slide":5,"text":"API surface: scenarios · analysis · relationship matrices · SAR package","textPreview":"API surface: scenarios · analysis · relationship matrices · SAR package","textChars":71,"textLines":1,"bbox":[72,505,1136,24]}
+{"kind":"shape","id":"sh/eh83m5kz","slide":5,"bbox":[344,555,250,29]}
+{"kind":"textbox","id":"sh/1kz2hkja","slide":5,"text":"SOLID = DOCUMENTED TRANSFER","textPreview":"SOLID = DOCUMENTED TRANSFER","textChars":27,"textLines":1,"bbox":[353,562,232,15]}
+{"kind":"shape","id":"sh/0jqlof2p","slide":5,"bbox":[620,555,315,29]}
+{"kind":"textbox","id":"sh/nm14ja1g","slide":5,"text":"DOTTED = INFERRED 2-HOP RELATIONSHIP","textPreview":"DOTTED = INFERRED 2-HOP RELATIONSHIP","textChars":36,"textLines":1,"bbox":[629,562,297,15]}
+{"kind":"notes","id":"nt/8z9v7y","slide":5,"text":""}
+{"kind":"slide","id":"sl/y1bop3","slide":6,"title":"06","textShapes":24}
+{"kind":"textbox","id":"sh/m1szedwn","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/94ji9svy","slide":6,"text":"The live demo moves from raw events to an actionable decision","textPreview":"The live demo moves from raw events to an actionable decision","textChars":61,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/83ahgnet","slide":6,"text":"A six-step walkthrough makes the product value visible in under two minutes.","textPreview":"A six-step walkthrough makes the product value visible in under two minutes.","textChars":76,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/v6l0b2d4","slide":6,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/a5czixwj","slide":6,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/x83idsva","slide":6,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/w7uhknep","slide":6,"bbox":[72,277,154,168]}
+{"kind":"shape","id":"sh/jal0f2dg","slide":6,"bbox":[89,297,28,29]}
+{"kind":"textbox","id":"sh/i9czmxcv","slide":6,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[98,304,10,15]}
+{"kind":"textbox","id":"sh/wzy103ut","slide":6,"text":"Select scenario","textPreview":"Select scenario","textChars":15,"textLines":1,"bbox":[89,340,120,33]}
+{"kind":"textbox","id":"sh/xkrit8ve","slide":6,"text":"Green financing batch","textPreview":"Green financing batch","textChars":21,"textLines":1,"bbox":[89,385,120,31]}
+{"kind":"shape","id":"sh/axgjytcn","slide":6,"bbox":[262,277,154,168]}
+{"kind":"shape","id":"sh/byp0ryd8","slide":6,"bbox":[279,297,28,29]}
+{"kind":"textbox","id":"sh/kni143up","slide":6,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[288,304,10,15]}
+{"kind":"textbox","id":"sh/lor2x8va","slide":6,"text":"Build graph","textPreview":"Build graph","textChars":11,"textLines":1,"bbox":[279,340,120,33]}
+{"kind":"textbox","id":"sh/yl0j2dcz","slide":6,"text":"Nodes + direct transfers","textPreview":"Nodes + direct transfers","textChars":24,"textLines":1,"bbox":[279,385,120,31]}
+{"kind":"shape","id":"sh/jm90vid4","slide":6,"bbox":[452,277,154,168]}
+{"kind":"shape","id":"sh/8r218nu1","slide":6,"bbox":[469,297,28,29]}
+{"kind":"textbox","id":"sh/tsb21sbm","slide":6,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[478,304,10,15]}
+{"kind":"textbox","id":"sh/hwna5oze","slide":6,"text":"Trace 2-hop","textPreview":"Trace 2-hop","textChars":11,"textLines":1,"bbox":[469,340,120,33]}
+{"kind":"textbox","id":"sh/gve9wjit","slide":6,"text":"Pass-through candidates","textPreview":"Pass-through candidates","textChars":23,"textLines":1,"bbox":[469,385,120,31]}
+{"kind":"shape","id":"sh/vu5s3eh8","slide":6,"bbox":[642,277,154,168]}
+{"kind":"shape","id":"sh/utwru90n","slide":6,"bbox":[659,297,28,29]}
+{"kind":"textbox","id":"sh/p07a98za","slide":6,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[668,304,10,15]}
+{"kind":"textbox","id":"sh/4ze903ip","slide":6,"text":"Score evidence","textPreview":"Score evidence","textChars":14,"textLines":1,"bbox":[659,340,120,33]}
+{"kind":"textbox","id":"sh/3y5s7yhk","slide":6,"text":"Risk + confidence factors","textPreview":"Risk + confidence factors","textChars":25,"textLines":1,"bbox":[659,385,120,31]}
+{"kind":"shape","id":"sh/ixwryt0z","slide":6,"bbox":[832,277,154,168]}
+{"kind":"shape","id":"sh/l43ax4j6","slide":6,"bbox":[849,297,28,29]}
+{"kind":"textbox","id":"sh/k3u9ozil","slide":6,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[858,304,10,15]}
+{"kind":"textbox","id":"sh/a987y5gj","slide":6,"text":"Review alert","textPreview":"Review alert","textChars":12,"textLines":1,"bbox":[849,340,120,33]}
+{"kind":"textbox","id":"sh/ba1o7ax4","slide":6,"text":"Graph + scorecard","textPreview":"Graph + scorecard","textChars":17,"textLines":1,"bbox":[849,385,120,31]}
+{"kind":"shape","id":"sh/wbap0fyp","slide":6,"bbox":[1022,277,154,168]}
+{"kind":"shape","id":"sh/xcj69kfu","slide":6,"bbox":[1039,297,28,29]}
+{"kind":"textbox","id":"sh/yds72pgf","slide":6,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1048,304,10,15]}
+{"kind":"textbox","id":"sh/je18bax0","slide":6,"text":"Decide output","textPreview":"Decide output","textChars":13,"textLines":1,"bbox":[1039,340,120,33]}
+{"kind":"textbox","id":"sh/kzap4fyl","slide":6,"text":"Dismiss · EDD · SAR","textPreview":"Dismiss · EDD · SAR","textChars":19,"textLines":1,"bbox":[1039,385,120,31]}
+{"kind":"shape","id":"sh/l0jqdkf6","slide":6,"bbox":[230,356,28,10]}
+{"kind":"shape","id":"sh/eho7qlgb","slide":6,"bbox":[420,356,28,10]}
+{"kind":"shape","id":"sh/zihozqhw","slide":6,"bbox":[610,356,28,10]}
+{"kind":"shape","id":"sh/fy943m9k","slide":6,"bbox":[800,356,28,10]}
+{"kind":"shape","id":"sh/exgnuh8z","slide":6,"bbox":[990,356,28,10]}
+{"kind":"shape","id":"sh/10rm5crq","slide":6,"bbox":[218,522,844,58]}
+{"kind":"textbox","id":"sh/gzi5wrq5","slide":6,"text":"Judge moment: reveal the dotted inferred edge, the score breakdown, then the evidence-backed escalation.","textPreview":"Judge moment: reveal the dotted inferred edge, the score breakdown, then the evidence-backed escalation.","textChars":104,"textLines":1,"bbox":[242,541,795,20]}
+{"kind":"notes","id":"nt/y1bop3","slide":6,"text":""}
+{"kind":"slide","id":"sl/cdu9ej","slide":7,"title":"07","textShapes":20}
+{"kind":"textbox","id":"sh/8jilk7u1","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/ni94r2tw","slide":7,"text":"Enterprise-ready by design: scalable, governed and observable","textPreview":"Enterprise-ready by design: scalable, governed and observable","textChars":61,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/mh03ixcb","slide":7,"text":"A production path evolves the prototype without sacrificing explainability or human control.","textPreview":"A production path evolves the prototype without sacrificing explainability or human control.","textChars":92,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/x8bmxcby","slide":7,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/wn2lo7ud","slide":7,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/vmt4v2ts","slide":7,"text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/al03mxc7","slide":7,"bbox":[72,215,346,355]}
+{"kind":"shape","id":"sh/5cbm1cbu","slide":7,"bbox":[72,215,346,53]}
+{"kind":"textbox","id":"sh/kb2lsru9","slide":7,"text":"SCALE","textPreview":"SCALE","textChars":5,"textLines":1,"bbox":[94,232,230,20]}
+{"kind":"shape","id":"sh/mlcjmtwb","slide":7,"bbox":[98,298,8,8]}
+{"kind":"shape","id":"sh/nmlkvydw","slide":7,"bbox":[116,290,274,21]}
+{"kind":"textbox","id":"sh/8ne1o3eh","slide":7,"text":"Pub/Sub + Dataflow for stream ingestion","textPreview":"Pub/Sub + Dataflow for stream ingestion","textChars":39,"textLines":1,"bbox":[116,313,274,38]}
+{"kind":"shape","id":"sh/9on2x8v2","slide":7,"bbox":[98,360,8,8]}
+{"kind":"shape","id":"sh/apwjqdwn","slide":7,"bbox":[116,352,274,21]}
+{"kind":"textbox","id":"sh/vq5kzid8","slide":7,"text":"Cloud Run workers with retries / backpressure","textPreview":"Cloud Run workers with retries / backpressure","textChars":45,"textLines":1,"bbox":[116,375,274,38]}
+{"kind":"shape","id":"sh/wre1sned","slide":7,"bbox":[98,422,8,8]}
+{"kind":"shape","id":"sh/xsn218vy","slide":7,"bbox":[116,414,274,21]}
+{"kind":"textbox","id":"sh/qtsje9w3","slide":7,"text":"Bigtable for low-latency graph expansion","textPreview":"Bigtable for low-latency graph expansion","textChars":40,"textLines":1,"bbox":[116,437,274,38]}
+{"kind":"shape","id":"sh/ru1knedo","slide":7,"bbox":[98,484,8,8]}
+{"kind":"shape","id":"sh/fyhgvatg","slide":7,"bbox":[116,476,274,21]}
+{"kind":"textbox","id":"sh/ux8zm5cv","slide":7,"text":"Dataproc for heavy offline graph analytics","textPreview":"Dataproc for heavy offline graph analytics","textChars":42,"textLines":1,"bbox":[116,499,274,38]}
+{"kind":"shape","id":"sh/h0zyxkbm","slide":7,"bbox":[454,215,346,355]}
+{"kind":"shape","id":"sh/gzqhofu1","slide":7,"bbox":[454,215,346,53]}
+{"kind":"textbox","id":"sh/7uxgratk","slide":7,"text":"GOVERN","textPreview":"GOVERN","textChars":6,"textLines":1,"bbox":[476,232,230,20]}
+{"kind":"shape","id":"sh/6tozi5cz","slide":7,"bbox":[480,298,8,8]}
+{"kind":"shape","id":"sh/twfytkbq","slide":7,"bbox":[498,290,274,21]}
+{"kind":"textbox","id":"sh/sv6hkfu5","slide":7,"text":"Immutable raw events and decision audit trail","textPreview":"Immutable raw events and decision audit trail","textChars":45,"textLines":1,"bbox":[498,313,274,38]}
+{"kind":"shape","id":"sh/rq103uto","slide":7,"bbox":[480,360,8,8]}
+{"kind":"shape","id":"sh/qpszupc3","slide":7,"bbox":[498,352,274,21]}
+{"kind":"textbox","id":"sh/8b2doral","slide":7,"text":"Least-privilege IAM + private networking + KMS","textPreview":"Least-privilege IAM + private networking + KMS","textChars":46,"textLines":1,"bbox":[498,375,274,38]}
+{"kind":"shape","id":"sh/9cbehwr6","slide":7,"bbox":[480,422,8,8]}
+{"kind":"shape","id":"sh/m9kvmhsf","slide":7,"bbox":[498,414,274,21]}
+{"kind":"textbox","id":"sh/natwfm90","slide":7,"text":"Grounded, versioned LLM narratives only after deterministic signals","textPreview":"Grounded, versioned LLM narratives only after deterministic signals","textChars":67,"textLines":1,"bbox":[498,437,274,38]}
+{"kind":"shape","id":"sh/wzmdsbax","slide":7,"bbox":[480,484,8,8]}
+{"kind":"shape","id":"sh/x0velgri","slide":7,"bbox":[498,476,274,21]}
+{"kind":"textbox","id":"sh/ad4vq1sr","slide":7,"text":"Human approval before actioning","textPreview":"Human approval before actioning","textChars":31,"textLines":1,"bbox":[498,499,274,38]}
+{"kind":"shape","id":"sh/vedwj69c","slide":7,"bbox":[836,215,346,355]}
+{"kind":"shape","id":"sh/k3mxwbat","slide":7,"bbox":[836,215,346,53]}
+{"kind":"textbox","id":"sh/54vepgre","slide":7,"text":"OPERATE","textPreview":"OPERATE","textChars":7,"textLines":1,"bbox":[858,232,230,20]}
+{"kind":"shape","id":"sh/5036pcri","slide":7,"bbox":[862,298,8,8]}
+{"kind":"shape","id":"sh/4zu5g7ax","slide":7,"bbox":[880,290,274,21]}
+{"kind":"textbox","id":"sh/jylon29c","slide":7,"text":"Central logging, monitoring and tracing","textPreview":"Central logging, monitoring and tracing","textChars":39,"textLines":1,"bbox":[880,313,274,38]}
+{"kind":"shape","id":"sh/ixcnexsr","slide":7,"bbox":[862,360,8,8]}
+{"kind":"shape","id":"sh/hw3mlcr6","slide":7,"bbox":[880,352,274,21]}
+{"kind":"textbox","id":"sh/wbu5c7al","slide":7,"text":"Stage-level SLOs and regional failover","textPreview":"Stage-level SLOs and regional failover","textChars":38,"textLines":1,"bbox":[880,375,274,38]}
+{"kind":"shape","id":"sh/val4j290","slide":7,"bbox":[862,422,8,8]}
+{"kind":"shape","id":"sh/u9snaxsv","slide":7,"bbox":[880,414,274,21]}
+{"kind":"textbox","id":"sh/1sn6xwrq","slide":7,"text":"API gateway + Redis cache for investigation reads","textPreview":"API gateway + Redis cache for investigation reads","textChars":49,"textLines":1,"bbox":[880,437,274,38]}
+{"kind":"shape","id":"sh/gre5ora5","slide":7,"bbox":[862,484,8,8]}
+{"kind":"shape","id":"sh/yd83it8n","slide":7,"bbox":[880,476,274,21]}
+{"kind":"textbox","id":"sh/zehkryps","slide":7,"text":"Shadow mode → assisted recommendations → controlled actioning","textPreview":"Shadow mode → assisted recommendations → controlled actioning","textChars":61,"textLines":1,"bbox":[880,499,274,38]}
+{"kind":"notes","id":"nt/cdu9ej","slide":7,"text":""}
+{"kind":"slide","id":"sl/8asfnp","slide":8,"title":"08","textShapes":16}
+{"kind":"textbox","id":"sh/u5cfyxsr","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[72,42,38,22]}
+{"kind":"textbox","id":"sh/h83etcri","slide":8,"text":"Argus AML makes green-finance compliance more precise - and more defensible","textPreview":"Argus AML makes green-finance compliance more precise - and more defensible","textChars":75,"textLines":1,"bbox":[72,68,1120,52]}
+{"kind":"textbox","id":"sh/w7ux07ax","slide":8,"text":"Network intelligence converts AML complexity into a transparent investigator decision.","textPreview":"Network intelligence converts AML complexity into a transparent investigator decision.","textChars":86,"textLines":1,"bbox":[72,123,1100,30]}
+{"kind":"shape","id":"sh/721wni90","slide":8,"bbox":[72,164,1136,0]}
+{"kind":"textbox","id":"sh/m1svuxsv","slide":8,"text":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textPreview":"ARGUS AML  |  GREEN FINANCING INTELLIGENCE","textChars":42,"textLines":1,"bbox":[72,685,420,16]}
+{"kind":"textbox","id":"sh/94jepsr6","slide":8,"text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[1170,685,38,16]}
+{"kind":"shape","id":"sh/83adwnal","slide":8,"bbox":[72,220,720,312]}
+{"kind":"shape","id":"sh/ry5wzm9k","slide":8,"bbox":[104,251,135,29]}
+{"kind":"textbox","id":"sh/6xwf6h8z","slide":8,"text":"THE TAKEAWAY","textPreview":"THE TAKEAWAY","textChars":12,"textLines":1,"bbox":[113,258,117,15]}
+{"kind":"textbox","id":"sh/sv29wfmd","slide":8,"text":"See beyond the\nimmediate counterparty.","textPreview":"See beyond the | immediate counterparty.","textChars":38,"textLines":2,"bbox":[104,303,600,82]}
+{"kind":"textbox","id":"sh/twbq5k3y","slide":8,"text":"Detect layering, round-tripping and hidden affiliations\nwith evidence an investigator can explain to a regulator.","textPreview":"Detect layering, round-tripping and hidden affiliations | with evidence an investigator can explain to a regulator.","textChars":113,"textLines":2,"bbox":[104,411,570,48]}
+{"kind":"shape","id":"sh/6t07u547","slide":8,"bbox":[844,224,354,78]}
+{"kind":"textbox","id":"sh/ru983als","slide":8,"text":"Detect","textPreview":"Detect","textChars":6,"textLines":1,"bbox":[868,241,95,24]}
+{"kind":"textbox","id":"sh/4ripsfm1","slide":8,"text":"2-hop diversion paths","textPreview":"2-hop diversion paths","textChars":21,"textLines":1,"bbox":[968,242,200,22]}
+{"kind":"shape","id":"sh/5srq1k3m","slide":8,"bbox":[844,326,354,78]}
+{"kind":"textbox","id":"sh/ip07q54b","slide":8,"text":"Explain","textPreview":"Explain","textChars":7,"textLines":1,"bbox":[868,343,95,24]}
+{"kind":"textbox","id":"sh/jq98zalg","slide":8,"text":"Every score component","textPreview":"Every score component","textChars":21,"textLines":1,"bbox":[968,344,200,22]}
+{"kind":"shape","id":"sh/w3ipovm5","slide":8,"bbox":[844,428,354,78]}
+{"kind":"textbox","id":"sh/h4rqx03q","slide":8,"text":"Decide","textPreview":"Decide","textChars":6,"textLines":1,"bbox":[868,445,95,24]}
+{"kind":"textbox","id":"sh/d8ze5sr2","slide":8,"text":"Human-reviewed action","textPreview":"Human-reviewed action","textChars":21,"textLines":1,"bbox":[968,446,200,22]}
+{"kind":"textbox","id":"sh/c7qxcnah","slide":8,"text":"Thank you","textPreview":"Thank you","textChars":9,"textLines":1,"bbox":[72,590,400,42]}
+{"kind":"textbox","id":"sh/bmhw3i9c","slide":8,"text":"Q&A","textPreview":"Q&A","textChars":3,"textLines":1,"bbox":[72,628,250,32]}
+{"kind":"notes","id":"nt/8asfnp","slide":8,"text":""}
